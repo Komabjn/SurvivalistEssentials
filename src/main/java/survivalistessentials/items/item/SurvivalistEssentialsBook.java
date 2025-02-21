@@ -15,16 +15,16 @@ import net.neoforged.fml.ModList;
 
 import survivalistessentials.data.integration.ModIntegration;
 
-import static survivalistessentials.SurvivalistEssentials.loc;
+import static survivalistessentials.SurvivalistEssentials.prefix;
 
 public class SurvivalistEssentialsBook extends Item {
 
     ResourceLocation book;
 
-    public SurvivalistEssentialsBook(Properties pProperties, String bookId) {
+    public SurvivalistEssentialsBook(Properties pProperties, String bookId, String modid) {
         super(pProperties);
 
-        this.book = loc(bookId);
+        this.book = prefix(modid, bookId);
     }
 
     @Override
