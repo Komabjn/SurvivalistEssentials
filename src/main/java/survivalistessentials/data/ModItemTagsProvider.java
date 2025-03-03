@@ -191,7 +191,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         addLogVariants(TagManager.Items.TCON_SKYROOT_LOGS, "skyroot", SurvivalistEssentialsIntegration::tconLoc);
 
         // Water Source
-        addWsLogVariants(TagManager.Items.WS_PALM_TREE_LOGS, "palm_tree");
+        addSimpleLogVariants(TagManager.Items.WS_PALM_TREE_LOGS, "palm_tree", SurvivalistEssentialsIntegration::wsLoc);
 
         // Undergarden
         addLogVariants(TagManager.Items.UNDERGARDEN_GRONGLE_LOGS, "grongle", SurvivalistEssentialsIntegration::undergardenLoc);
@@ -319,16 +319,55 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .addOptional(SurvivalistEssentialsIntegration.ieLoc("treated_wood_horizontal"))
             .addOptional(SurvivalistEssentialsIntegration.ieLoc("treated_wood_vertical"))
             .addOptional(SurvivalistEssentialsIntegration.ieLoc("treated_wood_packaged"));
+
+        // Regions Unexplored
+        this.tag(TagManager.Items.RU_ALPHA_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.regionsLoc("alpha_log"));
+        addLogVariants(TagManager.Items.RU_BAOBAB_LOGS, "baobab", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_BLACKWOOD_LOGS, "blackwood", SurvivalistEssentialsIntegration::regionsLoc);
+        addShroomVariants(TagManager.Items.RU_BIOSHROOM_LOGS, "bioshroom", SurvivalistEssentialsIntegration::regionsLoc);
+        addShroomVariants(TagManager.Items.RU_BLUE_BIOSHROOM_LOGS, "blue_bioshroom", SurvivalistEssentialsIntegration::regionsLoc);
+        addSimpleLogVariants(TagManager.Items.RU_BRIMWOOD_LOGS, "brimwood", SurvivalistEssentialsIntegration::regionsLoc)
+            .addOptional(SurvivalistEssentialsIntegration.regionsLoc("brimwood_log_magma"))
+            .addOptional(SurvivalistEssentialsIntegration.regionsLoc("brimwood_wood"));
+        addLogVariants(TagManager.Items.RU_COBALT_LOGS, "cobalt", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_CYPRESS_LOGS, "cypress", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_DEAD_LOGS, "dead", SurvivalistEssentialsIntegration::regionsLoc)
+            .addOptional(SurvivalistEssentialsIntegration.regionsLoc("ashen_log"))
+            .addOptional(SurvivalistEssentialsIntegration.regionsLoc("ashen_wood"));
+        addLogVariants(TagManager.Items.RU_EUCALYPTUS_LOGS, "eucalyptus", SurvivalistEssentialsIntegration::regionsLoc);
+        addShroomVariants(TagManager.Items.RU_GREEN_BIOSHROOM_LOGS, "green_bioshroom", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_JOSHUA_LOGS, "joshua", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_KAPOK_LOGS, "kapok", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_LARCH_LOGS, "larch", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_MAGNOLIA_LOGS, "magnolia", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_MAPLE_LOGS, "maple", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_MAUVE_LOGS, "mauve", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_PALM_LOGS, "palm", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_PINE_LOGS, "pine", SurvivalistEssentialsIntegration::regionsLoc);
+        addShroomVariants(TagManager.Items.RU_PINK_BIOSHROOM_LOGS, "pink_bioshroom", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_REDWOOD_LOGS, "redwood", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_SOCOTRA_LOGS, "socotra", SurvivalistEssentialsIntegration::regionsLoc);
+        addLogVariants(TagManager.Items.RU_WILLOW_LOGS, "willow", SurvivalistEssentialsIntegration::regionsLoc);
+        addShroomVariants(TagManager.Items.RU_YELLOW_BIOSHROOM_LOGS, "yellow_bioshroom", SurvivalistEssentialsIntegration::regionsLoc);
     }
 
-    private void addWsLogVariants(TagKey<Item> tag, String type) {
-        this.tag(tag)
-            .addOptional(SurvivalistEssentialsIntegration.wsLoc(type + "_log"))
+    private TagAppender<Item> addSimpleLogVariants(TagKey<Item> tag, String type, Function<String, ResourceLocation> modLoc) {
+        return this.tag(tag)
+            .addOptional(modLoc.apply(type + "_log"))
             .addOptional(SurvivalistEssentialsIntegration.wsLoc("stripped_" + type + "_log"));
     }
 
-    private void addLogVariants(TagKey<Item> tag, String type, Function<String, ResourceLocation> modLoc) {
+    private void addShroomVariants(TagKey<Item> tag, String type, Function<String, ResourceLocation> modLoc) {
         this.tag(tag)
+            .addOptional(modLoc.apply(type + "_hyphae"))
+            .addOptional(modLoc.apply("stripped_" + type + "_hyphae"))
+            .addOptional(modLoc.apply(type + "_stem"))
+            .addOptional(SurvivalistEssentialsIntegration.wsLoc("stripped_" + type + "_stem"));
+    }
+
+    private TagAppender<Item> addLogVariants(TagKey<Item> tag, String type, Function<String, ResourceLocation> modLoc) {
+        return this.tag(tag)
             .addOptional(modLoc.apply(type + "_log"))
             .addOptional(modLoc.apply("stripped_" + type + "_log"))
             .addOptional(modLoc.apply(type + "_wood"))

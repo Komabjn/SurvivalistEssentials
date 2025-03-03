@@ -169,6 +169,32 @@ public final class TagManager {
         // Aquaculture
         public static TagKey<Item> AQUA_DRIFTWOOD = create("driftwood");
 
+        // Regions Unexplored
+        public static TagKey<Item> RU_ALPHA_LOGS = create("alpha_logs");
+        public static TagKey<Item> RU_BAOBAB_LOGS = create("baobab_logs");
+        public static TagKey<Item> RU_BLACKWOOD_LOGS = create("blackwood_logs");
+        public static TagKey<Item> RU_BIOSHROOM_LOGS = create("bioshroom_logs");
+        public static TagKey<Item> RU_BLUE_BIOSHROOM_LOGS = create("blue_bioshroom_logs");
+        public static TagKey<Item> RU_BRIMWOOD_LOGS = create("brimwood_logs");
+        public static TagKey<Item> RU_COBALT_LOGS = create("cobalt_logs");
+        public static TagKey<Item> RU_CYPRESS_LOGS = create("cypress_logs");
+        public static TagKey<Item> RU_DEAD_LOGS = create("dead_logs");
+        public static TagKey<Item> RU_EUCALYPTUS_LOGS = create("eucalyptus_logs");
+        public static TagKey<Item> RU_GREEN_BIOSHROOM_LOGS = create("green_bioshroom_logs");
+        public static TagKey<Item> RU_JOSHUA_LOGS = create("joshua_logs");
+        public static TagKey<Item> RU_KAPOK_LOGS = create("kapok_logs");
+        public static TagKey<Item> RU_LARCH_LOGS = create("larch_logs");
+        public static TagKey<Item> RU_MAGNOLIA_LOGS = create("magnolia_logs");
+        public static TagKey<Item> RU_MAPLE_LOGS = create("maple_logs");
+        public static TagKey<Item> RU_MAUVE_LOGS = create("mauve_logs");
+        public static TagKey<Item> RU_PALM_LOGS = create("palm_logs");
+        public static TagKey<Item> RU_PINE_LOGS = create("pine_logs");
+        public static TagKey<Item> RU_PINK_BIOSHROOM_LOGS = create("pink_bioshroom_logs");
+        public static TagKey<Item> RU_REDWOOD_LOGS = create("redwood_logs");
+        public static TagKey<Item> RU_SOCOTRA_LOGS = create("socotra_logs");
+        public static TagKey<Item> RU_WILLOW_LOGS = create("willow_logs");
+        public static TagKey<Item> RU_YELLOW_BIOSHROOM_LOGS = create("yellow_bioshroom_logs");
+
         private static TagKey<Item> create(String id) {
             return TagKey.create(Registries.ITEM, identifier(id));
         }

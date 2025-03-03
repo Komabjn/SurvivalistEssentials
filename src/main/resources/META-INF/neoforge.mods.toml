@@ -130,3 +130,9 @@ issueTrackerURL="${issue_tracker}"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
+[[dependencies.survivalistessentials]]
+    modId="regions_unexplored"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"

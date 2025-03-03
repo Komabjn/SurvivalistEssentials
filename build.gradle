@@ -125,6 +125,7 @@ dependencies {
     //runtimeOnly "curse.maven:corgilib-693313:${corgilib_version}"
     //runtimeOnly "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
     //runtimeOnly "curse.maven:bop-220318:${bop_version}"
+    //runtimeOnly "curse.maven:regions-659110:${regions_version}"
     //runtimeOnly "curse.maven:glitch_core-955399:${glitch_core_version}"
     //runtimeOnly "curse.maven:kiwi-303657:3974084"
     //runtimeOnly "curse.maven:fruittrees-355467:3990227"
@@ -254,6 +255,7 @@ publishMods {
             optional('malum')
             optional('ice-and-fire-dragons')
             optional('psi')
+            optional('regions-unexplored')
         }
     }
     if (project.hasProperty('seModrinthId')) {
@@ -269,6 +271,7 @@ publishMods {
             optional('oh-the-biomes-weve-gone')
             optional('ecologics')
             optional('psi')
+            optional('regions-unexplored')
         }
     }
     if (project.hasProperty('seGithubToken')) {

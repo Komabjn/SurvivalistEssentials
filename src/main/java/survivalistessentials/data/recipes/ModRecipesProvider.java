@@ -499,6 +499,75 @@ public class ModRecipesProvider extends RecipeProvider {
         // Ice and Fire; Dragons
         wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.IFD_MODID));
         plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.IFD_DREADWOOD_PLANKS, TagManager.Items.IFD_DREADWOOD_LOGS, "has_logs");
+
+        // Regions Unexplored
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.REGIONS_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_ALPHA_PLANKS, TagManager.Items.RU_ALPHA_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_ACACIA_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_acacia_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_BAOBAB_PLANKS, TagManager.Items.RU_BAOBAB_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_BAOBAB_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_baobab_branch");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_BIRCH_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_birch_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_BLACKWOOD_PLANKS, TagManager.Items.RU_BLACKWOOD_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_BLACKWOOD_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_blackwood_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_BLUE_BIOSHROOM_PLANKS, TagManager.Items.RU_BLUE_BIOSHROOM_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_BIOSHROOM_PLANKS, TagManager.Items.RU_BIOSHROOM_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_BRIMWOOD_PLANKS, TagManager.Items.RU_BRIMWOOD_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_BRIMWOOD_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_brimwood_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_COBALT_PLANKS, TagManager.Items.RU_COBALT_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_COBALT_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_cobalt_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_CYPRESS_PLANKS, TagManager.Items.RU_CYPRESS_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_CYPRESS_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_cypress_branch");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_DARK_OAK_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_dark_oak_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_DEAD_PLANKS, TagManager.Items.RU_DEAD_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_DEAD_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_dead_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_EUCALYPTUS_PLANKS, TagManager.Items.RU_EUCALYPTUS_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_EUCALYPTUS_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_eucalyptus_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_GREEN_BIOSHROOM_PLANKS, TagManager.Items.RU_GREEN_BIOSHROOM_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_JOSHUA_PLANKS, TagManager.Items.RU_JOSHUA_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_JOSHUA_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_joshua_branch");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_JUNGLE_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_jungle_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_KAPOK_PLANKS, TagManager.Items.RU_KAPOK_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_KAPOK_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_kapok_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_LARCH_PLANKS, TagManager.Items.RU_LARCH_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_LARCH_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_larch_branch");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_MANGROVE_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_mangrove_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_MAGNOLIA_PLANKS, TagManager.Items.RU_MAGNOLIA_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_MAGNOLIA_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_magnolia_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_MAPLE_PLANKS, TagManager.Items.RU_MAPLE_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_MAPLE_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_maple_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_MAUVE_PLANKS, TagManager.Items.RU_MAUVE_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_MAUVE_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_mauve_branch");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_OAK_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_oak_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_PALM_PLANKS, TagManager.Items.RU_PALM_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_PALM_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_palm_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_PINE_PLANKS, TagManager.Items.RU_PINE_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_PINE_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_pine_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_PINK_BIOSHROOM_PLANKS, TagManager.Items.RU_PINK_BIOSHROOM_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_REDWOOD_PLANKS, TagManager.Items.RU_REDWOOD_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_REDWOOD_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_redwood_branch");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_SILVER_BIRCH_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_silver_birch_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_SOCOTRA_PLANKS, TagManager.Items.RU_SOCOTRA_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_SOCOTRA_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_socotra_branch");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_SPRUCE_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_spruce_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_WILLOW_PLANKS, TagManager.Items.RU_WILLOW_LOGS, "has_logs");
+        sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_WILLOW_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_willow_branch");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_YELLOW_BIOSHROOM_PLANKS, TagManager.Items.RU_YELLOW_BIOSHROOM_LOGS, "has_logs");
+    }
+
+    private static void sticksFromBranchRecipeBuilder(RecipeOutput recipeOutput, ItemLike item, String modid, String folder, String name) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STICK, 2)
+            .requires(item)
+            .requires(SurvivalistEssentialsItems.CRUDE_SAW)
+            .group("sticks")
+            .unlockedBy("has_branch", has(item))
+            .save(recipeOutput, prefix(modid, folder + name));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STICK, 4)
+            .requires(item)
+            .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
+            .group("sticks")
+            .unlockedBy("has_branch", has(item))
+            .save(recipeOutput, loc(modid + "_" + name));
     }
 
     private static void plankRecipeBuilder(RecipeOutput recipeOutput, ItemLike item, TagKey<Item> itemTag, String label) {

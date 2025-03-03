@@ -100,7 +100,9 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .addOptional(SurvivalistEssentialsIntegration.exnihiloLoc("infested_leaves"))
             .addOptional(SurvivalistEssentialsIntegration.exnihiloLoc("infesting_leaves"))
             .addOptionalTag(TagManager.commonLoc("grass"))
-            .addOptionalTag(TagManager.commonLoc("bushes"));
+            .addOptionalTag(TagManager.commonLoc("leaves"))
+            .addOptionalTag(TagManager.commonLoc("bushes"))
+            .addOptionalTag(SurvivalistEssentialsIntegration.regionsLoc("grass"));
 
         this.tag(TagManager.Blocks.BRANCHES)
             .addOptionalTag(SurvivalistEssentialsIntegration.dynamictreesLoc("branches"));

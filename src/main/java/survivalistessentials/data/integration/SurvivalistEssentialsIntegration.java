@@ -41,6 +41,7 @@ public final class SurvivalistEssentialsIntegration {
     public static final String IFD_MODID = "iceandfire";
     public static final String TS_MODID = "tinkersurvival";
     public static final String CARRYON_MODID = "carryon";
+    public static final String REGIONS_MODID = "regions_unexplored";
 
     public static Item AQUA_DRIFTWOOD;
     public static Item CHERRY_PLANKS;
@@ -114,6 +115,56 @@ public final class SurvivalistEssentialsIntegration {
     public static Item MALUM_RUNEWOOD_PLANKS;
     public static Item MALUM_SOULWOOD_PLANKS;
     public static Item IFD_DREADWOOD_PLANKS;
+    public static Item RU_ALPHA_PLANKS;
+    public static Item RU_ACACIA_BRANCH;
+    public static Item RU_BAOBAB_PLANKS;
+    public static Item RU_BAOBAB_BRANCH;
+    public static Item RU_BIRCH_BRANCH;
+    public static Item RU_BLACKWOOD_PLANKS;
+    public static Item RU_BLACKWOOD_BRANCH;
+    public static Item RU_BIOSHROOM_PLANKS;
+    public static Item RU_BLUE_BIOSHROOM_PLANKS;
+    public static Item RU_BRIMWOOD_PLANKS;
+    public static Item RU_BRIMWOOD_BRANCH;
+    public static Item RU_COBALT_PLANKS;
+    public static Item RU_COBALT_BRANCH;
+    public static Item RU_CYPRESS_PLANKS;
+    public static Item RU_CYPRESS_BRANCH;
+    public static Item RU_DARK_OAK_BRANCH;
+    public static Item RU_DEAD_PLANKS;
+    public static Item RU_DEAD_BRANCH;
+    public static Item RU_EUCALYPTUS_PLANKS;
+    public static Item RU_EUCALYPTUS_BRANCH;
+    public static Item RU_GREEN_BIOSHROOM_PLANKS;
+    public static Item RU_JOSHUA_PLANKS;
+    public static Item RU_JOSHUA_BRANCH;
+    public static Item RU_JUNGLE_BRANCH;
+    public static Item RU_KAPOK_PLANKS;
+    public static Item RU_KAPOK_BRANCH;
+    public static Item RU_LARCH_PLANKS;
+    public static Item RU_LARCH_BRANCH;
+    public static Item RU_MANGROVE_BRANCH;
+    public static Item RU_MAGNOLIA_PLANKS;
+    public static Item RU_MAGNOLIA_BRANCH;
+    public static Item RU_MAPLE_PLANKS;
+    public static Item RU_MAPLE_BRANCH;
+    public static Item RU_MAUVE_PLANKS;
+    public static Item RU_MAUVE_BRANCH;
+    public static Item RU_OAK_BRANCH;
+    public static Item RU_PALM_PLANKS;
+    public static Item RU_PALM_BRANCH;
+    public static Item RU_PINE_PLANKS;
+    public static Item RU_PINE_BRANCH;
+    public static Item RU_PINK_BIOSHROOM_PLANKS;
+    public static Item RU_REDWOOD_PLANKS;
+    public static Item RU_REDWOOD_BRANCH;
+    public static Item RU_SILVER_BIRCH_BRANCH;
+    public static Item RU_SOCOTRA_PLANKS;
+    public static Item RU_SOCOTRA_BRANCH;
+    public static Item RU_SPRUCE_BRANCH;
+    public static Item RU_WILLOW_PLANKS;
+    public static Item RU_WILLOW_BRANCH;
+    public static Item RU_YELLOW_BIOSHROOM_PLANKS;
 
     // TF Messed up log/wood crap
     public static ResourceLocation TF_CANOPY_LOG;
@@ -241,6 +292,56 @@ public final class SurvivalistEssentialsIntegration {
             ECO_WALNUT_PLANKS = makeItem(ecoLoc("walnut_planks"));
             ECO_AZALEA_PLANKS = makeItem(ecoLoc("azalea_planks"));
             ECO_FLOWERING_AZALEA_PLANKS = makeItem(ecoLoc("flowering_azalea_planks"));
+            RU_ALPHA_PLANKS = makeItem(regionsLoc("alpha_planks"));
+            RU_ACACIA_BRANCH = makeItem(regionsLoc("acacia_branch"));
+            RU_BAOBAB_PLANKS = makeItem(regionsLoc("baobab_planks"));
+            RU_BAOBAB_BRANCH = makeItem(regionsLoc("baobab_branch"));
+            RU_BIRCH_BRANCH = makeItem(regionsLoc("birch_branch"));
+            RU_BLACKWOOD_PLANKS = makeItem(regionsLoc("blackwood_planks"));
+            RU_BLACKWOOD_BRANCH = makeItem(regionsLoc("blackwood_branch"));
+            RU_BIOSHROOM_PLANKS = makeItem(regionsLoc("bioshroom_planks"));
+            RU_BLUE_BIOSHROOM_PLANKS = makeItem(regionsLoc("blue_bioshroom_planks"));
+            RU_BRIMWOOD_PLANKS = makeItem(regionsLoc("brimwood_planks"));
+            RU_BRIMWOOD_BRANCH = makeItem(regionsLoc("brimwood_branch"));
+            RU_COBALT_PLANKS = makeItem(regionsLoc("cobalt_planks"));
+            RU_COBALT_BRANCH = makeItem(regionsLoc("cobalt_branch"));
+            RU_CYPRESS_PLANKS = makeItem(regionsLoc("cypress_planks"));
+            RU_CYPRESS_BRANCH = makeItem(regionsLoc("cypress_branch"));
+            RU_DARK_OAK_BRANCH = makeItem(regionsLoc("dark_oak_branch"));
+            RU_DEAD_PLANKS = makeItem(regionsLoc("dead_planks"));
+            RU_DEAD_BRANCH = makeItem(regionsLoc("dead_branch"));
+            RU_EUCALYPTUS_PLANKS = makeItem(regionsLoc("eucalyptus_planks"));
+            RU_EUCALYPTUS_BRANCH = makeItem(regionsLoc("eucalyptus_branch"));
+            RU_GREEN_BIOSHROOM_PLANKS = makeItem(regionsLoc("green_bioshroom_planks"));
+            RU_JOSHUA_PLANKS = makeItem(regionsLoc("joshua_planks"));
+            RU_JOSHUA_BRANCH = makeItem(regionsLoc("joshua_branch"));
+            RU_JUNGLE_BRANCH = makeItem(regionsLoc("jungle_branch"));
+            RU_KAPOK_PLANKS = makeItem(regionsLoc("kapok_planks"));
+            RU_KAPOK_BRANCH = makeItem(regionsLoc("kapok_branch"));
+            RU_LARCH_PLANKS = makeItem(regionsLoc("larch_planks"));
+            RU_LARCH_BRANCH = makeItem(regionsLoc("larch_branch"));
+            RU_MANGROVE_BRANCH = makeItem(regionsLoc("mangrove_branch"));
+            RU_MAGNOLIA_PLANKS = makeItem(regionsLoc("magnolia_planks"));
+            RU_MAGNOLIA_BRANCH = makeItem(regionsLoc("magnolia_branch"));
+            RU_MAPLE_PLANKS = makeItem(regionsLoc("maple_planks"));
+            RU_MAPLE_BRANCH = makeItem(regionsLoc("maple_branch"));
+            RU_MAUVE_PLANKS = makeItem(regionsLoc("mauve_planks"));
+            RU_MAUVE_BRANCH = makeItem(regionsLoc("mauve_branch"));
+            RU_OAK_BRANCH = makeItem(regionsLoc("oak_branch"));
+            RU_PALM_PLANKS = makeItem(regionsLoc("palm_planks"));
+            RU_PALM_BRANCH = makeItem(regionsLoc("palm_branch"));
+            RU_PINE_PLANKS = makeItem(regionsLoc("pine_planks"));
+            RU_PINE_BRANCH = makeItem(regionsLoc("pine_branch"));
+            RU_PINK_BIOSHROOM_PLANKS = makeItem(regionsLoc("pink_bioshroom_planks"));
+            RU_REDWOOD_PLANKS = makeItem(regionsLoc("redwood_planks"));
+            RU_REDWOOD_BRANCH = makeItem(regionsLoc("redwood_branch"));
+            RU_SILVER_BIRCH_BRANCH = makeItem(regionsLoc("silver_birch_branch"));
+            RU_SOCOTRA_PLANKS = makeItem(regionsLoc("socotra_planks"));
+            RU_SOCOTRA_BRANCH = makeItem(regionsLoc("socotra_branch"));
+            RU_SPRUCE_BRANCH = makeItem(regionsLoc("spruce_branch"));
+            RU_WILLOW_PLANKS = makeItem(regionsLoc("willow_planks"));
+            RU_WILLOW_BRANCH = makeItem(regionsLoc("willow_branch"));
+            RU_YELLOW_BIOSHROOM_PLANKS = makeItem(regionsLoc("yellow_bioshroom_planks"));
 
             // TF Messed up log/wood crap
             TF_CANOPY_LOG = tfLoc("canopy_log");
@@ -406,6 +507,10 @@ public final class SurvivalistEssentialsIntegration {
 
     public static ResourceLocation tsLoc(String name) {
         return getLoc(TS_MODID, name);
+    }
+
+    public static ResourceLocation regionsLoc(String name) {
+        return getLoc(REGIONS_MODID, name);
     }
 
     private static ResourceLocation getLoc(String modid, String name) {
