@@ -31,6 +31,22 @@
     {
       "id": "biomeswevegone:stripped_willow_wood",
       "required": false
+    },
+    {
+      "id": "regions_unexplored:willow_log",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:stripped_willow_log",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:willow_wood",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:stripped_willow_wood",
+      "required": false
     }
   ]
 }

@@ -15,6 +15,22 @@
     {
       "id": "biomeswevegone:stripped_maple_wood",
       "required": false
+    },
+    {
+      "id": "regions_unexplored:maple_log",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:stripped_maple_log",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:maple_wood",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:stripped_maple_wood",
+      "required": false
     }
   ]
 }

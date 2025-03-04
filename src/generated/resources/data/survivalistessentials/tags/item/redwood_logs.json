@@ -31,6 +31,22 @@
     {
       "id": "biomeswevegone:stripped_redwood_wood",
       "required": false
+    },
+    {
+      "id": "regions_unexplored:redwood_log",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:stripped_redwood_log",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:redwood_wood",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:stripped_redwood_wood",
+      "required": false
     }
   ]
 }

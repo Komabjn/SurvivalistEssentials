@@ -31,6 +31,22 @@
     {
       "id": "biomeswevegone:stripped_palm_wood",
       "required": false
+    },
+    {
+      "id": "regions_unexplored:palm_log",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:stripped_palm_log",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:palm_wood",
+      "required": false
+    },
+    {
+      "id": "regions_unexplored:stripped_palm_wood",
+      "required": false
     }
   ]
 }
