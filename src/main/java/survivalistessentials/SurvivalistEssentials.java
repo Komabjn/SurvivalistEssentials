@@ -37,7 +37,7 @@ import survivalistessentials.common.SurvivalistEssentialsModule;
 import survivalistessentials.common.loot.LootItemBlockIsTagCondition;
 import survivalistessentials.common.loot.SurvivalistEssentialsLootConditionTypes;
 import survivalistessentials.config.ConfigHandler;
-import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.event.AttackEventHandler;
 import survivalistessentials.event.HarvestEventHandler;
 import survivalistessentials.event.HoeEventHandler;
@@ -149,7 +149,7 @@ public class SurvivalistEssentials {
     private void registryInit(IEventBus bus) {
         bind(bus, Registries.FEATURE, SurvivalistEssentialsFeatures::init);
         bind(bus, Registries.MOB_EFFECT, SurvivalistEssentialsEffects::init);
-        bind(bus, Registries.ITEM, ModIntegration::init);
+        bind(bus, Registries.ITEM, SurvivalistEssentialsIntegration::init);
         bind(bus, Registries.ITEM, SurvivalistEssentialsItems::init);
         bind(bus, Registries.ITEM, SurvivalistEssentialsWorld::initItems);
         bind(bus, Registries.BLOCK, SurvivalistEssentialsWorld::initBlocks);

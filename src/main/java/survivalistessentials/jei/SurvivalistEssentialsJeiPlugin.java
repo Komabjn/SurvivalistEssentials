@@ -16,7 +16,7 @@ import mezz.jei.api.registration.IRecipeRegistration;
 
 import net.neoforged.fml.ModList;
 
-import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
@@ -39,7 +39,7 @@ public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
         addIngredientInfo(registry, SurvivalistEssentialsItems.FLINT_SHARD);
         addIngredientInfo(registry, Items.STICK);
 
-        if (ModList.get().isLoaded(ModIntegration.TS_MODID)) {
+        if (ModList.get().isLoaded(SurvivalistEssentialsIntegration.TS_MODID)) {
             registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
                 Collections.singleton(new ItemStack(SurvivalistEssentialsItems.BASIC_SAW_BLADE)));
             registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,

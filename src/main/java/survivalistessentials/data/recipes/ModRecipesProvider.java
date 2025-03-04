@@ -27,7 +27,7 @@ import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.conditions.NotCondition;
 
 import survivalistessentials.common.TagManager;
-import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
@@ -106,7 +106,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .save(recipeOutput, loc("string_from_plant_string"));
 
         // Add condition for recipes to hide stuff if TinkerSurvival is loaded
-        wrapped = recipeOutput.withConditions(new NotCondition(new ModLoadedCondition(ModIntegration.TS_MODID)));
+        wrapped = recipeOutput.withConditions(new NotCondition(new ModLoadedCondition(SurvivalistEssentialsIntegration.TS_MODID)));
 
         // Saw Blades
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, SurvivalistEssentialsItems.CRUDE_SAW_BLADE)
@@ -272,7 +272,7 @@ public class ModRecipesProvider extends RecipeProvider {
             .save(recipeOutput, loc("leather_from_cooked_meat_smoking"));
 
         // Book
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.PATCHOULI_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.PATCHOULI_MODID));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SurvivalistEssentialsItems.BOOK)
             .requires(Items.DIRT)
             .requires(Items.DIRT)
@@ -301,188 +301,188 @@ public class ModRecipesProvider extends RecipeProvider {
         bambooRecipeBuilder(recipeOutput, Blocks.BAMBOO_PLANKS, ItemTags.BAMBOO_BLOCKS, "has_bamboo_block");
 
         // Fruit Trees
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.FT_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.CHERRY_PLANKS, TagManager.Items.CHERRY_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.CITRUS_PLANKS, TagManager.Items.CITRUS_LOGS, "has_logs");
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.FT_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.CHERRY_PLANKS, TagManager.Items.CHERRY_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.CITRUS_PLANKS, TagManager.Items.CITRUS_LOGS, "has_logs");
 
         // Biome Makeover
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.BMO_MODID));
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_ANCIENT_OAK_LOG, "has_logs", "wood/ancient_oak/", "ancient_oak_planks", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_LOG, "has_logs", "wood/ancient_oak/", "ancient_oak_planks_stripped", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_ANCIENT_OAK_WOOD, "has_logs", "wood/ancient_oak/", "ancient_oak_planks_wood", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_WOOD, "has_logs", "wood/ancient_oak/", "ancient_oak_planks_wood_stripped", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_BLIGHTED_BALSA_LOG, "has_logs", "wood/blighted_balsa/", "blighted_balsa_planks", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_STRIPPED_BLIGHTED_BALSA_LOG, "has_logs", "wood/blighted_balsa/", "blighted_balsa_planks_stripped", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_BLIGHTED_BALSA_WOOD, "has_logs", "wood/blighted_balsa/", "blighted_balsa_planks_wood", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_STRIPPED_BLIGHTED_BALSA_WOOD, "has_logs", "wood/blighted_balsa/", "blighted_balsa_planks_wood_stipped", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_SWAMP_CYPRESS_LOG, "has_logs", "wood/swamp_cypress/", "swamp_cypress_planks", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_STRIPPED_SWAMP_CYPRESS_LOG, "has_logs", "wood/swamp_cypress/", "swamp_cypress_planks_stripped", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_SWAMP_CYPRESS_WOOD, "has_logs", "wood/swamp_cypress/", "swamp_cypress_planks_wood", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_STRIPPED_SWAMP_CYPRESS_WOOD, "has_logs", "wood/swamp_cypress/", "swamp_cypress_planks_wood_stripped", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_WILLOW_LOG, "has_logs", "wood/willow/", "willow_planks", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_STRIPPED_WILLOW_LOG, "has_logs", "wood/willow/", "willow_planks_stripped", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_WILLOW_WOOD, "has_logs", "wood/willow/", "willow_planks_wood", ModIntegration.BMO_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_STRIPPED_WILLOW_WOOD, "has_logs", "wood/willow/", "willow_planks_wood_stripped", ModIntegration.BMO_MODID);
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.BMO_MODID));
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_ANCIENT_OAK_LOG, "has_logs", "wood/ancient_oak/", "ancient_oak_planks", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_LOG, "has_logs", "wood/ancient_oak/", "ancient_oak_planks_stripped", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_ANCIENT_OAK_WOOD, "has_logs", "wood/ancient_oak/", "ancient_oak_planks_wood", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_ANCIENT_OAK_PLANKS, TagManager.Items.BMO_STRIPPED_ANCIENT_OAK_WOOD, "has_logs", "wood/ancient_oak/", "ancient_oak_planks_wood_stripped", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_BLIGHTED_BALSA_LOG, "has_logs", "wood/blighted_balsa/", "blighted_balsa_planks", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_STRIPPED_BLIGHTED_BALSA_LOG, "has_logs", "wood/blighted_balsa/", "blighted_balsa_planks_stripped", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_BLIGHTED_BALSA_WOOD, "has_logs", "wood/blighted_balsa/", "blighted_balsa_planks_wood", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_BLIGHTED_BALSA_PLANKS, TagManager.Items.BMO_STRIPPED_BLIGHTED_BALSA_WOOD, "has_logs", "wood/blighted_balsa/", "blighted_balsa_planks_wood_stipped", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_SWAMP_CYPRESS_LOG, "has_logs", "wood/swamp_cypress/", "swamp_cypress_planks", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_STRIPPED_SWAMP_CYPRESS_LOG, "has_logs", "wood/swamp_cypress/", "swamp_cypress_planks_stripped", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_SWAMP_CYPRESS_WOOD, "has_logs", "wood/swamp_cypress/", "swamp_cypress_planks_wood", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_SWAMP_CYPRESS_PLANKS, TagManager.Items.BMO_STRIPPED_SWAMP_CYPRESS_WOOD, "has_logs", "wood/swamp_cypress/", "swamp_cypress_planks_wood_stripped", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_WILLOW_LOG, "has_logs", "wood/willow/", "willow_planks", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_STRIPPED_WILLOW_LOG, "has_logs", "wood/willow/", "willow_planks_stripped", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_WILLOW_WOOD, "has_logs", "wood/willow/", "willow_planks_wood", SurvivalistEssentialsIntegration.BMO_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BMO_WILLOW_PLANKS, TagManager.Items.BMO_STRIPPED_WILLOW_WOOD, "has_logs", "wood/willow/", "willow_planks_wood_stripped", SurvivalistEssentialsIntegration.BMO_MODID);
 
         //Biomes O' Plenty
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.BOP_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.BOP_DEAD_PLANKS, TagManager.Items.BOP_DEAD_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BOP_FIR_PLANKS, TagManager.Items.BOP_FIR_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BOP_HELLBARK_PLANKS, TagManager.Items.BOP_HELLBARK_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BOP_JACARANDA_PLANKS, TagManager.Items.BOP_JACARANDA_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BOP_MAGIC_PLANKS, TagManager.Items.BOP_MAGIC_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BOP_MAHOGANY_PLANKS, TagManager.Items.BOP_MAHOGANY_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BOP_PALM_PLANKS, TagManager.Items.BOP_PALM_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BOP_REDWOOD_PLANKS, TagManager.Items.BOP_REDWOOD_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BOP_UMBRAN_PLANKS, TagManager.Items.BOP_UMBRAN_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BOP_WILLOW_PLANKS, TagManager.Items.BOP_WILLOW_LOGS, "has_logs");
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.BOP_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BOP_DEAD_PLANKS, TagManager.Items.BOP_DEAD_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BOP_FIR_PLANKS, TagManager.Items.BOP_FIR_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BOP_HELLBARK_PLANKS, TagManager.Items.BOP_HELLBARK_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BOP_JACARANDA_PLANKS, TagManager.Items.BOP_JACARANDA_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BOP_MAGIC_PLANKS, TagManager.Items.BOP_MAGIC_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BOP_MAHOGANY_PLANKS, TagManager.Items.BOP_MAHOGANY_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BOP_PALM_PLANKS, TagManager.Items.BOP_PALM_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BOP_REDWOOD_PLANKS, TagManager.Items.BOP_REDWOOD_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BOP_UMBRAN_PLANKS, TagManager.Items.BOP_UMBRAN_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BOP_WILLOW_PLANKS, TagManager.Items.BOP_WILLOW_LOGS, "has_logs");
 
         //Quark
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.QUARK_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.QUARK_AZALEA_PLANKS, TagManager.Items.QUARK_AZALEA_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.QUARK_BLOSSOM_PLANKS, TagManager.Items.QUARK_BLOSSOM_LOGS, "has_logs");
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.QUARK_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.QUARK_AZALEA_PLANKS, TagManager.Items.QUARK_AZALEA_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.QUARK_BLOSSOM_PLANKS, TagManager.Items.QUARK_BLOSSOM_LOGS, "has_logs");
 
         //All You Can Eat
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.AYCE_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.AYCE_HAZEL_PLANKS, TagManager.Items.AYCE_HAZEL_LOGS, "has_logs");
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.AYCE_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.AYCE_HAZEL_PLANKS, TagManager.Items.AYCE_HAZEL_LOGS, "has_logs");
 
         // Tinkers' Construct
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.TCON_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.TCON_BLOODSHROOM_PLANKS, TagManager.Items.TCON_BLOODSHROOM_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.TCON_GREENHEART_PLANKS, TagManager.Items.TCON_GREENHEART_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.TCON_SKYROOT_PLANKS, TagManager.Items.TCON_SKYROOT_LOGS, "has_logs");
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.TCON_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TCON_BLOODSHROOM_PLANKS, TagManager.Items.TCON_BLOODSHROOM_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TCON_GREENHEART_PLANKS, TagManager.Items.TCON_GREENHEART_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TCON_SKYROOT_PLANKS, TagManager.Items.TCON_SKYROOT_LOGS, "has_logs");
 
         // Water Source
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.WS_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.WS_PALM_TREE_PLANKS, TagManager.Items.WS_PALM_TREE_LOGS, "has_logs");
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.WS_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.WS_PALM_TREE_PLANKS, TagManager.Items.WS_PALM_TREE_LOGS, "has_logs");
 
         // Botania
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.BOTANIA_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.BOTANIA_DREAMWOOD_PLANKS, TagManager.Items.BOTANIA_DREAMWOOD_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BOTANIA_LIVINGWOOD_PLANKS, TagManager.Items.BOTANIA_LIVINGWOOD_LOGS, "has_logs");
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.BOTANIA_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BOTANIA_DREAMWOOD_PLANKS, TagManager.Items.BOTANIA_DREAMWOOD_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BOTANIA_LIVINGWOOD_PLANKS, TagManager.Items.BOTANIA_LIVINGWOOD_LOGS, "has_logs");
 
         // Ars Nouveau
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.AN_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.AN_ARCHWOOD_PLANKS, ItemTags.create(prefix("c", "logs/archwood")), "has_logs");
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.AN_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.AN_ARCHWOOD_PLANKS, ItemTags.create(prefix("c", "logs/archwood")), "has_logs");
 
         // Undergarden
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.UNDERGARDEN_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.UNDERGARDEN_GRONGLE_PLANKS, TagManager.Items.UNDERGARDEN_GRONGLE_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.UNDERGARDEN_SMOGSTEM_PLANKS, TagManager.Items.UNDERGARDEN_SMOGSTEM_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.UNDERGARDEN_WIGGLEWOOD_PLANKS, TagManager.Items.UNDERGARDEN_WIGGLEWOOD_LOGS, "has_logs");
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.UNDERGARDEN_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.UNDERGARDEN_GRONGLE_PLANKS, TagManager.Items.UNDERGARDEN_GRONGLE_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.UNDERGARDEN_SMOGSTEM_PLANKS, TagManager.Items.UNDERGARDEN_SMOGSTEM_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.UNDERGARDEN_WIGGLEWOOD_PLANKS, TagManager.Items.UNDERGARDEN_WIGGLEWOOD_LOGS, "has_logs");
 
         // BYG
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.BYG_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.BYG_MODID));
 
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_WHITE_MANGROVE_PLANKS, TagManager.Items.BYG_WHITE_MANGROVE_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_REDWOOD_PLANKS, TagManager.Items.BYG_REDWOOD_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_BLUE_ENCHANTED_PLANKS, TagManager.Items.BYG_BLUE_ENCHANTED_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_GREEN_ENCHANTED_PLANKS, TagManager.Items.BYG_GREEN_ENCHANTED_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_MAHOGANY_PLANKS, TagManager.Items.BYG_MAHOGANY_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_BAOBAB_PLANKS, TagManager.Items.BYG_BAOBAB_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_JACARANDA_PLANKS, TagManager.Items.BYG_JACARANDA_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_CYPRESS_PLANKS, TagManager.Items.BYG_CYPRESS_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_PALM_PLANKS, TagManager.Items.BYG_PALM_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_EBONY_PLANKS, TagManager.Items.BYG_EBONY_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_RAINBOW_EUCALYPTUS_PLANKS, TagManager.Items.BYG_RAINBOW_EUCALYPTUS_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_ASPEN_PLANKS, TagManager.Items.BYG_ASPEN_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_FIR_PLANKS, TagManager.Items.BYG_FIR_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_SKYRIS_PLANKS, TagManager.Items.BYG_SKYRIS_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_CIKA_PLANKS, TagManager.Items.BYG_CIKA_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_HOLLY_PLANKS, TagManager.Items.BYG_HOLLY_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_MAPLE_PLANKS, TagManager.Items.BYG_MAPLE_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_PINE_PLANKS, TagManager.Items.BYG_PINE_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_WILLOW_PLANKS, TagManager.Items.BYG_WILLOW_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_WITCH_HAZEL_PLANKS, TagManager.Items.BYG_WITCH_HAZEL_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_ZELKOVA_PLANKS, TagManager.Items.BYG_ZELKOVA_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_IRONWOOD_PLANKS, TagManager.Items.BYG_IRONWOOD_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_SAKURA_PLANKS, TagManager.Items.BYG_SAKURA_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_PALO_VERDE_PLANKS, TagManager.Items.BYG_PALO_VERDE_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_SPIRIT_PLANKS, TagManager.Items.BYG_SPIRIT_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.BYG_FLORUS_STEM, TagManager.Items.BYG_FLORUS_STEMS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_WHITE_MANGROVE_PLANKS, TagManager.Items.BYG_WHITE_MANGROVE_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_REDWOOD_PLANKS, TagManager.Items.BYG_REDWOOD_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_BLUE_ENCHANTED_PLANKS, TagManager.Items.BYG_BLUE_ENCHANTED_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_GREEN_ENCHANTED_PLANKS, TagManager.Items.BYG_GREEN_ENCHANTED_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_MAHOGANY_PLANKS, TagManager.Items.BYG_MAHOGANY_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_BAOBAB_PLANKS, TagManager.Items.BYG_BAOBAB_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_JACARANDA_PLANKS, TagManager.Items.BYG_JACARANDA_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_CYPRESS_PLANKS, TagManager.Items.BYG_CYPRESS_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_PALM_PLANKS, TagManager.Items.BYG_PALM_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_EBONY_PLANKS, TagManager.Items.BYG_EBONY_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_RAINBOW_EUCALYPTUS_PLANKS, TagManager.Items.BYG_RAINBOW_EUCALYPTUS_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_ASPEN_PLANKS, TagManager.Items.BYG_ASPEN_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_FIR_PLANKS, TagManager.Items.BYG_FIR_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_SKYRIS_PLANKS, TagManager.Items.BYG_SKYRIS_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_CIKA_PLANKS, TagManager.Items.BYG_CIKA_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_HOLLY_PLANKS, TagManager.Items.BYG_HOLLY_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_MAPLE_PLANKS, TagManager.Items.BYG_MAPLE_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_PINE_PLANKS, TagManager.Items.BYG_PINE_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_WILLOW_PLANKS, TagManager.Items.BYG_WILLOW_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_WITCH_HAZEL_PLANKS, TagManager.Items.BYG_WITCH_HAZEL_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_ZELKOVA_PLANKS, TagManager.Items.BYG_ZELKOVA_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_IRONWOOD_PLANKS, TagManager.Items.BYG_IRONWOOD_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_SAKURA_PLANKS, TagManager.Items.BYG_SAKURA_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_PALO_VERDE_PLANKS, TagManager.Items.BYG_PALO_VERDE_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_SPIRIT_PLANKS, TagManager.Items.BYG_SPIRIT_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.BYG_FLORUS_STEM, TagManager.Items.BYG_FLORUS_STEMS, "has_logs");
 
         // Twilight Forest
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.TF_MODID));
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_LOG, "has_logs", "wood/", "canopy_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_STRIPPED_LOG, "has_logs", "wood/", "canopy_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_WOOD, "has_logs", "wood/", "canopy_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_STRIPPED_WOOD, "has_logs", "wood/", "canopy_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_LOG, "has_logs", "wood/", "darkwood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_STRIPPED_LOG, "has_logs", "wood/", "darkwood_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_WOOD, "has_logs", "wood/", "darkwood_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_STRIPPED_WOOD, "has_logs", "wood/", "darkwood_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_LOG, "has_logs", "wood/", "mangrove_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_STRIPPED_LOG, "has_logs", "wood/", "mangrove_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_WOOD, "has_logs", "wood/", "mangrove_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_STRIPPED_WOOD, "has_logs", "wood/", "mangrove_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MINING_PLANKS, TagManager.Items.TF_MINING_LOG, "has_logs", "wood/", "mining_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MINING_PLANKS, TagManager.Items.TF_MINING_STRIPPED_LOG, "has_logs", "wood/", "mining_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MINING_PLANKS, TagManager.Items.TF_MINING_WOOD, "has_logs", "wood/", "mining_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_MINING_PLANKS, TagManager.Items.TF_MINING_STRIPPED_WOOD, "has_logs", "wood/", "mining_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_SORTING_PLANKS, TagManager.Items.TF_SORTING_LOG, "has_logs", "wood/", "sorting_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_SORTING_PLANKS, TagManager.Items.TF_SORTING_STRIPPED_LOG, "has_logs", "wood/", "sorting_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_SORTING_PLANKS, TagManager.Items.TF_SORTING_WOOD, "has_logs", "wood/", "sorting_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_SORTING_PLANKS, TagManager.Items.TF_SORTING_STRIPPED_WOOD, "has_logs", "wood/", "sorting_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TIME_PLANKS, TagManager.Items.TF_TIME_LOG, "has_logs", "wood/", "time_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TIME_PLANKS, TagManager.Items.TF_TIME_STRIPPED_LOG, "has_logs", "wood/", "time_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TIME_PLANKS, TagManager.Items.TF_TIME_WOOD, "has_logs", "wood/", "time_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TIME_PLANKS, TagManager.Items.TF_TIME_STRIPPED_WOOD, "has_logs", "wood/", "time_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TRANSFORMATION_PLANKS, TagManager.Items.TF_TRANSFORMATION_LOG, "has_logs", "wood/", "transformation_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TRANSFORMATION_PLANKS, TagManager.Items.TF_TRANSFORMATION_STRIPPED_LOG, "has_logs", "wood/", "transformation_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TRANSFORMATION_PLANKS, TagManager.Items.TF_TRANSFORMATION_WOOD, "has_logs", "wood/", "transformation_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TRANSFORMATION_PLANKS, TagManager.Items.TF_TRANSFORMATION_STRIPPED_WOOD, "has_logs", "wood/", "transformation_from_stripped_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, TagManager.Items.TF_TWILIGHT_OAK_LOG, "has_logs", "wood/", "twilight_oak_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, TagManager.Items.TF_TWILIGHT_OAK_STRIPPED_LOG, "has_logs", "wood/", "twilight_oak_from_stripped_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, TagManager.Items.TF_TWILIGHT_OAK_WOOD, "has_logs", "wood/", "twilight_oak_from_wood_planks", ModIntegration.TF_MODID);
-        itemPlankRecipeBuilder(wrapped, ModIntegration.TF_TWILIGHT_OAK_PLANKS, TagManager.Items.TF_TWILIGHT_OAK_STRIPPED_WOOD, "has_logs", "wood/", "twilight_oak_from_stripped_wood_planks", ModIntegration.TF_MODID);
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.TF_MODID));
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_LOG, "has_logs", "wood/", "canopy_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_STRIPPED_LOG, "has_logs", "wood/", "canopy_from_stripped_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_WOOD, "has_logs", "wood/", "canopy_from_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_CANOPY_PLANKS, TagManager.Items.TF_CANOPY_STRIPPED_WOOD, "has_logs", "wood/", "canopy_from_stripped_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_LOG, "has_logs", "wood/", "darkwood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_STRIPPED_LOG, "has_logs", "wood/", "darkwood_from_stripped_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_WOOD, "has_logs", "wood/", "darkwood_from_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_DARK_PLANKS, TagManager.Items.TF_DARK_STRIPPED_WOOD, "has_logs", "wood/", "darkwood_from_stripped_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_LOG, "has_logs", "wood/", "mangrove_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_STRIPPED_LOG, "has_logs", "wood/", "mangrove_from_stripped_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_WOOD, "has_logs", "wood/", "mangrove_from_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_MANGROVE_PLANKS, TagManager.Items.TF_MANGROVE_STRIPPED_WOOD, "has_logs", "wood/", "mangrove_from_stripped_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_MINING_PLANKS, TagManager.Items.TF_MINING_LOG, "has_logs", "wood/", "mining_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_MINING_PLANKS, TagManager.Items.TF_MINING_STRIPPED_LOG, "has_logs", "wood/", "mining_from_stripped_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_MINING_PLANKS, TagManager.Items.TF_MINING_WOOD, "has_logs", "wood/", "mining_from_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_MINING_PLANKS, TagManager.Items.TF_MINING_STRIPPED_WOOD, "has_logs", "wood/", "mining_from_stripped_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_SORTING_PLANKS, TagManager.Items.TF_SORTING_LOG, "has_logs", "wood/", "sorting_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_SORTING_PLANKS, TagManager.Items.TF_SORTING_STRIPPED_LOG, "has_logs", "wood/", "sorting_from_stripped_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_SORTING_PLANKS, TagManager.Items.TF_SORTING_WOOD, "has_logs", "wood/", "sorting_from_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_SORTING_PLANKS, TagManager.Items.TF_SORTING_STRIPPED_WOOD, "has_logs", "wood/", "sorting_from_stripped_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_TIME_PLANKS, TagManager.Items.TF_TIME_LOG, "has_logs", "wood/", "time_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_TIME_PLANKS, TagManager.Items.TF_TIME_STRIPPED_LOG, "has_logs", "wood/", "time_from_stripped_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_TIME_PLANKS, TagManager.Items.TF_TIME_WOOD, "has_logs", "wood/", "time_from_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_TIME_PLANKS, TagManager.Items.TF_TIME_STRIPPED_WOOD, "has_logs", "wood/", "time_from_stripped_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_TRANSFORMATION_PLANKS, TagManager.Items.TF_TRANSFORMATION_LOG, "has_logs", "wood/", "transformation_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_TRANSFORMATION_PLANKS, TagManager.Items.TF_TRANSFORMATION_STRIPPED_LOG, "has_logs", "wood/", "transformation_from_stripped_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_TRANSFORMATION_PLANKS, TagManager.Items.TF_TRANSFORMATION_WOOD, "has_logs", "wood/", "transformation_from_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_TRANSFORMATION_PLANKS, TagManager.Items.TF_TRANSFORMATION_STRIPPED_WOOD, "has_logs", "wood/", "transformation_from_stripped_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_TWILIGHT_OAK_PLANKS, TagManager.Items.TF_TWILIGHT_OAK_LOG, "has_logs", "wood/", "twilight_oak_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_TWILIGHT_OAK_PLANKS, TagManager.Items.TF_TWILIGHT_OAK_STRIPPED_LOG, "has_logs", "wood/", "twilight_oak_from_stripped_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_TWILIGHT_OAK_PLANKS, TagManager.Items.TF_TWILIGHT_OAK_WOOD, "has_logs", "wood/", "twilight_oak_from_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
+        itemPlankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.TF_TWILIGHT_OAK_PLANKS, TagManager.Items.TF_TWILIGHT_OAK_STRIPPED_WOOD, "has_logs", "wood/", "twilight_oak_from_stripped_wood_planks", SurvivalistEssentialsIntegration.TF_MODID);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.OAK_PLANKS, 64)
                 .requires(TagManager.Items.TF_GIANT_LOGS)
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
                 .unlockedBy("has_advanced_saw", has(TagManager.Items.ADVANCED_SAW_TOOLS))
-                .save(wrapped, prefix(ModIntegration.TF_MODID, "giant_log_to_oak_planks"));
+                .save(wrapped, prefix(SurvivalistEssentialsIntegration.TF_MODID, "giant_log_to_oak_planks"));
 
         // Aquaculture
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.AQUA_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.AQUA_MODID));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.OAK_PLANKS, 2)
-                .requires(ModIntegration.AQUA_DRIFTWOOD)
+                .requires(SurvivalistEssentialsIntegration.AQUA_DRIFTWOOD)
                 .requires(SurvivalistEssentialsItems.CRUDE_SAW)
                 .group("planks")
                 .unlockedBy("has_driftwood", has(TagManager.Items.AQUA_DRIFTWOOD))
-                .save(wrapped, prefix(ModIntegration.AQUA_MODID, "planks_from_driftwood"));
+                .save(wrapped, prefix(SurvivalistEssentialsIntegration.AQUA_MODID, "planks_from_driftwood"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.OAK_PLANKS, 4)
-                .requires(ModIntegration.AQUA_DRIFTWOOD)
+                .requires(SurvivalistEssentialsIntegration.AQUA_DRIFTWOOD)
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
                 .unlockedBy("has_driftwood", has(TagManager.Items.AQUA_DRIFTWOOD))
                 .save(wrapped, loc("planks_from_driftwood"));
 
         // Immersive Engineering
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.IE_MODID));
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.IE_MODID));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModIntegration.IE_STICK_TREATED, 2)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SurvivalistEssentialsIntegration.IE_STICK_TREATED, 2)
                 .requires(TagManager.Items.IE_TREATED_WOOD)
                 .requires(SurvivalistEssentialsItems.CRUDE_SAW)
                 .group("treated_sticks")
                 .unlockedBy("has_treated_planks", has(TagManager.Items.IE_TREATED_WOOD))
                 .save(wrapped, loc("stick_treated"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModIntegration.IE_STICK_TREATED, 4)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SurvivalistEssentialsIntegration.IE_STICK_TREATED, 4)
                 .requires(TagManager.Items.IE_TREATED_WOOD)
                 .requires(TagManager.Items.IE_TREATED_WOOD)
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("treated_sticks")
                 .unlockedBy("has_treated_planks", has(TagManager.Items.IE_TREATED_WOOD))
-                .save(wrapped, prefix(ModIntegration.IE_MODID, "crafting/stick_treated"));
+                .save(wrapped, prefix(SurvivalistEssentialsIntegration.IE_MODID, "crafting/stick_treated"));
 
         // Ecologics
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.ECO_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.ECO_COCONUT_PLANKS, TagManager.Items.ECO_COCONUT_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.ECO_WALNUT_PLANKS, TagManager.Items.ECO_WALNUT_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.ECO_AZALEA_PLANKS, TagManager.Items.ECO_AZALEA_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.ECO_FLOWERING_AZALEA_PLANKS, TagManager.Items.ECO_FLOWERING_AZALEA_LOGS, "has_logs");
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.ECO_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.ECO_COCONUT_PLANKS, TagManager.Items.ECO_COCONUT_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.ECO_WALNUT_PLANKS, TagManager.Items.ECO_WALNUT_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.ECO_AZALEA_PLANKS, TagManager.Items.ECO_AZALEA_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.ECO_FLOWERING_AZALEA_PLANKS, TagManager.Items.ECO_FLOWERING_AZALEA_LOGS, "has_logs");
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STICK, 2)
                 .requires(ItemTags.PLANKS)
@@ -492,13 +492,13 @@ public class ModRecipesProvider extends RecipeProvider {
                 .save(recipeOutput);
 
         // Malum
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.MALUM_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.MALUM_RUNEWOOD_PLANKS, TagManager.Items.MALUM_RUNEWOOD_LOGS, "has_logs");
-        plankRecipeBuilder(wrapped, ModIntegration.MALUM_SOULWOOD_PLANKS, TagManager.Items.MALUM_SOULWOOD_LOGS, "has_logs");
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.MALUM_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.MALUM_RUNEWOOD_PLANKS, TagManager.Items.MALUM_RUNEWOOD_LOGS, "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.MALUM_SOULWOOD_PLANKS, TagManager.Items.MALUM_SOULWOOD_LOGS, "has_logs");
 
         // Ice and Fire; Dragons
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(ModIntegration.IFD_MODID));
-        plankRecipeBuilder(wrapped, ModIntegration.IFD_DREADWOOD_PLANKS, TagManager.Items.IFD_DREADWOOD_LOGS, "has_logs");
+        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.IFD_MODID));
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.IFD_DREADWOOD_PLANKS, TagManager.Items.IFD_DREADWOOD_LOGS, "has_logs");
     }
 
     private static void plankRecipeBuilder(RecipeOutput recipeOutput, ItemLike item, TagKey<Item> itemTag, String label) {
@@ -512,21 +512,21 @@ public class ModRecipesProvider extends RecipeProvider {
         String name = itemLoc.getPath();
         String modid = itemLoc.getNamespace();
 
-        if (modid.contains(ModIntegration.TCON_MODID)) {
-            plankOverrideRecipe.save(recipeOutput, prefix(ModIntegration.TCON_MODID, "world/wood/" + name.split("_")[0] + "/planks"));
+        if (modid.contains(SurvivalistEssentialsIntegration.TCON_MODID)) {
+            plankOverrideRecipe.save(recipeOutput, prefix(SurvivalistEssentialsIntegration.TCON_MODID, "world/wood/" + name.split("_")[0] + "/planks"));
         }
-        else if (modid.contains(ModIntegration.QUARK_MODID)) {
-            plankOverrideRecipe.save(recipeOutput, prefix(ModIntegration.QUARK_MODID, "world/crafting/woodsets/" + name.split("_")[0] + "/planks"));
+        else if (modid.contains(SurvivalistEssentialsIntegration.QUARK_MODID)) {
+            plankOverrideRecipe.save(recipeOutput, prefix(SurvivalistEssentialsIntegration.QUARK_MODID, "world/crafting/woodsets/" + name.split("_")[0] + "/planks"));
         }
-        else if (modid.contains(ModIntegration.MALUM_MODID)) {
-            plankOverrideRecipe.save(recipeOutput, prefix(ModIntegration.MALUM_MODID, name));
+        else if (modid.contains(SurvivalistEssentialsIntegration.MALUM_MODID)) {
+            plankOverrideRecipe.save(recipeOutput, prefix(SurvivalistEssentialsIntegration.MALUM_MODID, name));
         }
-        else if (modid.contains(ModIntegration.IFD_MODID)) {
-            plankOverrideRecipe.save(recipeOutput, prefix(ModIntegration.IFD_MODID, "dread_wood_planks"));
+        else if (modid.contains(SurvivalistEssentialsIntegration.IFD_MODID)) {
+            plankOverrideRecipe.save(recipeOutput, prefix(SurvivalistEssentialsIntegration.IFD_MODID, "dread_wood_planks"));
         }
         else if (itemTag.equals(TagManager.Items.BYG_PALO_VERDE_LOGS)) {
-            plankOverrideRecipe.save(recipeOutput, prefix(ModIntegration.BYG_MODID, "birch_planks_from_palo_verde_logs"));
-            modid = ModIntegration.BYG_MODID;
+            plankOverrideRecipe.save(recipeOutput, prefix(SurvivalistEssentialsIntegration.BYG_MODID, "birch_planks_from_palo_verde_logs"));
+            modid = SurvivalistEssentialsIntegration.BYG_MODID;
         }
         else {
             plankOverrideRecipe.save(recipeOutput);

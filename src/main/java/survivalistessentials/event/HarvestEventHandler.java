@@ -30,7 +30,7 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
-import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.mixin.AbstractBlockStateAccessor;
 import survivalistessentials.sound.Sounds;
 import survivalistessentials.util.CarryOnHelper;
@@ -61,7 +61,7 @@ public class HarvestEventHandler {
         boolean alwaysBreakable = state.is(TagManager.Blocks.ALWAYS_BREAKABLE) ||
                 ItemUse.isAlwaysBreakable(state);
 
-        if (ModList.get().isLoaded(ModIntegration.CARRYON_MODID)) {
+        if (ModList.get().isLoaded(SurvivalistEssentialsIntegration.CARRYON_MODID)) {
             final ItemStack handStack = player.getMainHandItem();
             final ItemStack offhandStack = player.getOffhandItem();
 

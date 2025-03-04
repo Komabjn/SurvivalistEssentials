@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Objects;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Player;
@@ -22,7 +21,7 @@ import net.neoforged.fml.ModList;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
-import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.mixin.AbstractBlockStateAccessor;
 
 public class ItemUse {
@@ -184,7 +183,7 @@ public class ItemUse {
 
     public static boolean isAlwaysBreakable(BlockState state) {
         if (((AbstractBlockStateAccessor) state).getDestroySpeed() == 0) {
-            if (!ModList.get().isLoaded(ModIntegration.DYNAMICTREES_MODID)) {
+            if (!ModList.get().isLoaded(SurvivalistEssentialsIntegration.DYNAMICTREES_MODID)) {
                 return true;
             }
             else {

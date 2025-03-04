@@ -12,7 +12,7 @@ import java.util.function.BiConsumer;
 
 import static survivalistessentials.SurvivalistEssentials.prefix;
 
-public final class ModIntegration {
+public final class SurvivalistEssentialsIntegration {
 
     private static final Map<ResourceLocation, Item> ALL = new LinkedHashMap<>();
 

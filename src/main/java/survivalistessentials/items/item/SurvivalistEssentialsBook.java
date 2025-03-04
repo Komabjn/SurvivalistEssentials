@@ -13,7 +13,7 @@ import net.minecraft.world.level.Level;
 
 import net.neoforged.fml.ModList;
 
-import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 
 import static survivalistessentials.SurvivalistEssentials.prefix;
 
@@ -29,7 +29,7 @@ public class SurvivalistEssentialsBook extends Item {
 
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player playerIn, @NotNull InteractionHand handIn) {
-        if (ModList.get().isLoaded(ModIntegration.PATCHOULI_MODID)) {
+        if (ModList.get().isLoaded(SurvivalistEssentialsIntegration.PATCHOULI_MODID)) {
             if (level.isClientSide()) {
                 vazkii.patchouli.api.PatchouliAPI.get().openBookGUI(book);
             }

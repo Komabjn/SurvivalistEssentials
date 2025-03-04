@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-import survivalistessentials.data.integration.ModIntegration;
+import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
@@ -41,8 +41,8 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .addTag(BlockTags.DIRT)
             .addTag(Tags.Blocks.SANDS)
             .addTag(BlockTags.SAND)
-            .addOptionalTag(ModIntegration.tconLoc("slimy_vines"))
-            .addOptionalTag(ModIntegration.tconLoc("slimy_leaves"))
+            .addOptionalTag(SurvivalistEssentialsIntegration.tconLoc("slimy_vines"))
+            .addOptionalTag(SurvivalistEssentialsIntegration.tconLoc("slimy_leaves"))
             .addTag(TagManager.Blocks.FIBER_PLANTS);
 
         this.tag(TagManager.Blocks.ALWAYS_DROPS)
@@ -55,8 +55,8 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .addTag(BlockTags.DIRT)
             .addTag(Tags.Blocks.SANDS)
             .addTag(BlockTags.SAND)
-            .addOptionalTag(ModIntegration.tconLoc("slimy_vines"))
-            .addOptionalTag(ModIntegration.tconLoc("slimy_leaves"))
+            .addOptionalTag(SurvivalistEssentialsIntegration.tconLoc("slimy_vines"))
+            .addOptionalTag(SurvivalistEssentialsIntegration.tconLoc("slimy_leaves"))
             .addTag(TagManager.Blocks.FIBER_PLANTS);
 
         this.tag(TagManager.Blocks.LOOSE_ROCK_PLACEABLE_ON)
@@ -96,14 +96,14 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
             .add(Blocks.LARGE_FERN)
             .add(Blocks.GRASS_BLOCK)
             .add(Blocks.TALL_GRASS)
-            .addOptional(ModIntegration.sgcLoc("avocado_leaves"))
-            .addOptional(ModIntegration.exnihiloLoc("infested_leaves"))
-            .addOptional(ModIntegration.exnihiloLoc("infesting_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.sgcLoc("avocado_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.exnihiloLoc("infested_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.exnihiloLoc("infesting_leaves"))
             .addOptionalTag(TagManager.commonLoc("grass"))
             .addOptionalTag(TagManager.commonLoc("bushes"));
 
         this.tag(TagManager.Blocks.BRANCHES)
-            .addOptionalTag(ModIntegration.dynamictreesLoc("branches"));
+            .addOptionalTag(SurvivalistEssentialsIntegration.dynamictreesLoc("branches"));
 
         this.tag(TagManager.Blocks.MINEABLE_WITH_SHARP)
             .addTag(BlockTags.WOOL_CARPETS)
