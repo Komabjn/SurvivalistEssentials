@@ -132,7 +132,7 @@ issueTrackerURL="${issue_tracker}"
     side="BOTH"
 [[dependencies.survivalistessentials]]
     modId="regions_unexplored"
-    mandatory=false
+    type="optional"
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
