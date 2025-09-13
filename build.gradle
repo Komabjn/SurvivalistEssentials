@@ -1,11 +1,11 @@
 plugins {
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '0.1.110'
+    // see https://projects.neoforged.net/neoforged/moddevgradle for new versions
+    id 'net.neoforged.moddev' version '2.0.107'
+    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '3.0.7'
+    id 'me.modmuss50.mod-publish-plugin' version '1.0.0'
     id 'io.github.goooler.shadow' version '8.1.7'
-    id 'net.darkhax.curseforgegradle' version '1.+'
-    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
-    id 'me.modmuss50.mod-publish-plugin' version '0.7.3'
 }
 
 repositories {
@@ -16,16 +16,16 @@ repositories {
     }
     maven { // TOP
         name 'McJty maven'
-        url "https://maven.k-4u.nl"
+        url 'https://maven.k-4u.nl'
     }
     flatDir {
         dirs 'libs'
     }
     maven {
-        name = "Curse Maven"
-        url = "https://cursemaven.com"
+        name = 'Curse Maven'
+        url = 'https://cursemaven.com'
         content {
-            includeGroup "curse.maven"
+            includeGroup 'curse.maven'
         }
     }
     maven {
@@ -33,10 +33,10 @@ repositories {
         name = "Blame Jared"
         url = "https://maven.blamejared.com"
     }
-	maven {
-		name = "C4's Maven"
-		url = "https://maven.theillusivec4.top/"
-	}
+    maven {
+        name = 'Illusive Soulworks'
+        url = 'https://maven.theillusivec4.top/'
+    }
     maven {
         name = 'GeckoLib'
         url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
@@ -46,12 +46,8 @@ repositories {
         }
     }
     maven {
-        name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/wendall911/TinkerSurvival")
-        credentials {
-            username = project.githubusername
-            password = project.githubtoken
-        }
+        name = 'wendall911 maven' // Library for wendall911 mods
+        url = 'https://raw.githubusercontent.com/wendall911/maven/main/'
     }
 }
 
@@ -67,8 +63,8 @@ base {
 neoForge {
     version = neoforge_version
     parchment {
-        minecraftVersion = parchment_mc_version
-        mappingsVersion = parchment_version
+        minecraftVersion = minecraft_version
+        mappingsVersion = mappings_version
     }
     runs {
         configureEach {
@@ -80,6 +76,7 @@ neoForge {
         }
         server {
             server()
+            programArgument '--nogui'
         }
         data {
             programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
@@ -174,8 +171,6 @@ jar {
     }
 }
 
-
-
 processResources {
     def resourceTargets = ['META-INF/neoforge.mods.toml', 'pack.mcmeta', '*.mixins.json']
     def expandProps = [
@@ -201,6 +196,32 @@ processResources {
     inputs.properties(expandProps)
 }
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId project.group
+            artifactId project.archivesBaseName
+            version project.version
+            // This gives us the built obfuscated version Forge requires
+            artifact jar
+        }
+    }
+    repositories {
+        if (System.getenv('local_maven') != null) {
+            maven {
+                url 'file://' + System.getenv('local_maven')
+            }
+        }
+    }
+}
+
+task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
+    file.set(new File(project(":").projectDir.toString() + '/build/libs/changelog.txt'));
+    templateContent.set(file(project(":").projectDir.toString() + '/files/templates/changelog.mustache').getText('UTF-8'));
+    toRevision.set('HEAD');
+    fromRevision.set("${minecraft_version}-${last_mod_version}");
+}
+
 def updates = tasks.register("generateUpdates", Copy) {
     it.outputs.upToDateWhen {
         false
@@ -214,7 +235,11 @@ def updates = tasks.register("generateUpdates", Copy) {
     it.into 'files/'
 }
 
-def changelogFile = project(":").projectDir.toString() + '/build/libs/' + project.getName() + '-' + version + '-changelog.txt'
+tasks.generateUpdates.mustRunAfter('jar')
+
+tasks.build.dependsOn('changelog', 'generateUpdates')
+
+def changelogFile = project(":").projectDir.toString() + '/build/libs/changelog.txt'
 def publishFile = project(":").projectDir.toString() + "/build/libs/${archivesBaseName}-${version}.jar"
 
 publishMods {
@@ -223,7 +248,8 @@ publishMods {
         changelog = file(changelogFile).text
     }
     type = "${release_type}".startsWith("release") ? STABLE : ("${release_type}".startsWith("beta") ? BETA : ALPHA)
-    modLoaders.addAll(['neoforge'])
+    modLoaders.add('neoforge')
+    dryRun = providers.environmentVariable('DO_RELEASE').getOrNull() == null
 
     if (project.hasProperty('securseApiKey')) {
         curseforge {
@@ -233,7 +259,6 @@ publishMods {
             clientRequired = true
             serverRequired = true
             minecraftVersions.addAll("${release_versions}".split(','))
-            embeds('spectrelib')
             optional('configured')
             optional('catalogue')
             optional('fruit-trees')
@@ -272,40 +297,6 @@ publishMods {
             optional('ecologics')
             optional('psi')
             optional('regions-unexplored')
-        }
-    }
-    if (project.hasProperty('seGithubToken')) {
-    }
-}
-
-task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
-    file = new File(changelogFile);
-    templateContent = file('files/templates/changelog.mustache').getText('UTF-8');
-    fromRepo = file("$projectDir");
-    toRef = "HEAD";
-    fromRef = "${minecraft_version}-${last_mod_version}";
-}
-
-tasks.generateUpdates.mustRunAfter('jar')
-
-tasks.build.dependsOn('changelog', 'generateUpdates')
-
-publishing {
-    repositories {
-        maven {
-            name = 'GitHubPackages'
-            url = uri(maven_url)
-            credentials {
-                username = project.githubusername
-                password = project.githubtoken
-            }
-        }
-    }
-
-    publications {
-        gpr(MavenPublication) {
-            artifactId = mod_id
-            from(components.java)
         }
     }
 }
