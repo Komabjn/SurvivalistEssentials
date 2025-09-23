@@ -41,10 +41,17 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             SurvivalistEssentialsWorld.ROCK_STONE
         );
         this.tag(TagManager.Items.PICKAXE_TOOLS)
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("pickaxe"))
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("pickadze"))
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("sledge_hammer"))
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("vein_hammer"))
             .addOptional(SurvivalistEssentialsIntegration.ieLoc("buzzsaw"))
             .addOptional(SurvivalistEssentialsIntegration.ieLoc("drill"))
             .addOptional(SurvivalistEssentialsIntegration.ieLoc("hammer"));
         this.tag(TagManager.Items.AXE_TOOLS)
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("mattock"))
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("hand_axe"))
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("broad_axe"))
             .addOptional(SurvivalistEssentialsIntegration.ieLoc("buzzsaw"));
         builder(
             TagManager.Items.AXE_TOOLS,
@@ -66,10 +73,13 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             SurvivalistEssentialsItems.SHARP_SAW
         );
         this.tag(TagManager.Items.SHOVEL_TOOLS)
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("mattock"))
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("pickadze"))
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("excavator"))
             .addOptional(SurvivalistEssentialsIntegration.ieLoc("drill"));
-        builder(
-            TagManager.Items.HOE_TOOLS
-        );
+        this.tag( TagManager.Items.HOE_TOOLS )
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("mattock"))
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("kama"));
         this.tag(TagManager.Items.KNIFE_TOOLS)
             .addOptional(SurvivalistEssentialsIntegration.tsLoc("knife"));
         builder(
@@ -86,6 +96,10 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             SurvivalistEssentialsItems.SHARP_KNIFE
         );
         this.tag(TagManager.Items.SHARP_TOOLS)
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("kama"))
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("dagger"))
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("cleaver"))
+            .addOptional(SurvivalistEssentialsIntegration.tconLoc("sword"))
             .addOptional(SurvivalistEssentialsIntegration.ieLoc("revolver"))
             .addTag(TagManager.Items.KNIFE_TOOLS)
             .addTag(TagManager.Items.AXE_TOOLS);
