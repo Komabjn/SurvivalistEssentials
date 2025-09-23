@@ -39,6 +39,7 @@ public final class ConfigHandler {
         private static final ModConfigSpec CONFIG_SPEC;
         private static final Client CONFIG;
         private final ModConfigSpec.BooleanValue ENABLE_FAIL_SOUND;
+        private final ModConfigSpec.BooleanValue INFORM_TCON_COMPAT;
 
         static {
             Pair<Client, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Client::new);
@@ -51,10 +52,22 @@ public final class ConfigHandler {
             ENABLE_FAIL_SOUND = builder
                 .comment("Enables the fail sound if using the wrong tool.")
                 .define("ENABLE_FAIL_SOUND", true);
+            INFORM_TCON_COMPAT = builder
+                .comment("Informs user if Tinkers' Construct is installed and recommends installing Tinkers' Survival.")
+                .define("INFORM_TCON_COMPAT", true);
         }
 
         public static boolean enableFailSound() {
             return CONFIG.ENABLE_FAIL_SOUND.get();
+        }
+
+        public static boolean informTConCompat() {
+            return CONFIG.INFORM_TCON_COMPAT.get();
+        }
+
+        public static void disableTConCompatMessage() {
+            CONFIG.INFORM_TCON_COMPAT.set(false);
+            CONFIG.INFORM_TCON_COMPAT.save();
         }
 
     }

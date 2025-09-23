@@ -1,7 +1,6 @@
 package survivalistessentials.event;
 
 import java.util.Objects;
-import java.util.UUID;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -12,18 +11,15 @@ import net.minecraft.world.entity.player.Player;
 
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 import survivalistessentials.config.ConfigHandler;
-import survivalistessentials.SurvivalistEssentials;
 
 import static survivalistessentials.SurvivalistEssentials.loc;
 
 public class PlayerEventHandler {
 
     private static final ResourceLocation STARTING_HEALTH_PENALTY = loc("starting_health_penalty");
-    //private static final UUID STARTING_HEALTH_PENALTY = UUID.fromString("e86dd51f-e5bd-4606-940a-6ffc961b612d");
 
     @SubscribeEvent
     public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {

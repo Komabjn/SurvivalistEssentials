@@ -39,6 +39,7 @@ import survivalistessentials.common.loot.SurvivalistEssentialsLootConditionTypes
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.event.AttackEventHandler;
+import survivalistessentials.event.ClientEventHandler;
 import survivalistessentials.event.HarvestEventHandler;
 import survivalistessentials.event.HoeEventHandler;
 import survivalistessentials.event.LivingEquipmentChangeEventHandler;
@@ -92,6 +93,7 @@ public class SurvivalistEssentials {
             NeoForge.EVENT_BUS.register(PlayerEventHandler.class);
             if (FMLEnvironment.dist == Dist.CLIENT) {
                 NeoForge.EVENT_BUS.register(TooltipEventHandler.class);
+                NeoForge.EVENT_BUS.register(ClientEventHandler.class);
             }
         }
 
