@@ -95,7 +95,9 @@ public final class ConfigHandler {
         private static ConfigValue<List<? extends String>> MODS;
 
         private static final List<String> ITEMS_LIST = List.of("items");
-        private static final String[] itemsStrings = new String[] {};
+        private static final String[] itemsStrings = new String[] {
+           "pickaxe-minecraft:diamond_pickaxe",
+        };
         private static final Predicate<Object> itemidValidator = s -> s instanceof String
                 && ((String) s).matches("[a-z]+[-]{1}[a-z][a-z0-9_]{1,63}+[:]{1}[a-z_]+");
         private static ConfigValue<List<? extends String>> ITEMS;
@@ -148,8 +150,11 @@ public final class ConfigHandler {
                         + "[\"" + String.join("\", \"", modsStrings) + "\"]")
                 .defineListAllowEmpty(MODS_LIST, getFields(modsStrings), modidValidator);
             ITEMS = builder
-                .comment("List of individual tools that will always work. Format tooltype-modid:item Default: "
-                        + "[\"" + String.join("\", \"", itemsStrings) + "\"]")
+                .comment(
+                    "List of individual tools that will always work. Format tooltype-modid:item",
+                    "Default: [\"" + String.join("\", \"", itemsStrings) + "\"]",
+                    "Types: [\"" + String.join("\", \"", ItemUse.TOOL_TYPES) + "\"]"
+                )
                 .defineListAllowEmpty(ITEMS_LIST, getFields(itemsStrings), itemidValidator);
             LOG_MODPACK_DATA = builder
                 .comment("Used to dump log info for Survivalist Essentials Modpack. Ignore.")
