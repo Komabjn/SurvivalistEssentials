@@ -1,6 +1,18 @@
 {
   "values": [
     {
+      "id": "tconstruct:mattock",
+      "required": false
+    },
+    {
+      "id": "tconstruct:hand_axe",
+      "required": false
+    },
+    {
+      "id": "tconstruct:broad_axe",
+      "required": false
+    },
+    {
       "id": "immersiveengineering:buzzsaw",
       "required": false
     },
