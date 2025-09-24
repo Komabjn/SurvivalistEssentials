@@ -49,7 +49,7 @@
     "block.survivalistessentials.sandstone_loose_rock": "Loose Rock (Sandstone)",
     "block.survivalistessentials.red_sandstone_loose_rock": "Loose Rock (Red Sandstone)",
     "jei.survivalistessentials.description.rock_stone": "Rocks are found lying on the ground. These can be used with the knife in a crafting table to get flint shards.",
-    "jei.survivalistessentials.description.plant_fiber": "Plant fibers are dropped when breaking grass with a knife. They are used to make plant string for tools and plant paste for bandage ointment.",
+    "jei.survivalistessentials.description.plant_fiber": "Plant fibers are dropped when breaking grass or leaves with a knife. They are used to make plant string for tools and plant paste for bandage ointment.",
     "jei.survivalistessentials.description.stick": "Sticks are dropped from leaves. Using any knife doubles the chance of getting a stick.",
     "jei.survivalistessentials.description.flint_shard": "Flint shards can be obtained from striking a rock on any rocky surface. Interact with any stone-like block with a rock, and it might split into two flint shards.",
     "tooltip.uselessTool1": "This tool cannot mine anything!",
