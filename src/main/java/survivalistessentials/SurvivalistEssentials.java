@@ -28,8 +28,8 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import survivalistessentials.common.CreativeTabs;
 import survivalistessentials.common.HarvestBlock;
@@ -56,7 +56,7 @@ import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
 public class SurvivalistEssentials {
 
     public static final String MODID = "survivalistessentials";
-    public static final Logger LOGGER = LogManager.getFormatterLogger(SurvivalistEssentials.MODID);
+    public static final Logger LOGGER = LoggerFactory.getLogger(SurvivalistEssentials.MODID);
 
     public SurvivalistEssentials(IEventBus bus, Dist dist, ModContainer container) {
         registryInit(bus);
