@@ -1,7 +1,8 @@
 package survivalistessentials.util;
 
-import javax.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -24,7 +25,8 @@ public enum ToolType {
     SHARP(TagManager.Items.SHARP_TOOLS),
     NONE(null);
 
-    @Nullable private final TagKey<Item> tag;
+    @Nullable
+    private final TagKey<Item> tag;
 
     ToolType(@Nullable TagKey<Item> tag) {
         this.tag = tag;
