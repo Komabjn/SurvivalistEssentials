@@ -51,7 +51,7 @@ public final class ConfigHandler {
         Client(ModConfigSpec.Builder builder) {
             ENABLE_FAIL_SOUND = builder
                 .comment("Enables the fail sound if using the wrong tool.")
-                .define("ENABLE_FAIL_SOUND", true);
+                .define("ENABLE_FAIL_SOUND", false);
             INFORM_TCON_COMPAT = builder
                 .comment("Informs user if Tinkers' Construct is installed and recommends installing Tinkers' Survival.")
                 .define("INFORM_TCON_COMPAT", true);
