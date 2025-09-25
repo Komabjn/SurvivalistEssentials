@@ -140,11 +140,11 @@ public final class HarvestBlock {
         });
 
         if (!unknownToolTypeBlocks.isEmpty()) {
-            SurvivalistEssentials.LOGGER.debug("Unable to infer primary tools for %s blocks with unknown ToolType. These blocks will not enforce correct tool.", unknownToolTypeBlocks.values().stream().mapToInt(Collection::size).sum());
+            SurvivalistEssentials.LOGGER.debug("Unable to infer primary tools for {} blocks with unknown ToolType. These blocks will not enforce correct tool.", unknownToolTypeBlocks.values().stream().mapToInt(Collection::size).sum());
             unknownToolTypeBlocks
                 .forEach((toolType, blocks) -> {
                     blocks.forEach((block) -> {
-                        SurvivalistEssentials.LOGGER.debug("%s, %s", toolType, block);
+                        SurvivalistEssentials.LOGGER.debug("{}, {}", toolType, block);
                         BLOCK_TOOL_TYPES.put(block, toolType);
                     });
                 });
