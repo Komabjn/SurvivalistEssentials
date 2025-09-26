@@ -31,6 +31,10 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import technology.roughness.whitenoise.config.WhiteNoiseConfig;
+import technology.roughness.whitenoise.config.WhiteNoiseConfigLoader;
+import technology.roughness.whitenoise.platform.Services;
+
 import survivalistessentials.common.CreativeTabs;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.SurvivalistEssentialsModule;
@@ -51,9 +55,6 @@ import survivalistessentials.sound.Sounds;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 import survivalistessentials.world.effect.SurvivalistEssentialsEffects;
 import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
-import technology.roughness.whitenoise.config.WhiteNoiseConfig;
-import technology.roughness.whitenoise.config.WhiteNoiseConfigLoader;
-import technology.roughness.whitenoise.platform.Services;
 
 @Mod(SurvivalistEssentials.MODID)
 public class SurvivalistEssentials {

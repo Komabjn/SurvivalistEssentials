@@ -89,7 +89,7 @@ public final class ConfigHandler {
 
         private static final List<String> MODS_LIST = List.of("mods");
         private static final String[] modsStrings = new String[] {};
-        // See: https://github.com/MinecraftWhiteNoise/MinecraftWhiteNoise/blob/1.18.x/fmlloader/src/main/java/net/minecraftforge/fml/loading/moddiscovery/ModInfo.java
+        // See: https://github.com/MinecraftForge/MinecraftForge/blob/1.18.x/fmlloader/src/main/java/net/minecraftforge/fml/loading/moddiscovery/ModInfo.java
         private static final Predicate<Object> modidValidator = s -> s instanceof String
                 && ((String) s).matches("^[a-z][a-z0-9_]{1,63}$");
         private static WhiteNoiseConfigSpec.ConfigValue<List<? extends String>> MODS;
