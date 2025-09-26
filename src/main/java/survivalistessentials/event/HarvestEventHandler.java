@@ -27,6 +27,8 @@ import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
+import technology.roughness.whitenoise.util.ResourceLocationHelper;
+
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
@@ -70,6 +72,13 @@ public class HarvestEventHandler {
                     alwaysBreakable = true;
                 }
             }
+        }
+
+        if (ModList.get().isLoaded(SurvivalistEssentialsIntegration.CREATE_MODID)) {
+            final ItemStack handStack = player.getMainHandItem();
+
+            alwaysBreakable = ResourceLocationHelper.getModId(handStack).equals(SurvivalistEssentialsIntegration.CREATE_MODID)
+                && ResourceLocationHelper.getModId(state.getBlock()).equals(SurvivalistEssentialsIntegration.CREATE_MODID);
         }
 
         if (!alwaysBreakable && !player.isCreative()) {

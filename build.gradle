@@ -152,6 +152,7 @@ dependencies {
     //runtimeOnly "curse.maven:citadel-331936:3783096"
     //runtimeOnly "curse.maven:iceandfire-264231:4614465"
     //runtimeOnly "curse.maven:railcraft_reborn-901491:5650759"
+    //runtimeOnly "curse.maven:create-328085:${create_neoforge_version}"
 
     implementation fileTree(dir: 'libs', include: '*.jar')
 }
@@ -285,6 +286,7 @@ publishMods {
             optional('ice-and-fire-dragons')
             optional('psi')
             optional('regions-unexplored')
+            optional('create')
         }
     }
     if (project.hasProperty('seModrinthId')) {
@@ -301,6 +303,7 @@ publishMods {
             optional('ecologics')
             optional('psi')
             optional('regions-unexplored')
+            optional('create')
         }
     }
     if (project.hasProperty('seDiscordWebhook')) {

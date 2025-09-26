@@ -44,7 +44,8 @@ public final class SurvivalistEssentialsIntegration {
     public static final String REGIONS_MODID = "regions_unexplored";
     public static final String TETRA_MODID = "tetra";
     public static final String MINECRAFT_MODID = "minecraft";
-
+    public static final String CREATE_MODID = "create";
+    public static final String CARRYON_MODID = "carryon";
 
     public static Item AQUA_DRIFTWOOD;
     public static Item CHERRY_PLANKS;
