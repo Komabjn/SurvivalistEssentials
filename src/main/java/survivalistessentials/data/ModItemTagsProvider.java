@@ -41,6 +41,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             SurvivalistEssentialsWorld.ROCK_STONE
         );
         this.tag(TagManager.Items.PICKAXE_TOOLS)
+            .addTag(Tags.Items.MINING_TOOL_TOOLS)
             .addOptionalTag(SurvivalistEssentialsIntegration.mcLoc("pickaxes"))
             .addOptional(SurvivalistEssentialsIntegration.tconLoc("pickaxe"))
             .addOptional(SurvivalistEssentialsIntegration.tconLoc("pickadze"))

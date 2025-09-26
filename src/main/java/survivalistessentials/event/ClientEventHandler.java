@@ -13,7 +13,7 @@ import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 public class ClientEventHandler {
 
     @SubscribeEvent
-    public static void clientPlayerLogin(ClientPlayerNetworkEvent event) {
+    public static void clientPlayerLogin(ClientPlayerNetworkEvent.LoggingIn event) {
         if (!ModList.get().isLoaded(SurvivalistEssentialsIntegration.TS_MODID)
                 && ModList.get().isLoaded(SurvivalistEssentialsIntegration.TCON_MODID)
                 && ConfigHandler.Client.informTConCompat()) {
