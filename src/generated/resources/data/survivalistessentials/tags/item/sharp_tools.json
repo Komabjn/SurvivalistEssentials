@@ -20,6 +20,14 @@
       "id": "immersiveengineering:revolver",
       "required": false
     },
+    {
+      "id": "tetra:modular_sword",
+      "required": false
+    },
+    {
+      "id": "#minecraft:swords",
+      "required": false
+    },
     "#survivalistessentials:knife_tools",
     "#survivalistessentials:axe_tools"
   ]

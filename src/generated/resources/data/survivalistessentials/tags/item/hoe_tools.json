@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "#minecraft:hoes",
+      "required": false
+    },
+    {
       "id": "tconstruct:mattock",
       "required": false
     },
