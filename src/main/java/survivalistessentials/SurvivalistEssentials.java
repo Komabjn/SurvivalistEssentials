@@ -51,6 +51,9 @@ import survivalistessentials.sound.Sounds;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 import survivalistessentials.world.effect.SurvivalistEssentialsEffects;
 import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
+import technology.roughness.whitenoise.config.WhiteNoiseConfig;
+import technology.roughness.whitenoise.config.WhiteNoiseConfigLoader;
+import technology.roughness.whitenoise.platform.Services;
 
 @Mod(SurvivalistEssentials.MODID)
 public class SurvivalistEssentials {
@@ -60,11 +63,16 @@ public class SurvivalistEssentials {
 
     public SurvivalistEssentials(IEventBus bus, Dist dist, ModContainer container) {
         registryInit(bus);
-        ConfigHandler.init(container);
         registerListeners(bus);
         SurvivalistEssentialsModule.initRegistries(bus);
-        bus.addListener(ConfigHandler::onFileChange);
-        bus.addListener(ConfigHandler::loadConfigs);
+
+        WhiteNoiseConfig commonConfig = WhiteNoiseConfigLoader.add(WhiteNoiseConfig.Type.COMMON, ConfigHandler.COMMON_SPEC, SurvivalistEssentials.MODID);
+        commonConfig.addLoadListener((config, flags) -> {
+            ConfigHandler.init();
+        });
+        if (Services.PLATFORM.isPhysicalClient()) {
+            WhiteNoiseConfigLoader.add(WhiteNoiseConfig.Type.CLIENT, ConfigHandler.CLIENT_SPEC, SurvivalistEssentials.MODID);
+        }
     }
 
     public void registerListeners(IEventBus bus) {
