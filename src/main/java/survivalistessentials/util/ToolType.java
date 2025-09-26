@@ -33,14 +33,17 @@ public enum ToolType {
     }
 
     public boolean is(Item item) {
+        if (this.tag == null) {
+            return false;
+        }
+
         ItemStack stack = new ItemStack(item);
         AtomicBoolean hasKey = new AtomicBoolean(false);
 
-        stack.getTags().takeWhile((TagKey<Item> n) -> {
-            return !hasKey.get();
-        }).filter(tagKey -> tag == tagKey).map(tagKey -> true).forEach(hasKey::set);
+        stack.getTags().takeWhile((TagKey<Item> n) -> !hasKey.get())
+            .filter(tagKey -> tag == tagKey).map(tagKey -> true).forEach(hasKey::set);
 
-        return this.tag != null && hasKey.get();
+        return hasKey.get();
     }
 
 }
