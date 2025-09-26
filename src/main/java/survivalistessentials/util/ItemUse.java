@@ -35,6 +35,7 @@ public class ItemUse {
             "bow",
             "crossbow",
             "axe",
+            "hatchet",
             "hoe",
             "mattock",
             "kama",
@@ -155,6 +156,7 @@ public class ItemUse {
                     || toolClass.equals("building")
                     || toolClass.equals("spell")
                     || toolClass.equals("cad")
+                    || toolClass.equals("hatchet")
                     || ToolType.AXE.is(handStack.getItem());
             case "shovel" -> isCorrectToolType = toolClass.equals(type)
                     || toolClass.equals("mattock")
