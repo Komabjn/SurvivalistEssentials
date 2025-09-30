@@ -3,17 +3,20 @@ plugins {
     id 'maven-publish'
     // see https://projects.neoforged.net/neoforged/moddevgradle for new versions
     id 'net.neoforged.moddev' version '2.0.107'
-    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '3.0.7'
+    // https://plugins.gradle.org/plugin/me.modmuss50.mod-publish-plugin
     id 'me.modmuss50.mod-publish-plugin' version '1.0.0'
+    // https://plugins.gradle.org/plugin/se.bjurr.gitchangelog.git-changelog-gradle-plugin
+    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '3.0.7'
     id 'io.github.goooler.shadow' version '8.1.7'
 }
 
 repositories {
     maven {
         // location of the maven that hosts Mantle and JEI files
-        name = 'Progwml6 maven'
-        url = 'https://dvs1.progwml6.com/files/maven'
+        name = 'Old JEI, Tinkers and Mantle'
+        url 'https://dvs1.progwml6.com/files/maven/'
     }
+
     maven { // TOP
         name 'McJty maven'
         url 'https://maven.k-4u.nl'
@@ -28,15 +31,18 @@ repositories {
             includeGroup 'curse.maven'
         }
     }
+
     maven {
         // Patchouli && Provider
-        name = "Blame Jared"
-        url = "https://maven.blamejared.com"
+        name = 'BlameJared Maven (CrT / Bookshelf / JEI (Newer) / vazkii / xyz)'
+        url = 'https://maven.blamejared.com'
     }
+
     maven {
         name = 'Illusive Soulworks'
         url = 'https://maven.theillusivec4.top/'
     }
+
     maven {
         name = 'GeckoLib'
         url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
@@ -45,6 +51,7 @@ repositories {
             includeGroup('com.eliotlash.mclib')
         }
     }
+
     maven {
         name = 'wendall911 maven'
         url = 'https://raw.githubusercontent.com/wendall911/maven/main/'
@@ -176,47 +183,31 @@ jar {
     }
 }
 
+def expandProps = [
+    'version': actualVersion,
+    'minecraft_version': minecraft_version,
+    'license': license,
+    'mod_id': mod_id,
+    'mod_author': mod_author,
+    'mod_description': mod_description,
+    'mod_display_name': mod_display_name,
+    'mod_name': mod_name,
+    'mod_credits': mod_credits,
+    'mod_update_branch': mod_update_branch,
+    'neoforge_mc_version_range': neoforge_mc_version_range,
+    'neoforge_loader_version_range': neoforge_loader_version_range,
+    'pack_format': pack_format,
+    'curseforge_slug': curseforge_slug
+]
+
 processResources {
     def resourceTargets = ['META-INF/neoforge.mods.toml', 'pack.mcmeta', '*.mixins.json']
-    def expandProps = [
-        'version': actualVersion,
-        'issue_tracker': issue_tracker,
-        'license': license,
-        'mod_id': mod_id,
-        'display_name': display_name,
-        'mod_description': mod_description,
-        'display_url': display_url,
-        'mod_update_branch': mod_update_branch,
-        'mod_author': mod_author,
-        'mod_credits': mod_credits,
-        'neoforge_mc_version_range': neoforge_mc_version_range,
-        'neoforge_loader_version_range': neoforge_loader_version_range
-    ]
     exclude '.cache'
 
     filesMatching(resourceTargets) {
         expand expandProps
     }
     inputs.properties(expandProps)
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            groupId project.group
-            artifactId project.archivesBaseName
-            version project.version
-            // This gives us the built obfuscated version Forge requires
-            artifact jar
-        }
-    }
-    repositories {
-        if (System.getenv('local_maven') != null) {
-            maven {
-                url 'file://' + System.getenv('local_maven')
-            }
-        }
-    }
 }
 
 task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
@@ -233,7 +224,7 @@ def updates = tasks.register("generateUpdates", Copy) {
 
     it.from("./files/templates/") {
         include 'updates.json'
-        expand 'version': actualVersion, 'minecraft_version': minecraft_version
+        expand expandProps
     }
 
     it.into 'files/'
@@ -255,15 +246,23 @@ publishMods {
     modLoaders.add('neoforge')
     dryRun = providers.environmentVariable('DO_RELEASE').getOrNull() == null
 
-    if (project.hasProperty('securseApiKey')) {
+    if (project.hasProperty("${curseforge_api_key_prop}")) {
         curseforge {
-            accessToken = project.securseApiKey
-            projectId = project.securseId
-            projectSlug = project.seSlug
+            accessToken = project.property("${curseforge_api_key_prop}")
+            projectId = "${curseforge_id}"
+            projectSlug = "${curseforge_slug}"
             javaVersions.add(JavaVersion.toVersion("${java_version}"))
             clientRequired = true
             serverRequired = true
             minecraftVersions.addAll("${release_versions}".split(','))
+            optional('actually-harvest')
+            optional('betterdays')
+            optional('charged-charms')
+            optional('creeper-fireworks')
+            optional('homeostatic')
+            optional('simpletextoverlay')
+            optional('ready-player-fun')
+            optional('tinkersurvival')
             optional('configured')
             optional('catalogue')
             optional('fruit-trees')
@@ -289,11 +288,19 @@ publishMods {
             optional('create')
         }
     }
-    if (project.hasProperty('seModrinthId')) {
+    if (project.hasProperty("${modrinth_api_key_prop}")) {
         modrinth {
-            accessToken = project.modrinthKey
-            projectId = project.seModrinthId
+            accessToken = project.property("${modrinth_api_key_prop}")
+            projectId = "${modrinth_id}"
             minecraftVersions.addAll("${release_versions}".split(','))
+            optional('actually-harvest')
+            optional('betterdays')
+            optional('charged-charms')
+            optional('creeper-fireworks-mod')
+            optional('homeostatic')
+            optional('simpletextoverlay')
+            optional('ready-player-fun')
+            optional('tinkersurvival')
             optional('quark')
             optional('allyoucaneat')
             optional('botania')
@@ -306,14 +313,34 @@ publishMods {
             optional('create')
         }
     }
-    if (project.hasProperty('seDiscordWebhook')) {
+    if (project.hasProperty("${discord_webhook_prop}")) {
         discord {
-            webhookUrl = project.seDiscordWebhook
-            dryRunWebhookUrl = project.discordDryrunWebhook
-            username = "wendall911"
+            webhookUrl = project.property("${discord_webhook_prop}")
+            dryRunWebhookUrl = project.property("${discord_dryrun_webhook_prop}")
+            username = "${mod_author}"
             content = changelog.map {
-                "# A new version of Survivalist Essentials for NeoForge ${minecraft_version} has been released! \n" + it
+                "# A new version of ${mod_display_name} for NeoForge ${minecraft_version} has been released! \n" + it
             }
         }
     }
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId project.group
+            artifactId project.archivesBaseName
+            version project.version
+            // This gives us the built obfuscated version Forge requires
+            artifact jar
+        }
+    }
+    repositories {
+        if (System.getenv('local_maven') != null) {
+            maven {
+                url 'file://' + System.getenv('local_maven')
+            }
+        }
+    }
+}
+
