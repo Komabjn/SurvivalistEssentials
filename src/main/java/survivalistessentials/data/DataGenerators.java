@@ -22,6 +22,7 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import survivalistessentials.data.client.ModBlockStateProvider;
 import survivalistessentials.data.client.ModItemModelProvider;
+import survivalistessentials.data.client.SurvivalistEssentialsLanguageProvider;
 import survivalistessentials.data.client.guidebook.SurvivalistEssentialsBookProvider;
 import survivalistessentials.data.loot.ModLootTables;
 import survivalistessentials.data.loot.GlobalLootModifier;
@@ -74,6 +75,7 @@ public final class DataGenerators {
         ));
 
         gen.addProvider(event.includeServer(), new SurvivalistEssentialsBookProvider(packOutput, provider));
+        gen.addProvider(event.includeServer(), new SurvivalistEssentialsLanguageProvider(packOutput));
     }
 
 }

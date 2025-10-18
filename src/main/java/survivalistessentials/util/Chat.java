@@ -10,13 +10,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import survivalistessentials.SurvivalistEssentials;
+
 public class Chat {
 
-    public static final String NOTICE = "message.notice";
-    public static final String WARNING = "message.warning";
-    public static final String TOOL_BROKE = "message.tool_broke";
-    public static final String WRONG_TOOL = "message.wrong_tool";
-    public static final String SARCASTIC_WRONG_TOOL = "message.wrong_tool2";
+    public static final String NOTICE = "message." + SurvivalistEssentials.MODID + ".notice";
+    public static final String WARNING = "message." + SurvivalistEssentials.MODID + ".warning";
+    public static final String TOOL_BROKE = "message." + SurvivalistEssentials.MODID + ".tool_broke";
+    public static final String WRONG_TOOL = "message." + SurvivalistEssentials.MODID + ".wrong_tool";
+    public static final String SARCASTIC_WRONG_TOOL = "message." + SurvivalistEssentials.MODID + ".wrong_tool2";
 
     public static void sendMessage(Player player, String title) {
         Component message = Component.translatable(title).withStyle(ChatFormatting.RED);

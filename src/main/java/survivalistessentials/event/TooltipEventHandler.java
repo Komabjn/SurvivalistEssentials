@@ -9,6 +9,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
+import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.util.ItemUse;
 
 public class TooltipEventHandler {
@@ -22,21 +23,22 @@ public class TooltipEventHandler {
 
         if (!ItemUse.getToolClass(stack).equals("unknown") && !ItemUse.isAllowedTool(stack)) {
             String type = ItemUse.getToolClass(stack);
-            tooltip = "tooltip.uselessTool2";
+            tooltip = "tooltip." + SurvivalistEssentials.MODID + ".uselessTool2";
 
             if (!type.equals("unknown")) {
                 switch (type) {
-                    case "bow", "crossbow" -> tooltip = "tooltip.uselessBow1";
-                    case "hoe" -> tooltip = "tooltip.uselessHoe1";
-                    case "pickaxe" -> tooltip = "tooltip.uselessTool1";
-                    case "axe", "darkstar", "spear", "sword", "weapon" -> tooltip = "tooltip.uselessWeapon1";
+                    case "bow", "crossbow" -> tooltip = "tooltip." + SurvivalistEssentials.MODID + ".uselessBow1";
+                    case "hoe" -> tooltip = "tooltip." + SurvivalistEssentials.MODID + ".uselessHoe1";
+                    case "pickaxe" -> tooltip = "tooltip." + SurvivalistEssentials.MODID + ".uselessTool1";
+                    case "axe", "darkstar", "spear", "sword", "weapon" ->
+                        tooltip = "tooltip." + SurvivalistEssentials.MODID + ".uselessWeapon1";
                     default -> {
                     }
                 }
             }
         }
         else if (ItemUse.isArmor(stack) && !ItemUse.isAllowedArmor(stack)) {
-            tooltip = "tooltip.uselessArmor1";
+            tooltip = "tooltip." + SurvivalistEssentials.MODID + ".uselessArmor1";
         }
 
         if (!tooltip.isEmpty()) {
