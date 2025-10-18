@@ -22,6 +22,7 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import survivalistessentials.data.client.ModBlockStateProvider;
 import survivalistessentials.data.client.ModItemModelProvider;
+import survivalistessentials.data.client.guidebook.SurvivalistEssentialsBookProvider;
 import survivalistessentials.data.loot.ModLootTables;
 import survivalistessentials.data.loot.GlobalLootModifier;
 import survivalistessentials.data.overrides.BlockTagsOverrideProvider;
@@ -30,7 +31,7 @@ import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
 import survivalistessentials.world.modifier.SurvivalistEssentialsBiomeModifiers;
 
-@EventBusSubscriber(modid = SurvivalistEssentials.MODID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = SurvivalistEssentials.MODID)
 public final class DataGenerators {
 
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
@@ -72,7 +73,7 @@ public final class DataGenerators {
                 Set.of(SurvivalistEssentials.MODID)
         ));
 
-        //gen.addProvider(event.includeServer(), new ModBookProvider(packOutput));
+        gen.addProvider(event.includeServer(), new SurvivalistEssentialsBookProvider(packOutput, provider));
     }
 
 }

@@ -1,34 +1,36 @@
-package survivalistessentials.data.client.patchouli;
-/*
+package survivalistessentials.data.client.guidebook;
+
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 import org.jetbrains.annotations.NotNull;
 
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
-import xyz.brassgoggledcoders.patchouliprovider.BookBuilder;
-import xyz.brassgoggledcoders.patchouliprovider.PatchouliBookProvider;
+import guidebook.api.data.BookBuilder;
+import guidebook.api.data.GuidebookBookProvider;
 
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 import survivalistessentials.SurvivalistEssentials;
 
-public class ModBookProvider extends PatchouliBookProvider {
+public class SurvivalistEssentialsBookProvider extends GuidebookBookProvider {
 
-    public ModBookProvider(@NotNull final PackOutput packOutput) {
-        super(packOutput, SurvivalistEssentials.MODID, "en_us");
+    public SurvivalistEssentialsBookProvider(@NotNull final PackOutput packOutput, CompletableFuture<Provider> lookupProvider) {
+        super(packOutput, SurvivalistEssentials.MODID, "en_us", lookupProvider);
     }
 
     @Override
-    protected void addBooks(Consumer<BookBuilder> consumer) {
+    protected void addBooks(Consumer<BookBuilder> consumer, HolderLookup.Provider provider) {
         String bookName = "item.survivalistessentials.book";
         String landingText = "info.survivalistessentials.book.intro";
         String subTitle = "info.survivalistessentials.book.subtitle";
 
-        BookBuilder bookBuilder = createBookBuilder("book", bookName, landingText)
+        BookBuilder bookBuilder = createBookBuilder("book", bookName, landingText, provider)
             .setSubtitle(subTitle)
             .setCustomBookItem(new ItemStack(SurvivalistEssentialsItems.BOOK))
             .setCreativeTab(SurvivalistEssentials.MODID + ".items")
@@ -36,8 +38,7 @@ public class ModBookProvider extends PatchouliBookProvider {
             .setDontGenerateBook(true)
             .setShowProgress(false)
             .setUseBlockyFont(true)
-            .setI18n(true)
-            .setUseResourcePack(true);
+            .setI18n(true);
 
         bookBuilder = addGettingStarted(bookBuilder);
         bookBuilder = addTools(bookBuilder);
@@ -71,7 +72,7 @@ public class ModBookProvider extends PatchouliBookProvider {
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.PLANT_FIBER))
             .setTitle("info.survivalistessentials.book.getting_started.materials.plant_fiber.title")
             .setText("info.survivalistessentials.book.getting_started.materials.plant_fiber.desc").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "plant_string"))
+        .addCraftingPage(SurvivalistEssentials.prefix("plant_string"))
             .setTitle("info.survivalistessentials.book.getting_started.materials.plant_string.title")
             .setText("info.survivalistessentials.book.getting_started.materials.plant_string.desc").build()
         .build().build();
@@ -90,28 +91,28 @@ public class ModBookProvider extends PatchouliBookProvider {
             "info.survivalistessentials.book.tools.crude_tools.name",
             new ItemStack(SurvivalistEssentialsItems.CRUDE_SAW)
         )
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "crude_knife"))
+        .addCraftingPage(SurvivalistEssentials.prefix("crude_knife"))
             .setTitle("item.survivalistessentials.crude_knife")
             .setText("info.survivalistessentials.book.tools.crude_tools.knife.desc").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "flint_shard"))
+        .addCraftingPage(SurvivalistEssentials.prefix("flint_shard"))
             .setTitle("info.survivalistessentials.book.tools.crude_tools.knife_recipes.name")
             .setText("info.survivalistessentials.book.tools.crude_tools.knife_recipes.desc").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "crude_hatchet"))
+        .addCraftingPage(SurvivalistEssentials.prefix("crude_hatchet"))
             .setTitle("item.survivalistessentials.crude_hatchet")
             .setText("info.survivalistessentials.book.tools.crude_tools.hatchet.desc").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "crude_saw_blade"))
+        .addCraftingPage(SurvivalistEssentials.prefix("crude_saw_blade"))
             .setTitle("item.survivalistessentials.crude_saw_blade")
             .setText("info.survivalistessentials.book.tools.crude_tools.crude_saw_blade.desc").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "saw_handle"))
+        .addCraftingPage(SurvivalistEssentials.prefix("saw_handle"))
             .setTitle("item.survivalistessentials.saw_handle")
             .setText("info.survivalistessentials.book.tools.crude_tools.saw_handle.desc").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "crude_saw"))
+        .addCraftingPage(SurvivalistEssentials.prefix("crude_saw"))
             .setTitle("item.survivalistessentials.crude_saw")
             .setText("info.survivalistessentials.book.tools.crude_tools.crude_saw.desc").build()
-        .addCraftingPage(new ResourceLocation("minecraft:oak_planks"))
+        .addCraftingPage(SurvivalistEssentials.loc("minecraft", "oak_planks"))
             .setTitle("info.survivalistessentials.book.tools.crude_tools.planks.name")
             .setText("info.survivalistessentials.book.tools.crude_tools.planks.desc").build()
-        .addCraftingPage(new ResourceLocation("stick"))
+        .addCraftingPage(SurvivalistEssentials.loc("minecraft","stick"))
             .setTitle("info.survivalistessentials.book.tools.crude_tools.sticks.name")
             .setText("info.survivalistessentials.book.tools.crude_tools.sticks.desc").build()
         .build()
@@ -124,12 +125,12 @@ public class ModBookProvider extends PatchouliBookProvider {
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.SHARP_SAW))
             .setText("info.survivalistessentials.book.tools.improved_tools.intro")
             .setTitle("info.survivalistessentials.book.tools.improved_tools.subtitle").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "basic_saw"))
-            .setRecipe2(new ResourceLocation(SurvivalistEssentials.MODID, "basic_saw_blade")).build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "sharp_saw"))
-            .setRecipe2(new ResourceLocation(SurvivalistEssentials.MODID, "sharp_saw_blade")).build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "basic_knife"))
-            .setRecipe2(new ResourceLocation(SurvivalistEssentials.MODID, "sharp_knife")).build()
+        .addCraftingPage(SurvivalistEssentials.prefix("basic_saw"))
+            .setRecipe2(SurvivalistEssentials.prefix("basic_saw_blade")).build()
+        .addCraftingPage(SurvivalistEssentials.prefix("sharp_saw"))
+            .setRecipe2(SurvivalistEssentials.prefix("sharp_saw_blade")).build()
+        .addCraftingPage(SurvivalistEssentials.prefix("basic_knife"))
+            .setRecipe2(SurvivalistEssentials.prefix("sharp_knife")).build()
         .build().build();
     }
 
@@ -149,16 +150,16 @@ public class ModBookProvider extends PatchouliBookProvider {
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.CLOTH))
             .setText("info.survivalistessentials.book.health.ingredients.desc")
             .setTitle("info.survivalistessentials.book.health.ingredients.subtitle").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "cloth"))
+        .addCraftingPage(SurvivalistEssentials.prefix("cloth"))
             .setTitle("item.survivalistessentials.cloth")
             .setText("info.survivalistessentials.book.health.ingredients.cloth.desc").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "mortar_and_pestle"))
+        .addCraftingPage(SurvivalistEssentials.prefix("mortar_and_pestle"))
             .setTitle("item.survivalistessentials.mortar_and_pestle")
             .setText("info.survivalistessentials.book.health.ingredients.mortar_and_pestle.desc").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "plant_paste"))
+        .addCraftingPage(SurvivalistEssentials.prefix("plant_paste"))
             .setTitle("item.survivalistessentials.plant_paste")
             .setText("info.survivalistessentials.book.health.ingredients.plant_paste.desc").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "ointment"))
+        .addCraftingPage(SurvivalistEssentials.prefix("ointment"))
             .setTitle("item.survivalistessentials.ointment")
             .setText("info.survivalistessentials.book.health.ingredients.ointment.desc").build().build()
         .addEntry(
@@ -170,15 +171,13 @@ public class ModBookProvider extends PatchouliBookProvider {
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.BANDAGE))
             .setText("info.survivalistessentials.book.health.bandages.desc")
             .setTitle("info.survivalistessentials.book.health.bandages.subtitle").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "crude_bandage"))
+        .addCraftingPage(SurvivalistEssentials.prefix("crude_bandage"))
             .setTitle("item.survivalistessentials.crude_bandage")
             .setText("info.survivalistessentials.book.health.bandages.crude_bandage.desc").build()
-        .addCraftingPage(new ResourceLocation(SurvivalistEssentials.MODID, "bandage"))
+        .addCraftingPage(SurvivalistEssentials.prefix("bandage"))
             .setTitle("item.survivalistessentials.bandage")
             .setText("info.survivalistessentials.book.health.bandages.bandage.desc").build()
         .build().build();
     }
 
 }
-
- */

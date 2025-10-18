@@ -31,8 +31,8 @@ import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-import static survivalistessentials.SurvivalistEssentials.loc;
 import static survivalistessentials.SurvivalistEssentials.prefix;
+import static survivalistessentials.SurvivalistEssentials.loc;
 
 public class ModRecipesProvider extends RecipeProvider {
 
@@ -59,19 +59,19 @@ public class ModRecipesProvider extends RecipeProvider {
                 .pattern("RR")
                 .pattern("RR")
                 .unlockedBy("has_loose_rock", has(rockStone))
-                .save(recipeOutput, loc("cobblestone_from_rocks"));
+                .save(recipeOutput, prefix("cobblestone_from_rocks"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, rockStone, 4)
                 .requires(Blocks.COBBLESTONE)
                 .unlockedBy("has_cobblestone", has(Blocks.COBBLESTONE))
-                .save(recipeOutput, loc("rocks_from_cobblestone"));
+                .save(recipeOutput, prefix("rocks_from_cobblestone"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, Items.FLINT)
                 .define('S', flintShard)
                 .pattern("SS")
                 .pattern("SS")
                 .unlockedBy("has_flint_shard", has(flintShard))
-                .save(recipeOutput, loc("flint_from_shards"));
+                .save(recipeOutput, prefix("flint_from_shards"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, plantString)
                 .define('F', plantFiber)
@@ -103,7 +103,7 @@ public class ModRecipesProvider extends RecipeProvider {
 
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(plantString), RecipeCategory.MISC, Items.STRING, 0.1F, 50)
                 .unlockedBy("has_plant_string", has(plantString))
-                .save(recipeOutput, loc("string_from_plant_string"));
+                .save(recipeOutput, prefix("string_from_plant_string"));
 
         // Add condition for recipes to hide stuff if TinkerSurvival is loaded
         wrapped = recipeOutput.withConditions(new NotCondition(new ModLoadedCondition(SurvivalistEssentialsIntegration.TS_MODID)));
@@ -223,21 +223,21 @@ public class ModRecipesProvider extends RecipeProvider {
                 .requires(TagManager.Items.KNIFE_TOOLS)
                 .group("sticks")
                 .unlockedBy("has_sapling", has(ItemTags.SAPLINGS))
-                .save(recipeOutput, loc("stick_from_sapling"));
+                .save(recipeOutput, prefix("stick_from_sapling"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STRING, 2)
                 .requires(ItemTags.WOOL)
                 .requires(crudeKnife)
                 .group("string")
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
-                .save(recipeOutput, loc("string_from_wool"));
+                .save(recipeOutput, prefix("string_from_wool"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STRING, 4)
                 .requires(ItemTags.WOOL)
                 .requires(TagManager.Items.ADVANCED_KNIFE_TOOLS)
                 .group("string")
                 .unlockedBy("has_wool", has(ItemTags.WOOL))
-                .save(recipeOutput, loc("string_from_wool_advanced"));
+                .save(recipeOutput, prefix("string_from_wool_advanced"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, flintShard, 2)
                 .requires(TagManager.Items.FLINT_KNAPPABLE)
@@ -269,22 +269,21 @@ public class ModRecipesProvider extends RecipeProvider {
         // Leather from Smoking
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(TagManager.Items.COOKED_MEAT), RecipeCategory.FOOD, Items.LEATHER, 0.35F, 100)
             .unlockedBy("has_cooked_meat", has(TagManager.Items.COOKED_MEAT))
-            .save(recipeOutput, loc("leather_from_cooked_meat_smoking"));
+            .save(recipeOutput, prefix("leather_from_cooked_meat_smoking"));
 
         // Book
-        wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.PATCHOULI_MODID));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SurvivalistEssentialsItems.BOOK)
             .requires(Items.DIRT)
             .requires(Items.DIRT)
             .group("books")
             .unlockedBy("has_loose_rock", has(rockStone))
-            .save(wrapped, loc("book_from_dirt"));
+            .save(recipeOutput, prefix("book_from_dirt"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.DIRT, 2)
             .requires(SurvivalistEssentialsItems.BOOK)
             .group("books")
             .unlockedBy("has_intro_book", has(SurvivalistEssentialsItems.BOOK))
-            .save(wrapped, loc("dirt_from_book"));
+            .save(recipeOutput, prefix("dirt_from_book"));
 
         // Saw Recipes
         // Minecraft
@@ -363,7 +362,7 @@ public class ModRecipesProvider extends RecipeProvider {
 
         // Ars Nouveau
         wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.AN_MODID));
-        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.AN_ARCHWOOD_PLANKS, ItemTags.create(prefix("c", "logs/archwood")), "has_logs");
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.AN_ARCHWOOD_PLANKS, ItemTags.create(loc("c", "logs/archwood")), "has_logs");
 
         // Undergarden
         wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.UNDERGARDEN_MODID));
@@ -441,7 +440,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
                 .unlockedBy("has_advanced_saw", has(TagManager.Items.ADVANCED_SAW_TOOLS))
-                .save(wrapped, prefix(SurvivalistEssentialsIntegration.TF_MODID, "giant_log_to_oak_planks"));
+                .save(wrapped, loc(SurvivalistEssentialsIntegration.TF_MODID, "giant_log_to_oak_planks"));
 
         // Aquaculture
         wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.AQUA_MODID));
@@ -450,14 +449,14 @@ public class ModRecipesProvider extends RecipeProvider {
                 .requires(SurvivalistEssentialsItems.CRUDE_SAW)
                 .group("planks")
                 .unlockedBy("has_driftwood", has(TagManager.Items.AQUA_DRIFTWOOD))
-                .save(wrapped, prefix(SurvivalistEssentialsIntegration.AQUA_MODID, "planks_from_driftwood"));
+                .save(wrapped, loc(SurvivalistEssentialsIntegration.AQUA_MODID, "planks_from_driftwood"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.OAK_PLANKS, 4)
                 .requires(SurvivalistEssentialsIntegration.AQUA_DRIFTWOOD)
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
                 .unlockedBy("has_driftwood", has(TagManager.Items.AQUA_DRIFTWOOD))
-                .save(wrapped, loc("planks_from_driftwood"));
+                .save(wrapped, prefix("planks_from_driftwood"));
 
         // Immersive Engineering
         wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.IE_MODID));
@@ -467,7 +466,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .requires(SurvivalistEssentialsItems.CRUDE_SAW)
                 .group("treated_sticks")
                 .unlockedBy("has_treated_planks", has(TagManager.Items.IE_TREATED_WOOD))
-                .save(wrapped, loc("stick_treated"));
+                .save(wrapped, prefix("stick_treated"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SurvivalistEssentialsIntegration.IE_STICK_TREATED, 4)
                 .requires(TagManager.Items.IE_TREATED_WOOD)
@@ -475,7 +474,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("treated_sticks")
                 .unlockedBy("has_treated_planks", has(TagManager.Items.IE_TREATED_WOOD))
-                .save(wrapped, prefix(SurvivalistEssentialsIntegration.IE_MODID, "crafting/stick_treated"));
+                .save(wrapped, loc(SurvivalistEssentialsIntegration.IE_MODID, "crafting/stick_treated"));
 
         // Ecologics
         wrapped = recipeOutput.withConditions(new ModLoadedCondition(SurvivalistEssentialsIntegration.ECO_MODID));
@@ -560,14 +559,14 @@ public class ModRecipesProvider extends RecipeProvider {
             .requires(SurvivalistEssentialsItems.CRUDE_SAW)
             .group("sticks")
             .unlockedBy("has_branch", has(item))
-            .save(recipeOutput, prefix(modid, folder + name));
+            .save(recipeOutput, loc(modid, folder + name));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STICK, 4)
             .requires(item)
             .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
             .group("sticks")
             .unlockedBy("has_branch", has(item))
-            .save(recipeOutput, loc(modid + "_" + name));
+            .save(recipeOutput, prefix(modid + "_" + name));
     }
 
     private static void plankRecipeBuilder(RecipeOutput recipeOutput, ItemLike item, TagKey<Item> itemTag, String label) {
@@ -582,19 +581,19 @@ public class ModRecipesProvider extends RecipeProvider {
         String modid = itemLoc.getNamespace();
 
         if (modid.contains(SurvivalistEssentialsIntegration.TCON_MODID)) {
-            plankOverrideRecipe.save(recipeOutput, prefix(SurvivalistEssentialsIntegration.TCON_MODID, "world/wood/" + name.split("_")[0] + "/planks"));
+            plankOverrideRecipe.save(recipeOutput, loc(SurvivalistEssentialsIntegration.TCON_MODID, "world/wood/" + name.split("_")[0] + "/planks"));
         }
         else if (modid.contains(SurvivalistEssentialsIntegration.QUARK_MODID)) {
-            plankOverrideRecipe.save(recipeOutput, prefix(SurvivalistEssentialsIntegration.QUARK_MODID, "world/crafting/woodsets/" + name.split("_")[0] + "/planks"));
+            plankOverrideRecipe.save(recipeOutput, loc(SurvivalistEssentialsIntegration.QUARK_MODID, "world/crafting/woodsets/" + name.split("_")[0] + "/planks"));
         }
         else if (modid.contains(SurvivalistEssentialsIntegration.MALUM_MODID)) {
-            plankOverrideRecipe.save(recipeOutput, prefix(SurvivalistEssentialsIntegration.MALUM_MODID, name));
+            plankOverrideRecipe.save(recipeOutput, loc(SurvivalistEssentialsIntegration.MALUM_MODID, name));
         }
         else if (modid.contains(SurvivalistEssentialsIntegration.IFD_MODID)) {
-            plankOverrideRecipe.save(recipeOutput, prefix(SurvivalistEssentialsIntegration.IFD_MODID, "dread_wood_planks"));
+            plankOverrideRecipe.save(recipeOutput, loc(SurvivalistEssentialsIntegration.IFD_MODID, "dread_wood_planks"));
         }
         else if (itemTag.equals(TagManager.Items.BYG_PALO_VERDE_LOGS)) {
-            plankOverrideRecipe.save(recipeOutput, prefix(SurvivalistEssentialsIntegration.BYG_MODID, "birch_planks_from_palo_verde_logs"));
+            plankOverrideRecipe.save(recipeOutput, loc(SurvivalistEssentialsIntegration.BYG_MODID, "birch_planks_from_palo_verde_logs"));
             modid = SurvivalistEssentialsIntegration.BYG_MODID;
         }
         else {
@@ -606,7 +605,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
                 .unlockedBy(label, has(TagManager.Items.ADVANCED_SAW_TOOLS))
-                .save(recipeOutput, loc(modid + "_" + name));
+                .save(recipeOutput, prefix(modid + "_" + name));
     }
 
     private static void itemPlankRecipeBuilder(RecipeOutput recipeOutput, ItemLike output, TagKey<Item> input, String label, String path, String name, String modid) {
@@ -616,14 +615,14 @@ public class ModRecipesProvider extends RecipeProvider {
                 .group("planks")
                 .unlockedBy(label, has(input));
 
-        plankOverrideRecipe.save(recipeOutput, prefix(modid, path + name));
+        plankOverrideRecipe.save(recipeOutput, loc(modid, path + name));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, output, 4)
                 .requires(input)
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
                 .unlockedBy(label, has(TagManager.Items.ADVANCED_SAW_TOOLS))
-                .save(recipeOutput, loc(modid + "_" + name));
+                .save(recipeOutput, prefix(modid + "_" + name));
     }
 
     private static void bambooRecipeBuilder(RecipeOutput recipeOutput, ItemLike item, TagKey<Item> itemTag, String label) {
@@ -644,7 +643,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .requires(TagManager.Items.ADVANCED_SAW_TOOLS)
                 .group("planks")
                 .unlockedBy(label, has(TagManager.Items.ADVANCED_SAW_TOOLS))
-                .save(recipeOutput, loc(modid + "_" + name));
+                .save(recipeOutput, prefix(modid + "_" + name));
     }
 
 }
