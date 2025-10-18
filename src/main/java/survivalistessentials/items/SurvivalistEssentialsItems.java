@@ -12,7 +12,6 @@ import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.items.item.Bandage;
 import survivalistessentials.items.item.CrudeBandage;
 import survivalistessentials.items.item.Mortar;
@@ -24,7 +23,7 @@ import survivalistessentials.items.tool.SurvivalSaw;
 
 import static net.minecraft.world.item.Item.BASE_ATTACK_SPEED_ID;
 
-import static survivalistessentials.SurvivalistEssentials.loc;
+import static survivalistessentials.SurvivalistEssentials.prefix;
 
 public final class SurvivalistEssentialsItems {
 
@@ -90,7 +89,7 @@ public final class SurvivalistEssentialsItems {
     }
 
     private static Item make(String name, Item item, boolean isTool, boolean noCategory) {
-        ResourceLocation loc = loc(name);
+        ResourceLocation loc = prefix(name);
 
         ALL.put(loc, item);
 
@@ -142,11 +141,7 @@ public final class SurvivalistEssentialsItems {
     }
 
     public static Item registerBook(String name) {
-        return make(name, new SurvivalistEssentialsBook(
-            new Item.Properties(),
-            name,
-            SurvivalistEssentials.MODID
-        ), false, true);
+        return make(name, new SurvivalistEssentialsBook(), false, true);
     }
 
     public static Map<ResourceLocation, Item> getAllIngredients() {
