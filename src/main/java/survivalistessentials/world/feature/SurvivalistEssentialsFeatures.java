@@ -21,12 +21,12 @@ import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 
-import static survivalistessentials.SurvivalistEssentials.loc;
+import static survivalistessentials.SurvivalistEssentials.prefix;
 
 public final class SurvivalistEssentialsFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> LOOSE_ROCKS_KEY = createFeatureKey("loose_rocks");
-    public static final ResourceLocation LOOSE_ROCKS_ID = loc("loose_rocks");
+    public static final ResourceLocation LOOSE_ROCKS_ID = prefix("loose_rocks");
     public static final Feature<NoneFeatureConfiguration> LOOSE_ROCKS_FEATURE = new LooseRocks();
     public static final ResourceKey<PlacedFeature> PLACED_LOOSE_ROCKS_KEY = createPlacementKey("loose_rocks");
 
@@ -63,11 +63,11 @@ public final class SurvivalistEssentialsFeatures {
     }
 
     private static ResourceKey<ConfiguredFeature<?, ?>> createFeatureKey(String pName) {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, loc(pName));
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, prefix(pName));
     }
 
     private static ResourceKey<PlacedFeature> createPlacementKey(String pKey) {
-        return ResourceKey.create(Registries.PLACED_FEATURE, loc(pKey));
+        return ResourceKey.create(Registries.PLACED_FEATURE, prefix(pKey));
     }
 
 }

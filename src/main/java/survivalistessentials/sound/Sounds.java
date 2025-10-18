@@ -7,7 +7,7 @@ import java.util.function.BiConsumer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 
-import static survivalistessentials.SurvivalistEssentials.loc;
+import static survivalistessentials.SurvivalistEssentials.prefix;
 
 public class Sounds {
 
@@ -33,7 +33,7 @@ public class Sounds {
     }
 
     private static SoundEvent makeSoundEvent(String name) {
-        ResourceLocation loc = loc(name);
+        ResourceLocation loc = prefix(name);
         SoundEvent soundEvent = SoundEvent.createVariableRangeEvent(loc);
 
         ALL.put(loc, soundEvent);

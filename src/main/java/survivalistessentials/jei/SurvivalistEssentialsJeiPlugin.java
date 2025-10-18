@@ -21,7 +21,7 @@ import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-import static survivalistessentials.SurvivalistEssentials.loc;
+import static survivalistessentials.SurvivalistEssentials.prefix;
 
 @SuppressWarnings("unused")
 @JeiPlugin
@@ -29,7 +29,7 @@ public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid() {
-        return loc("jei_plugin");
+        return prefix("jei_plugin");
     }
 
     @Override

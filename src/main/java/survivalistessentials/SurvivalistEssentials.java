@@ -85,7 +85,7 @@ public class SurvivalistEssentials {
     public static final class RegistryListener {
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerEvent(RegisterEvent event) {
-            event.register(Registries.LOOT_CONDITION_TYPE, loc("is_tag"), () -> LootItemBlockIsTagCondition.LOOT_ITEM_BLOCK_IS_TAG);
+            event.register(Registries.LOOT_CONDITION_TYPE, prefix("is_tag"), () -> LootItemBlockIsTagCondition.LOOT_ITEM_BLOCK_IS_TAG);
 
             if (event.getRegistryKey().equals(Registries.CREATIVE_MODE_TAB)) {
                 CreativeTabs.init();
@@ -176,12 +176,12 @@ public class SurvivalistEssentials {
         });
     }
 
-    public static ResourceLocation prefix(String namespace, String path) {
+    public static ResourceLocation loc(String namespace, String path) {
         return ResourceLocation.fromNamespaceAndPath(namespace, path);
     }
 
-    public static ResourceLocation loc(String path) {
-        return prefix(SurvivalistEssentials.MODID, path);
+    public static ResourceLocation prefix(String path) {
+        return loc(SurvivalistEssentials.MODID, path);
     }
 
 }

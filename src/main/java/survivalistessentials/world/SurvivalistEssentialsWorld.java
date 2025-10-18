@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.Block;
 import survivalistessentials.world.block.LooseRockBlock;
 import survivalistessentials.world.item.RockStone;
 
-import static survivalistessentials.SurvivalistEssentials.loc;
+import static survivalistessentials.SurvivalistEssentials.prefix;
 
 public final class SurvivalistEssentialsWorld {
 
@@ -62,7 +62,7 @@ public final class SurvivalistEssentialsWorld {
     private static Block makeBlock(String name) {
         Block block = new LooseRockBlock();
 
-        ALL_BLOCKS.put(loc(name), block);
+        ALL_BLOCKS.put(prefix(name), block);
 
         return block;
     }
@@ -76,7 +76,7 @@ public final class SurvivalistEssentialsWorld {
     }
 
     private static Item make(String name, Item item) {
-        ResourceLocation loc = loc(name);
+        ResourceLocation loc = prefix(name);
 
         ALL.put(loc, item);
 

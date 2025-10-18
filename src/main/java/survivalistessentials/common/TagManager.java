@@ -6,8 +6,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import static survivalistessentials.SurvivalistEssentials.loc;
 import static survivalistessentials.SurvivalistEssentials.prefix;
+import static survivalistessentials.SurvivalistEssentials.loc;
 
 public final class TagManager {
 
@@ -204,7 +204,7 @@ public final class TagManager {
         }
 
         private static TagKey<Item> getItemTag(String modid, String name) {
-            return TagKey.create(Registries.ITEM, prefix(modid, name));
+            return TagKey.create(Registries.ITEM, loc(modid, name));
         }
     }
 
@@ -229,11 +229,11 @@ public final class TagManager {
     }
 
     public static ResourceLocation identifier(String path) {
-        return loc(path);
+        return prefix(path);
     }
 
     public static ResourceLocation commonLoc(String path) {
-        return prefix("c", path);
+        return loc("c", path);
     }
 
 }

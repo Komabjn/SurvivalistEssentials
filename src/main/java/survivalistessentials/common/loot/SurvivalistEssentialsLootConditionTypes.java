@@ -5,11 +5,11 @@ import java.util.function.BiConsumer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 
-import static survivalistessentials.SurvivalistEssentials.loc;
+import static survivalistessentials.SurvivalistEssentials.prefix;
 
 public class SurvivalistEssentialsLootConditionTypes {
 
-    public static final ResourceLocation BLOCK_IS_TAG_ID = loc("block_is_tag");
+    public static final ResourceLocation BLOCK_IS_TAG_ID = prefix("block_is_tag");
     public static final LootItemConditionType BLOCK_IS_TAG = new LootItemConditionType(LootItemBlockIsTagCondition.CODEC);
 
     public static void init(BiConsumer<LootItemConditionType, ResourceLocation> consumer) {
