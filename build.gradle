@@ -109,8 +109,8 @@ dependencies {
         transitive = false
     }
 
-    implementation "vazkii.patchouli:Patchouli:${patchouli_version}-NEOFORGE-SNAPSHOT"
-    //implementation "xyz.brassgoggledcoders:PatchouliProvider:${patchouli_provider_version}"
+    implementation group: 'technology.roughness.guidebook', name: "guidebook-${minecraft_version}-neoforge", version: "${guidebook_version}"
+    jarJar group: 'technology.roughness.guidebook', name: "guidebook-${minecraft_version}-neoforge", version: "${guidebook_version}"
 
     //runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}"
     //compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}:api"
