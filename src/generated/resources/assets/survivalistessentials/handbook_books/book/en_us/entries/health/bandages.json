@@ -4,19 +4,19 @@
   "name": "info.survivalistessentials.book.health.bandages.name",
   "pages": [
     {
-      "type": "guidebook:spotlight",
+      "type": "handbook:spotlight",
       "item": "survivalistessentials:bandage",
       "text": "info.survivalistessentials.book.health.bandages.desc",
       "title": "info.survivalistessentials.book.health.bandages.subtitle"
     },
     {
-      "type": "guidebook:crafting",
+      "type": "handbook:crafting",
       "recipe": "survivalistessentials:crude_bandage",
       "text": "info.survivalistessentials.book.health.bandages.crude_bandage.desc",
       "title": "item.survivalistessentials.crude_bandage"
     },
     {
-      "type": "guidebook:crafting",
+      "type": "handbook:crafting",
       "recipe": "survivalistessentials:bandage",
       "text": "info.survivalistessentials.book.health.bandages.bandage.desc",
       "title": "item.survivalistessentials.bandage"

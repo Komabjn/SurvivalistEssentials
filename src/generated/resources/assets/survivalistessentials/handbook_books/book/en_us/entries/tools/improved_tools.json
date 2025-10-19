@@ -4,23 +4,23 @@
   "name": "info.survivalistessentials.book.tools.improved_tools.name",
   "pages": [
     {
-      "type": "guidebook:spotlight",
+      "type": "handbook:spotlight",
       "item": "survivalistessentials:sharp_saw",
       "text": "info.survivalistessentials.book.tools.improved_tools.intro",
       "title": "info.survivalistessentials.book.tools.improved_tools.subtitle"
     },
     {
-      "type": "guidebook:crafting",
+      "type": "handbook:crafting",
       "recipe": "survivalistessentials:basic_saw",
       "recipe2": "survivalistessentials:basic_saw_blade"
     },
     {
-      "type": "guidebook:crafting",
+      "type": "handbook:crafting",
       "recipe": "survivalistessentials:sharp_saw",
       "recipe2": "survivalistessentials:sharp_saw_blade"
     },
     {
-      "type": "guidebook:crafting",
+      "type": "handbook:crafting",
       "recipe": "survivalistessentials:basic_knife",
       "recipe2": "survivalistessentials:sharp_knife"
     }
