@@ -1,4 +1,4 @@
-package survivalistessentials.data.client.guidebook;
+package survivalistessentials.data.client.handbook;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -11,14 +11,14 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
-import guidebook.api.data.BookBuilder;
-import guidebook.api.data.GuidebookBookProvider;
+import handbook.api.data.BookBuilder;
+import handbook.api.data.HandbookBookProvider;
 
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 import survivalistessentials.SurvivalistEssentials;
 
-public class SurvivalistEssentialsBookProvider extends GuidebookBookProvider {
+public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
 
     public SurvivalistEssentialsBookProvider(@NotNull final PackOutput packOutput, CompletableFuture<Provider> lookupProvider) {
         super(packOutput, SurvivalistEssentials.MODID, "en_us", lookupProvider);

@@ -1,8 +1,8 @@
 package survivalistessentials.items.item;
 
-import guidebook.common.item.ItemModBook;
+import handbook.common.item.HandbookBook;
 
-public class SurvivalistEssentialsBook extends ItemModBook {
+public class SurvivalistEssentialsBook extends HandbookBook {
 
     public SurvivalistEssentialsBook() {
         super();
