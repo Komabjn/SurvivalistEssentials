@@ -18,6 +18,9 @@ import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 import survivalistessentials.SurvivalistEssentials;
 
+import static survivalistessentials.util.ResourceLocationHelper.prefix;
+import static technology.roughness.whitenoise.util.ResourceLocationHelper.loc;
+
 public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
 
     public SurvivalistEssentialsBookProvider(@NotNull final PackOutput packOutput, CompletableFuture<Provider> lookupProvider) {
@@ -72,7 +75,7 @@ public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.PLANT_FIBER))
             .setTitle("info.survivalistessentials.book.getting_started.materials.plant_fiber.title")
             .setText("info.survivalistessentials.book.getting_started.materials.plant_fiber.desc").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("plant_string"))
+        .addCraftingPage(prefix("plant_string"))
             .setTitle("info.survivalistessentials.book.getting_started.materials.plant_string.title")
             .setText("info.survivalistessentials.book.getting_started.materials.plant_string.desc").build()
         .build().build();
@@ -91,28 +94,28 @@ public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
             "info.survivalistessentials.book.tools.crude_tools.name",
             new ItemStack(SurvivalistEssentialsItems.CRUDE_SAW)
         )
-        .addCraftingPage(SurvivalistEssentials.prefix("crude_knife"))
+        .addCraftingPage(prefix("crude_knife"))
             .setTitle("item.survivalistessentials.crude_knife")
             .setText("info.survivalistessentials.book.tools.crude_tools.knife.desc").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("flint_shard"))
+        .addCraftingPage(prefix("flint_shard"))
             .setTitle("info.survivalistessentials.book.tools.crude_tools.knife_recipes.name")
             .setText("info.survivalistessentials.book.tools.crude_tools.knife_recipes.desc").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("crude_hatchet"))
+        .addCraftingPage(prefix("crude_hatchet"))
             .setTitle("item.survivalistessentials.crude_hatchet")
             .setText("info.survivalistessentials.book.tools.crude_tools.hatchet.desc").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("crude_saw_blade"))
+        .addCraftingPage(prefix("crude_saw_blade"))
             .setTitle("item.survivalistessentials.crude_saw_blade")
             .setText("info.survivalistessentials.book.tools.crude_tools.crude_saw_blade.desc").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("saw_handle"))
+        .addCraftingPage(prefix("saw_handle"))
             .setTitle("item.survivalistessentials.saw_handle")
             .setText("info.survivalistessentials.book.tools.crude_tools.saw_handle.desc").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("crude_saw"))
+        .addCraftingPage(prefix("crude_saw"))
             .setTitle("item.survivalistessentials.crude_saw")
             .setText("info.survivalistessentials.book.tools.crude_tools.crude_saw.desc").build()
-        .addCraftingPage(SurvivalistEssentials.loc("minecraft", "oak_planks"))
+        .addCraftingPage(loc("minecraft", "oak_planks"))
             .setTitle("info.survivalistessentials.book.tools.crude_tools.planks.name")
             .setText("info.survivalistessentials.book.tools.crude_tools.planks.desc").build()
-        .addCraftingPage(SurvivalistEssentials.loc("minecraft","stick"))
+        .addCraftingPage(loc("minecraft","stick"))
             .setTitle("info.survivalistessentials.book.tools.crude_tools.sticks.name")
             .setText("info.survivalistessentials.book.tools.crude_tools.sticks.desc").build()
         .build()
@@ -125,12 +128,12 @@ public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.SHARP_SAW))
             .setText("info.survivalistessentials.book.tools.improved_tools.intro")
             .setTitle("info.survivalistessentials.book.tools.improved_tools.subtitle").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("basic_saw"))
-            .setRecipe2(SurvivalistEssentials.prefix("basic_saw_blade")).build()
-        .addCraftingPage(SurvivalistEssentials.prefix("sharp_saw"))
-            .setRecipe2(SurvivalistEssentials.prefix("sharp_saw_blade")).build()
-        .addCraftingPage(SurvivalistEssentials.prefix("basic_knife"))
-            .setRecipe2(SurvivalistEssentials.prefix("sharp_knife")).build()
+        .addCraftingPage(prefix("basic_saw"))
+            .setRecipe2(prefix("basic_saw_blade")).build()
+        .addCraftingPage(prefix("sharp_saw"))
+            .setRecipe2(prefix("sharp_saw_blade")).build()
+        .addCraftingPage(prefix("basic_knife"))
+            .setRecipe2(prefix("sharp_knife")).build()
         .build().build();
     }
 
@@ -150,16 +153,16 @@ public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.CLOTH))
             .setText("info.survivalistessentials.book.health.ingredients.desc")
             .setTitle("info.survivalistessentials.book.health.ingredients.subtitle").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("cloth"))
+        .addCraftingPage(prefix("cloth"))
             .setTitle("item.survivalistessentials.cloth")
             .setText("info.survivalistessentials.book.health.ingredients.cloth.desc").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("mortar_and_pestle"))
+        .addCraftingPage(prefix("mortar_and_pestle"))
             .setTitle("item.survivalistessentials.mortar_and_pestle")
             .setText("info.survivalistessentials.book.health.ingredients.mortar_and_pestle.desc").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("plant_paste"))
+        .addCraftingPage(prefix("plant_paste"))
             .setTitle("item.survivalistessentials.plant_paste")
             .setText("info.survivalistessentials.book.health.ingredients.plant_paste.desc").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("ointment"))
+        .addCraftingPage(prefix("ointment"))
             .setTitle("item.survivalistessentials.ointment")
             .setText("info.survivalistessentials.book.health.ingredients.ointment.desc").build().build()
         .addEntry(
@@ -171,10 +174,10 @@ public class SurvivalistEssentialsBookProvider extends HandbookBookProvider {
         .addSpotlightPage(new ItemStack(SurvivalistEssentialsItems.BANDAGE))
             .setText("info.survivalistessentials.book.health.bandages.desc")
             .setTitle("info.survivalistessentials.book.health.bandages.subtitle").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("crude_bandage"))
+        .addCraftingPage(prefix("crude_bandage"))
             .setTitle("item.survivalistessentials.crude_bandage")
             .setText("info.survivalistessentials.book.health.bandages.crude_bandage.desc").build()
-        .addCraftingPage(SurvivalistEssentials.prefix("bandage"))
+        .addCraftingPage(prefix("bandage"))
             .setTitle("item.survivalistessentials.bandage")
             .setText("info.survivalistessentials.book.health.bandages.bandage.desc").build()
         .build().build();

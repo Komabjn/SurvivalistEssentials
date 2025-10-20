@@ -15,7 +15,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 import survivalistessentials.config.ConfigHandler;
 
-import static survivalistessentials.SurvivalistEssentials.prefix;
+import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
 public class PlayerEventHandler {
 

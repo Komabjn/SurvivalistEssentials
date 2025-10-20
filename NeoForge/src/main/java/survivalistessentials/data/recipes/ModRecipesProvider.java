@@ -31,8 +31,8 @@ import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-import static survivalistessentials.SurvivalistEssentials.prefix;
-import static survivalistessentials.SurvivalistEssentials.loc;
+import static survivalistessentials.util.ResourceLocationHelper.loc;
+import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
 public class ModRecipesProvider extends RecipeProvider {
 

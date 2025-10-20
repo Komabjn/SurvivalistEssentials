@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.Block;
 import survivalistessentials.world.block.LooseRockBlock;
 import survivalistessentials.world.item.RockStone;
 
-import static survivalistessentials.SurvivalistEssentials.prefix;
+import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
 public final class SurvivalistEssentialsWorld {
 

@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceKey;
 import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
-import static survivalistessentials.SurvivalistEssentials.prefix;
+import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
 public class SurvivalistEssentialsBiomeModifiers {
 

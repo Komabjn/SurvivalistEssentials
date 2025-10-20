@@ -21,7 +21,7 @@ import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
-import static survivalistessentials.SurvivalistEssentials.prefix;
+import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
 @SuppressWarnings("unused")
 @JeiPlugin

@@ -21,7 +21,7 @@ import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 
-import static survivalistessentials.SurvivalistEssentials.prefix;
+import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
 public final class SurvivalistEssentialsFeatures {
 
