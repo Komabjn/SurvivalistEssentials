@@ -1,23 +1,17 @@
 package survivalistessentials.event;
 
+import java.util.List;
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
-
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.util.ItemUse;
 
 public class TooltipEventHandler {
 
-    @SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
-    public static void onItemToolTip(ItemTooltipEvent event) {
-        ItemStack stack = event.getItemStack();
+    public static void onItemToolTip(ItemStack stack, List<Component> tooltipComponent) {
         Component message;
         String tooltip = "";
 
@@ -44,7 +38,7 @@ public class TooltipEventHandler {
         if (!tooltip.isEmpty()) {
             message = Component.translatable(tooltip).withStyle(ChatFormatting.DARK_RED);
 
-            event.getToolTip().add(message);
+            tooltipComponent.add(message);
         }
 
     }

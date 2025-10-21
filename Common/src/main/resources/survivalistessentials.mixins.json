@@ -6,11 +6,14 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AbstractBlockAccessor",
-    "AbstractBlockStateAccessor"
+    "AbstractBlockStateAccessor",
+    "AbstractHurtingProjectileMixin",
+    "HoeItemMixin",
+    "LivingEntityMixin"
   ],
   "client": [
-    "PunchTreeTutorialStepMixin",
-    "CraftPlanksTutorialStepMixin"
+    "CraftPlanksTutorialStepMixin",
+    "PunchTreeTutorialStepMixin"
   ],
   "injectors": {
     "defaultRequire": 1

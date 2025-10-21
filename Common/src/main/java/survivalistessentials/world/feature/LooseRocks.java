@@ -4,8 +4,6 @@ import com.google.common.collect.ImmutableMap;
 
 import java.util.Map;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -15,9 +13,8 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.WorldGenLevel;
 
-import net.neoforged.neoforge.common.util.Lazy;
-
 import survivalistessentials.common.TagManager;
+import survivalistessentials.util.Lazy;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
 public class LooseRocks extends Feature<NoneFeatureConfiguration> {
@@ -40,7 +37,6 @@ public class LooseRocks extends Feature<NoneFeatureConfiguration> {
     }
 
     @Override
-    @ParametersAreNonnullByDefault
     public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> context) {
         final WorldGenLevel level = context.level();
         final BlockPos pos = context.origin();

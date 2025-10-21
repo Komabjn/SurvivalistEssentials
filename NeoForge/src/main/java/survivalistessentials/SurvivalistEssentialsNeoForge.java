@@ -28,20 +28,17 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
-import survivalistessentials.common.CreativeTabs;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.SurvivalistEssentialsModule;
 import survivalistessentials.common.loot.LootItemBlockIsTagCondition;
 import survivalistessentials.common.loot.SurvivalistEssentialsLootConditionTypes;
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
-import survivalistessentials.event.AttackEventHandler;
-import survivalistessentials.event.ClientEventHandler;
-import survivalistessentials.event.HarvestEventHandler;
-import survivalistessentials.event.HoeEventHandler;
-import survivalistessentials.event.LivingEquipmentChangeEventHandler;
-import survivalistessentials.event.PlayerEventHandler;
-import survivalistessentials.event.TooltipEventHandler;
+import survivalistessentials.event.ClientEvents;
+import survivalistessentials.event.HarvestEvents;
+import survivalistessentials.event.LivingEquipmentChangeEvents;
+import survivalistessentials.event.PlayerEvents;
+import survivalistessentials.event.TooltipEvents;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.loot.SurvivalistEssentialsLootTables;
 import survivalistessentials.sound.Sounds;
@@ -71,23 +68,17 @@ public class SurvivalistEssentialsNeoForge {
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerEvent(RegisterEvent event) {
             event.register(Registries.LOOT_CONDITION_TYPE, prefix("is_tag"), () -> LootItemBlockIsTagCondition.LOOT_ITEM_BLOCK_IS_TAG);
-
-            if (event.getRegistryKey().equals(Registries.CREATIVE_MODE_TAB)) {
-                CreativeTabs.init();
-            }
         }
 
         @SubscribeEvent
         public static void setup(FMLCommonSetupEvent event) {
             HarvestBlock.init();
-            NeoForge.EVENT_BUS.register(AttackEventHandler.class);
-            NeoForge.EVENT_BUS.register(HarvestEventHandler.class);
-            NeoForge.EVENT_BUS.register(HoeEventHandler.class);
-            NeoForge.EVENT_BUS.register(LivingEquipmentChangeEventHandler.class);
-            NeoForge.EVENT_BUS.register(PlayerEventHandler.class);
+            NeoForge.EVENT_BUS.register(HarvestEvents.class);
+            NeoForge.EVENT_BUS.register(LivingEquipmentChangeEvents.class);
+            NeoForge.EVENT_BUS.register(PlayerEvents.class);
             if (FMLEnvironment.dist == Dist.CLIENT) {
-                NeoForge.EVENT_BUS.register(TooltipEventHandler.class);
-                NeoForge.EVENT_BUS.register(ClientEventHandler.class);
+                NeoForge.EVENT_BUS.register(TooltipEvents.class);
+                NeoForge.EVENT_BUS.register(ClientEvents.class);
             }
         }
 

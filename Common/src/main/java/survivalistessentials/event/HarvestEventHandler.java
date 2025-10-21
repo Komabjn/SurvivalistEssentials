@@ -11,34 +11,27 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModList;
-import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.util.FakePlayer;
-import net.neoforged.neoforge.event.TagsUpdatedEvent;
-import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerEvent;
-import net.neoforged.neoforge.event.level.BlockEvent;
-
-import technology.roughness.whitenoise.util.ResourceLocationHelper;
+import org.apache.commons.lang3.tuple.Pair;
 
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.mixin.AbstractBlockStateAccessor;
+import survivalistessentials.platform.Services;
 import survivalistessentials.sound.Sounds;
-import survivalistessentials.util.CarryOnHelper;
 import survivalistessentials.util.Chat;
 import survivalistessentials.util.ItemUse;
+import survivalistessentials.util.ResourceLocationHelper;
 import survivalistessentials.util.ToolType;
+
+import static technology.roughness.whitenoise.platform.Services.PLATFORM;
 
 public class HarvestEventHandler {
 
@@ -46,35 +39,25 @@ public class HarvestEventHandler {
     private static Block spellHitBlock = null;
     private static int breakBlockStep = 0;
 
-    @SubscribeEvent
-    public static void tagUpdate(TagsUpdatedEvent event) {
-        HarvestBlock.setup();
-    }
-
-    @SubscribeEvent
-    public static void breakBlock(BlockEvent.BreakEvent event) {
-        final LevelAccessor level = event.getLevel();
-        final BlockPos pos = event.getPos();
+    public static boolean shouldBreakBlock(LevelAccessor level, BlockPos pos, Player player) {
         final BlockState state = level.getBlockState(pos);
-        final Player player = event.getPlayer();
-        if (player instanceof FakePlayer) return;
         final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
         boolean cancel = false;
         boolean alwaysBreakable = state.is(TagManager.Blocks.ALWAYS_BREAKABLE) ||
-                ItemUse.isAlwaysBreakable(state);
+            ItemUse.isAlwaysBreakable(state);
 
-        if (ModList.get().isLoaded(SurvivalistEssentialsIntegration.CARRYON_MODID)) {
+        if (PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.CARRYON_MODID)) {
             final ItemStack handStack = player.getMainHandItem();
             final ItemStack offhandStack = player.getOffhandItem();
 
             if (handStack.isEmpty() && offhandStack.isEmpty()) {
-                if (CarryOnHelper.isKeyPressed(player)) {
+                if (Services.PLATFORM_HELPER.isCarryonKeyPressed(player)) {
                     alwaysBreakable = true;
                 }
             }
         }
 
-        if (ModList.get().isLoaded(SurvivalistEssentialsIntegration.CREATE_MODID)) {
+        if (PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.CREATE_MODID)) {
             final ItemStack handStack = player.getMainHandItem();
 
             alwaysBreakable = ResourceLocationHelper.getModId(handStack).equals(SurvivalistEssentialsIntegration.CREATE_MODID)
@@ -92,8 +75,8 @@ public class HarvestEventHandler {
                     cancel = true;
 
                     if (harvestAttempts.containsKey(player)
-                            || harvestAttempts.get(player) == null
-                            || !harvestAttempts.get(player).equals(pos)) {
+                        || harvestAttempts.get(player) == null
+                        || !harvestAttempts.get(player).equals(pos)) {
 
                         harvestAttempts.put(player, pos);
 
@@ -123,39 +106,24 @@ public class HarvestEventHandler {
             }
         }
 
-        event.setCanceled(cancel);
+        return cancel;
     }
 
-    @SubscribeEvent
-    public static void onProjectileImpact(ProjectileImpactEvent event) {
-        Entity projectile = event.getEntity();
-
-        if (projectile.toString().toLowerCase().contains("spell")) {
-            Vec3 position = projectile.position();
-            Vec3 nextPosition = position.add(projectile.getDeltaMovement());
-
-            BlockHitResult hitresult = projectile.level().clip(new ClipContext(position, nextPosition, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, projectile));
-            BlockPos pos = hitresult.getBlockPos();
-
-            spellHitBlock = projectile.level().getBlockState(new BlockPos(pos)).getBlock();
-        }
+    public static void setSpellHitBlock(Block block) {
+        spellHitBlock = block;
     }
 
-    @SubscribeEvent
-    public static void harvestCheckEvent(PlayerEvent.HarvestCheck event) {
-        final Player player = event.getEntity();
-        final BlockState state = event.getTargetBlock();
-
-        if (!(player instanceof FakePlayer) && !player.isCreative()) {
+    public static boolean canHarvest(Player player, BlockState state) {
+        if (!player.isCreative()) {
             final ItemStack handStack = getHandStack(player, state);
             final boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
             final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
-            boolean canHarvest = event.canHarvest()
-                    || ItemUse.alwaysDrops(state)
-                    || expectedToolType == ToolType.NONE;
+            boolean canHarvest = player.hasCorrectToolForDrops(state)
+                || ItemUse.alwaysDrops(state)
+                || expectedToolType == ToolType.NONE;
 
             if (!canHarvest) {
-                final boolean isOre = state.is(Tags.Blocks.ORES) || state.is(Tags.Blocks.OBSIDIANS);
+                final boolean isOre = state.is(TagManager.Blocks.ORES) || state.is(TagManager.Blocks.OBSIDIANS);
 
                 if (isOre && expectedToolType == ToolType.PICKAXE) {
                     canHarvest = (correctTool && handStack.isCorrectToolForDrops(state));
@@ -165,21 +133,14 @@ public class HarvestEventHandler {
                 }
             }
 
-            event.setCanHarvest(canHarvest);
+            return canHarvest;
         }
+
+        return true;
     }
 
     // Controls the slow mining speed of blocks that aren't the right tool
-    @SubscribeEvent
-    public static void slowMining(PlayerEvent.BreakSpeed event) {
-        final Player player = event.getEntity();
-        final Optional<BlockPos> pos = event.getPosition();
-
-        if (player instanceof FakePlayer) return;
-        if (pos.isEmpty()) return;
-
-        final Level level = player.level();
-        final BlockState state = level.getBlockState(pos.get());
+    public static Pair<Boolean, Float> getMiningSlowdown(Player player, BlockState state) {
         final float destroySpeed = ((AbstractBlockStateAccessor) state).getDestroySpeed();
         float slowdown = destroySpeed;
         final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
@@ -209,8 +170,10 @@ public class HarvestEventHandler {
         }
 
         if (slowdown != destroySpeed) {
-            event.setNewSpeed(slowdown);
+            return Pair.of(true, slowdown);
         }
+
+        return Pair.of(false, destroySpeed);
     }
 
     private static ItemStack getHandStack(Player player, BlockState blockState) {

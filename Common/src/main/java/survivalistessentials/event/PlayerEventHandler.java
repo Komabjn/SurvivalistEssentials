@@ -9,10 +9,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 
-import net.neoforged.bus.api.EventPriority;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerEvent;
-
 import survivalistessentials.config.ConfigHandler;
 
 import static survivalistessentials.util.ResourceLocationHelper.prefix;
@@ -21,23 +17,10 @@ public class PlayerEventHandler {
 
     private static final ResourceLocation STARTING_HEALTH_PENALTY = prefix("starting_health_penalty");
 
-    @SubscribeEvent
-    public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
-        applyHealthPenalty(event.getEntity());
-    }
+    public static void handlePlayerClone(ServerPlayer sp, boolean wasDeath) {
+        applyHealthPenalty(sp);
 
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void onPlayerClone(PlayerEvent.Clone event) {
-        Player player = event.getEntity();
-
-        applyHealthPenalty(player);
-
-        if (!player.isCreative()
-                && !player.isSpectator()
-                && !player.level().isClientSide
-                && event.isWasDeath()) {
-            ServerPlayer sp = (ServerPlayer) player;
-
+        if (wasDeath) {
             if (ConfigHandler.Common.enableHungerPenalty()) {
                 sp.getFoodData().setFoodLevel(ConfigHandler.Common.hunger());
                 sp.getFoodData().setSaturation(ConfigHandler.Common.saturation());
@@ -48,7 +31,7 @@ public class PlayerEventHandler {
         }
     }
 
-    private static void applyHealthPenalty(Player player) {
+    public static void applyHealthPenalty(ServerPlayer player) {
         if (player != null && ConfigHandler.Common.startingHealthPenalty() < 0) {
             float maxHealth = player.getMaxHealth();
             float newHealth = maxHealth + ConfigHandler.Common.startingHealthPenalty();

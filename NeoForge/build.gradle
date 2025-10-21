@@ -57,7 +57,7 @@ dependencies {
     //runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}"
     //compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}:api"
 
-    compileOnly "curse.maven:carryon-274259:${carryon_version}"
+    compileOnly "curse.maven:carryon-274259:${carryon_neoforge_version}"
 
     //runtimeOnly "curse.maven:configured-457570:4462839"
     //runtimeOnly "slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}"
@@ -95,7 +95,7 @@ dependencies {
     //runtimeOnly "curse.maven:dynamictrees-252818:4979755"
     //runtimeOnly "curse.maven:ecologics-570463:3987881"
     //runtimeOnly "curse.maven:aquaculture-60028:3990680"
-    //runtimeOnly "curse.maven:carryon-274259:${carryon_version}"
+    //runtimeOnly "curse.maven:carryon-274259:${carryon_neoforge_version}"
     //runtimeOnly "curse.maven:lodestone-616457:4636991"
     //runtimeOnly "curse.maven:malum-484064:4638343"
     //runtimeOnly "curse.maven:citadel-331936:3783096"

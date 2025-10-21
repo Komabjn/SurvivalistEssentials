@@ -33,9 +33,12 @@ dependencies {
     modCompileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
     modCompileOnly "mezz.jei:jei-${minecraft_version}-fabric:${jei_version}"
 
+    modCompileOnly "curse.maven:carryon-274259:${carryon_fabric_version}"
+
     modLocalRuntime group: 'com.terraformersmc', name: 'modmenu', version: "${mod_menu_version}"
 
     // Testing Mods
+    //modRuntimeOnly "curse.maven:carryon-274259:${carryon_fabric_version}"
     //modRuntimeOnly "curse.maven:mod-XXX:XXX"
 }
 

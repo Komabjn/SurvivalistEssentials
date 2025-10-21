@@ -12,6 +12,7 @@ import static survivalistessentials.util.ResourceLocationHelper.prefix;
 public final class TagManager {
 
     public static final class Items {
+
         public static final TagKey<Item> FLINT_KNAPPABLE = create("flint_knappable");
         public static final TagKey<Item> PICKAXE_TOOLS = create("pickaxe_tools");
         public static final TagKey<Item> AXE_TOOLS = create("axe_tools");
@@ -195,6 +196,7 @@ public final class TagManager {
         public static TagKey<Item> RU_WILLOW_LOGS = create("willow_logs");
         public static TagKey<Item> RU_YELLOW_BIOSHROOM_LOGS = create("yellow_bioshroom_logs");
 
+        // Common Tags
         public static TagKey<Item> INGOTS_IRON = commonTag("ingots/iron");
 
         private static TagKey<Item> create(String id) {
@@ -205,12 +207,10 @@ public final class TagManager {
             return TagKey.create(Registries.ITEM, commonLoc(name));
         }
 
-        private static TagKey<Item> getItemTag(String modid, String name) {
-            return TagKey.create(Registries.ITEM, loc(modid, name));
-        }
     }
 
     public static final class Blocks {
+
         public static final TagKey<Block> ALWAYS_BREAKABLE = create("always_breakable");
         public static final TagKey<Block> ALWAYS_DROPS = create("always_drops");
         public static final TagKey<Block> LOOSE_ROCK_PLACEABLE_ON = create("loose_rock_placeable_on");
@@ -221,13 +221,18 @@ public final class TagManager {
         // Dynamic Trees
         public static final TagKey<Block> BRANCHES = create("branches");
 
+        // Common Tags
+        public static final TagKey<Block> OBSIDIANS = commonTag("obsidians");
+        public static final TagKey<Block> ORES = commonTag("ores");
+
         private static TagKey<Block> create(String id) {
             return TagKey.create(Registries.BLOCK, identifier(id));
         }
 
-        private static TagKey<Block> forgeTag(String name) {
+        private static TagKey<Block> commonTag(String name) {
             return TagKey.create(Registries.BLOCK, commonLoc(name));
         }
+
     }
 
     public static ResourceLocation identifier(String path) {
