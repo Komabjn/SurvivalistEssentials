@@ -23,7 +23,7 @@ import net.minecraft.world.level.Level;
 
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.items.SurvivalistEssentialsItems;
-import survivalistessentials.sound.Sounds;
+import survivalistessentials.sound.SurvivalistEssentialsSounds;
 
 public class RockStone extends BlockItem {
 
@@ -55,7 +55,7 @@ public class RockStone extends BlockItem {
 
                         Objects.requireNonNull(player).getItemInHand(hand).shrink(1);
                     }
-                    level.playSound(null, Objects.requireNonNull(player).getOnPos(), Sounds.FLINT_KNAPPING, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    level.playSound(null, Objects.requireNonNull(player).getOnPos(), SurvivalistEssentialsSounds.FLINT_KNAPPING, SoundSource.BLOCKS, 1.0F, 1.0F);
                 }
             }
 
