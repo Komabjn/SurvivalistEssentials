@@ -6,17 +6,33 @@ import org.jetbrains.annotations.NotNull;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
+import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 
 import survivalistessentials.SurvivalistEssentials;
 
-public class FabricModRecipeProvider extends FabricRecipeProvider {
+public class FabricModRecipeProvider extends FabricRecipeProvider implements SurvivalistEssentialsRecipeProvider {
 
     public FabricModRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryFuture) {
         super(output, registryFuture);
+    }
+
+    @Override
+    public void buildRecipes(RecipeOutput recipeOutput) {
+        this.buildModRecipes(recipeOutput);
+    }
+
+    @Override
+    protected ResourceLocation getRecipeIdentifier(ResourceLocation identifier) {
+        return identifier;
     }
 
     @Override
@@ -25,7 +41,23 @@ public class FabricModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    public void buildRecipes(RecipeOutput recipeOutput) {
+    public RecipeOutput modLoaded(RecipeOutput recipeOutput, String modid) {
+        return withConditions(recipeOutput, ResourceConditions.allModsLoaded(modid));
+    }
+
+    @Override
+    public RecipeOutput modNotLoaded(RecipeOutput recipeOutput, String modid) {
+        return withConditions(recipeOutput, ResourceConditions.not(ResourceConditions.allModsLoaded(modid)));
+    }
+
+    @Override
+    public Criterion<TriggerInstance> _has(ItemLike itemLike) {
+        return has(itemLike);
+    }
+
+    @Override
+    public Criterion<TriggerInstance> _has(TagKey<Item> tag) {
+        return has(tag);
     }
 
 }

@@ -1,0 +1,28 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "immersiveengineering"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "treated_sticks",
+  "ingredients": [
+    {
+      "tag": "c:treated_wood"
+    },
+    {
+      "tag": "c:treated_wood"
+    },
+    {
+      "tag": "survivalistessentials:advanced_saw_tools"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "immersiveengineering:stick_treated"
+  }
+}

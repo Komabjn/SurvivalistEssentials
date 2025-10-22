@@ -78,7 +78,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         ModelFile modelFile = models()
             .withExistingParent(name.toString(), modLoc("block/loose_rock"))
-            .texture("all", modLoc("block/loose/9p_loose_" + type));
+            .texture("all", modLoc("block/" + type + "_loose_rock"));
 
         getVariantBuilder(block)
             .forAllStates(state -> ConfiguredModel.builder().modelFile(modelFile).build());

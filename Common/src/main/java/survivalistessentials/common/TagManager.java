@@ -30,6 +30,10 @@ public final class TagManager {
         public static final TagKey<Item> COOKED_MEAT = create("cooked_meat");
 
         // Mod Integration
+
+        // Ars Nouveau
+        public static final TagKey<Item> ARCHWOOD_LOGS = commonTag("logs/archwood");
+
         // Fruit Trees
         public static final TagKey<Item> CHERRY_LOGS = create("cherry_logs");
         public static final TagKey<Item> CITRUS_LOGS = create("citrus_logs");
@@ -198,6 +202,9 @@ public final class TagManager {
 
         // Common Tags
         public static TagKey<Item> INGOTS_IRON = commonTag("ingots/iron");
+        public static TagKey<Item> MINING_TOOL_TOOLS = commonTag("tools/mining_tool");
+        public static TagKey<Item> TOOLS_SHEAR = commonTag("tools/shear");
+        public static TagKey<Item> STRINGS = commonTag("strings");
 
         private static TagKey<Item> create(String id) {
             return TagKey.create(Registries.ITEM, identifier(id));
@@ -224,6 +231,11 @@ public final class TagManager {
         // Common Tags
         public static final TagKey<Block> OBSIDIANS = commonTag("obsidians");
         public static final TagKey<Block> ORES = commonTag("ores");
+        public static final TagKey<Block> GRAVELS = commonTag("gravels");
+        public static final TagKey<Block> SANDS = commonTag("sands");
+        public static final TagKey<Block> ORES_COAL = commonTag("ores/coal");
+        public static final TagKey<Block> ORES_IRON = commonTag("ores/iron");
+        public static final TagKey<Block> ORES_COPPER = commonTag("ores/copper");
 
         private static TagKey<Block> create(String id) {
             return TagKey.create(Registries.BLOCK, identifier(id));

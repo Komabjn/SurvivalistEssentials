@@ -17,7 +17,7 @@ import static survivalistessentials.util.ResourceLocationHelper.prefix;
 public final class SurvivalistEssentialsWorld {
 
     private static final Map<ResourceLocation, Item> ALL = new LinkedHashMap<>();
-    private static final Map<ResourceLocation, Block> ALL_BLOCKS = new LinkedHashMap<>();
+    public static final Map<ResourceLocation, Block> ALL_BLOCKS = new LinkedHashMap<>();
 
     // Blocks
     public static Block ANDESITE_LOOSE_ROCK;

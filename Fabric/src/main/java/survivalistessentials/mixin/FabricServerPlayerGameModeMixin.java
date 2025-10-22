@@ -36,7 +36,7 @@ public abstract class FabricServerPlayerGameModeMixin {
             return;
         }
 
-        if (!HarvestEventHandler.shouldBreakBlock(this.level, pos, this.player)) {
+        if (HarvestEventHandler.shouldCancelBreakBlock(this.level, pos, this.player)) {
             cir.setReturnValue(false);
         }
     }

@@ -83,7 +83,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             })
             .orElseThrow(() -> new IllegalStateException("Failed to create model for Block Item"));
 
-        builder.texture("all", modLoc("block/loose/9p_loose_" + type));
+        builder.texture("all", modLoc("block/" + type + "_loose_rock"));
     }
 
 }

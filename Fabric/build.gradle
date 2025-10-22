@@ -83,6 +83,13 @@ sourceSets.main.resources {
     srcDir 'src/generated/resources'
 }
 
+processResources {
+    from ('../NeoForge/src/generated/resources/') {
+        exclude '**/recipe/*'
+        exclude '**/recipes/*'
+    }
+}
+
 def changelogFile = project(":").projectDir.toString() + '/build/libs/changelog.txt'
 def publishFile = project(":").projectDir.toString() + "/Fabric/build/libs/${archivesBaseName}-${version}.jar"
 def display_name = "${project.name} ${minecraft_version}-${version}"

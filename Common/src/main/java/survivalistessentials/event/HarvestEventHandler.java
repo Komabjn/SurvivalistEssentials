@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import org.apache.commons.lang3.tuple.Pair;
 
+import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
@@ -33,7 +34,7 @@ public class HarvestEventHandler {
     private static Block spellHitBlock = null;
     private static int breakBlockStep = 0;
 
-    public static boolean shouldBreakBlock(LevelAccessor level, BlockPos pos, Player player) {
+    public static boolean shouldCancelBreakBlock(LevelAccessor level, BlockPos pos, Player player) {
         final BlockState state = level.getBlockState(pos);
         final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
         boolean cancel = false;
@@ -112,7 +113,7 @@ public class HarvestEventHandler {
         spellHitBlock = block;
     }
 
-    public static boolean canHarvest(Player player, BlockState state) {
+    public static boolean canHarvest(Player player, BlockState state, boolean originalCanHarvest) {
         if (!player.isCreative()) {
             final ItemStack handStack = getHandStack(player, state);
 
@@ -122,7 +123,7 @@ public class HarvestEventHandler {
 
             final boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
             final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
-            boolean canHarvest = player.hasCorrectToolForDrops(state)
+            boolean canHarvest = originalCanHarvest
                 || ItemUse.alwaysDrops(state)
                 || expectedToolType == ToolType.NONE;
 

@@ -24,7 +24,7 @@ public class HarvestEvents {
     public static void breakBlock(BlockEvent.BreakEvent event) {
         if (event.getPlayer() instanceof FakePlayer) return;
 
-        if (HarvestEventHandler.shouldBreakBlock(event.getLevel(), event.getPos(), event.getPlayer())) {
+        if (HarvestEventHandler.shouldCancelBreakBlock(event.getLevel(), event.getPos(), event.getPlayer())) {
             event.setCanceled(true);
         }
     }
@@ -35,7 +35,7 @@ public class HarvestEvents {
         final BlockState state = event.getTargetBlock();
 
         if (!(player instanceof FakePlayer)) {
-            event.setCanHarvest(HarvestEventHandler.canHarvest(player, state));
+            event.setCanHarvest(HarvestEventHandler.canHarvest(player, state, event.canHarvest()));
         }
     }
 

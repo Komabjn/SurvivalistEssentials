@@ -41,7 +41,7 @@ import survivalistessentials.event.PlayerEvents;
 import survivalistessentials.event.TooltipEvents;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.loot.SurvivalistEssentialsLootTables;
-import survivalistessentials.sound.Sounds;
+import survivalistessentials.sound.SurvivalistEssentialsSounds;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 import survivalistessentials.world.effect.SurvivalistEssentialsEffects;
 import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
@@ -141,7 +141,7 @@ public class SurvivalistEssentialsNeoForge {
         bind(bus, Registries.ITEM, SurvivalistEssentialsWorld::initItems);
         bind(bus, Registries.BLOCK, SurvivalistEssentialsWorld::initBlocks);
         bind(bus, Registries.LOOT_CONDITION_TYPE, SurvivalistEssentialsLootConditionTypes::init);
-        bind(bus, Registries.SOUND_EVENT, Sounds::init);
+        bind(bus, Registries.SOUND_EVENT, SurvivalistEssentialsSounds::init);
     }
 
     private static <T> void bind(IEventBus bus, ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, ResourceLocation>> source) {

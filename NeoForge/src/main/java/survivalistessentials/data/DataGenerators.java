@@ -22,12 +22,8 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import survivalistessentials.data.client.ModBlockStateProvider;
 import survivalistessentials.data.client.ModItemModelProvider;
-import survivalistessentials.data.client.SurvivalistEssentialsLanguageProvider;
-import survivalistessentials.data.client.handbook.SurvivalistEssentialsBookProvider;
-import survivalistessentials.data.loot.ModLootTables;
 import survivalistessentials.data.loot.GlobalLootModifier;
 import survivalistessentials.data.overrides.BlockTagsOverrideProvider;
-import survivalistessentials.data.recipes.ModRecipesProvider;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
 import survivalistessentials.world.modifier.SurvivalistEssentialsBiomeModifiers;
@@ -51,15 +47,11 @@ public final class DataGenerators {
         DataGenerator gen = event.getGenerator();
         PackOutput packOutput = gen.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        ModBlockTagsProvider blockTags = new ModBlockTagsProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper());
         String modpackOverrides = System.getenv("MOD_OVERRIDES");
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
         gen.addProvider(event.includeServer(), new ModBlockStateProvider(packOutput, existingFileHelper));
-        gen.addProvider(event.includeServer(), blockTags);
-        gen.addProvider(event.includeServer(), new ModItemTagsProvider(packOutput, provider, blockTags, existingFileHelper));
-        gen.addProvider(event.includeServer(), new ModRecipesProvider(packOutput, provider));
-        gen.addProvider(event.includeServer(), ModLootTables.create(packOutput, provider));
+        gen.addProvider(event.includeServer(), new NeoForgeRecipeProvider(packOutput, provider));
         gen.addProvider(event.includeServer(), new GlobalLootModifier(packOutput, provider));
         gen.addProvider(event.includeServer(), new ModItemModelProvider(packOutput, existingFileHelper));
 
@@ -73,9 +65,6 @@ public final class DataGenerators {
                 BUILDER,
                 Set.of(SurvivalistEssentials.MODID)
         ));
-
-        gen.addProvider(event.includeServer(), new SurvivalistEssentialsBookProvider(packOutput, provider));
-        gen.addProvider(event.includeServer(), new SurvivalistEssentialsLanguageProvider(packOutput));
     }
 
 }
