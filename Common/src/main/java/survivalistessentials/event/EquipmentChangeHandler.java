@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
-import survivalistessentials.sound.Sounds;
+import survivalistessentials.sound.SurvivalistEssentialsSounds;
 import survivalistessentials.util.ItemUse;
 
 public class EquipmentChangeHandler {
@@ -22,7 +22,7 @@ public class EquipmentChangeHandler {
             final ItemStack itemstack = player.getItemBySlot(slot);
             final Level level = player.level();
 
-            level.playSound(null, player.getOnPos(), Sounds.ARMOR_FAIL, SoundSource.PLAYERS, 0.4F, 1.0F);
+            level.playSound(null, player.getOnPos(), SurvivalistEssentialsSounds.ARMOR_FAIL, SoundSource.PLAYERS, 0.4F, 1.0F);
 
             if (!player.addItem(itemstack)) {
                 NonNullList<ItemStack> dropStack = NonNullList.withSize(1, itemstack);

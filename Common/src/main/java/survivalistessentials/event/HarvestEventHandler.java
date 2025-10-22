@@ -3,20 +3,14 @@ package survivalistessentials.event;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ClipContext;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import org.apache.commons.lang3.tuple.Pair;
 
 import survivalistessentials.common.HarvestBlock;
@@ -25,7 +19,7 @@ import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.mixin.AbstractBlockStateAccessor;
 import survivalistessentials.platform.Services;
-import survivalistessentials.sound.Sounds;
+import survivalistessentials.sound.SurvivalistEssentialsSounds;
 import survivalistessentials.util.Chat;
 import survivalistessentials.util.ItemUse;
 import survivalistessentials.util.ResourceLocationHelper;
@@ -67,6 +61,11 @@ public class HarvestEventHandler {
         if (!alwaysBreakable && !player.isCreative()) {
             if (expectedToolType != ToolType.NONE) {
                 final ItemStack handStack = getHandStack(player, state);
+
+                if (handStack.isEmpty()) {
+                    return false;
+                }
+
                 boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
                 boolean isAllowedTool = ItemUse.isAllowedTool(handStack);
                 String toolClass = ItemUse.getToolClass(handStack);
@@ -89,7 +88,7 @@ public class HarvestEventHandler {
                     }
 
                     if (!toolClass.equals("unknown") && !player.level().isClientSide && ConfigHandler.Client.enableFailSound()) {
-                        level.playSound(null, player.getOnPos(), Sounds.TOOL_FAIL, SoundSource.PLAYERS, 0.6F, 1.0F);
+                        level.playSound(null, player.getOnPos(), SurvivalistEssentialsSounds.TOOL_FAIL, SoundSource.PLAYERS, 0.6F, 1.0F);
                     }
                 }
                 else {
@@ -116,6 +115,11 @@ public class HarvestEventHandler {
     public static boolean canHarvest(Player player, BlockState state) {
         if (!player.isCreative()) {
             final ItemStack handStack = getHandStack(player, state);
+
+            if (handStack.isEmpty()) {
+                return false;
+            }
+
             final boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
             final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);
             boolean canHarvest = player.hasCorrectToolForDrops(state)

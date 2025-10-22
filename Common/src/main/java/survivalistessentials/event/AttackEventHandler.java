@@ -9,7 +9,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 
 import survivalistessentials.config.ConfigHandler;
-import survivalistessentials.sound.Sounds;
+import survivalistessentials.sound.SurvivalistEssentialsSounds;
 import survivalistessentials.util.ItemUse;
 
 public class AttackEventHandler {
@@ -28,7 +28,7 @@ public class AttackEventHandler {
 
                 if (checkAllowed && (handStack.is(Items.AIR) || !ItemUse.isAllowedTool(handStack))) {
                     if (!level.isClientSide && ConfigHandler.Client.enableFailSound() && ConfigHandler.Common.genericDamage() == 0.0F) {
-                        level.playSound(null, player.getOnPos(), Sounds.SWORD_FAIL, SoundSource.PLAYERS, 0.4F, 1.0F);
+                        level.playSound(null, player.getOnPos(), SurvivalistEssentialsSounds.SWORD_FAIL, SoundSource.PLAYERS, 0.4F, 1.0F);
                     }
 
                     return true;
