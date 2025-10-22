@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import survivalistessentials.config.ConfigHandler;
-import survivalistessentials.sound.Sounds;
+import survivalistessentials.sound.SurvivalistEssentialsSounds;
 import survivalistessentials.util.ItemUse;
 
 @Mixin(HoeItem.class)
@@ -30,7 +30,7 @@ public abstract class HoeItemMixin {
 
             if (!ItemUse.isAllowedTool(handStack)) {
                 if (!level.isClientSide() && ConfigHandler.Client.enableFailSound()) {
-                    level.playSound(null, player.getOnPos(), Sounds.HOE_FAIL, SoundSource.PLAYERS, 0.2F, 1.0F);
+                    level.playSound(null, player.getOnPos(), SurvivalistEssentialsSounds.HOE_FAIL, SoundSource.PLAYERS, 0.2F, 1.0F);
                 }
                 cir.setReturnValue(InteractionResult.FAIL);
             }
