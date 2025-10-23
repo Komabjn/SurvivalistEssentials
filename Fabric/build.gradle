@@ -87,6 +87,7 @@ processResources {
     from ('../NeoForge/src/generated/resources/') {
         exclude '**/recipe/*'
         exclude '**/recipes/*'
+        exclude '**/neoforge/*'
     }
 }
 
