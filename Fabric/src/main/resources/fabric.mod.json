@@ -29,6 +29,9 @@
     "fabric-datagen": [
       "${mod_id}.data.FabricDatagenInitializer"
     ],
+    "jei_mod_plugin": [
+      "${mod_id}.integration.jei.${mod_name}JeiPlugin"
+    ],
     "whitenoise-config": [
       "${mod_id}.FabricConfigInitializer"
     ]
