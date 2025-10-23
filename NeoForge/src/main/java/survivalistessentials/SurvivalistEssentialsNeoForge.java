@@ -138,8 +138,8 @@ public class SurvivalistEssentialsNeoForge {
         bind(bus, Registries.MOB_EFFECT, SurvivalistEssentialsEffects::init);
         bind(bus, Registries.ITEM, SurvivalistEssentialsIntegration::init);
         bind(bus, Registries.ITEM, SurvivalistEssentialsItems::init);
-        bind(bus, Registries.ITEM, SurvivalistEssentialsWorld::initItems);
         bind(bus, Registries.BLOCK, SurvivalistEssentialsWorld::initBlocks);
+        bind(bus, Registries.ITEM, SurvivalistEssentialsWorld::initItems);
         bind(bus, Registries.LOOT_CONDITION_TYPE, SurvivalistEssentialsLootConditionTypes::init);
         bind(bus, Registries.SOUND_EVENT, SurvivalistEssentialsSounds::init);
     }
