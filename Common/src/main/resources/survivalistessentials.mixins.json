@@ -9,6 +9,7 @@
     "AbstractBlockStateAccessor",
     "AbstractHurtingProjectileMixin",
     "HoeItemMixin",
+    "ItemMixin",
     "LivingEntityMixin"
   ],
   "client": [
