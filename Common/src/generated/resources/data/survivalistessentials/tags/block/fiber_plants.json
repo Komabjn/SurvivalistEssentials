@@ -4,6 +4,7 @@
     "minecraft:fern",
     "minecraft:large_fern",
     "minecraft:grass_block",
+    "minecraft:short_grass",
     "minecraft:tall_grass",
     {
       "id": "#minecraft:leaves",

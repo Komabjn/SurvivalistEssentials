@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import org.apache.commons.lang3.tuple.Pair;
 
-import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager;
 import survivalistessentials.config.ConfigHandler;
@@ -62,10 +61,6 @@ public class HarvestEventHandler {
         if (!alwaysBreakable && !player.isCreative()) {
             if (expectedToolType != ToolType.NONE) {
                 final ItemStack handStack = getHandStack(player, state);
-
-                if (handStack.isEmpty()) {
-                    return false;
-                }
 
                 boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
                 boolean isAllowedTool = ItemUse.isAllowedTool(handStack);
@@ -116,10 +111,6 @@ public class HarvestEventHandler {
     public static boolean canHarvest(Player player, BlockState state, boolean originalCanHarvest) {
         if (!player.isCreative()) {
             final ItemStack handStack = getHandStack(player, state);
-
-            if (handStack.isEmpty()) {
-                return false;
-            }
 
             final boolean correctTool = ItemUse.isCorrectTool(state, player, handStack);
             final ToolType expectedToolType = HarvestBlock.BLOCK_TOOL_TYPES.getOrDefault(state.getBlock(), ToolType.NONE);

@@ -90,6 +90,7 @@ public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> 
             .add(Blocks.FERN)
             .add(Blocks.LARGE_FERN)
             .add(Blocks.GRASS_BLOCK)
+            .add(Blocks.SHORT_GRASS)
             .add(Blocks.TALL_GRASS)
             .addOptionalTag(BlockTags.LEAVES.location())
             .addOptional(SurvivalistEssentialsIntegration.sgcLoc("avocado_leaves"))

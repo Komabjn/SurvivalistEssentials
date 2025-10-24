@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "handbook:spotlight",
-      "item": "minecraft:air#0",
+      "item": "survivalistessentials:stone_loose_rock",
       "text": "info.survivalistessentials.book.getting_started.materials.gather_stones.desc",
       "title": "info.survivalistessentials.book.getting_started.materials.gather_stones.title"
     },
