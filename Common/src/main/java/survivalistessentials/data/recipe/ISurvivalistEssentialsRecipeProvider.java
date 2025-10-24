@@ -27,7 +27,7 @@ import survivalistessentials.world.SurvivalistEssentialsWorld;
 import static survivalistessentials.util.ResourceLocationHelper.loc;
 import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
-public interface SurvivalistEssentialsRecipeProvider {
+public interface ISurvivalistEssentialsRecipeProvider {
 
     RecipeOutput modLoaded(RecipeOutput recipeOutput, String modid);
 

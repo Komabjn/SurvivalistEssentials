@@ -19,7 +19,7 @@ import net.minecraft.world.level.ItemLike;
 
 import survivalistessentials.SurvivalistEssentials;
 
-public class FabricModRecipeProvider extends FabricRecipeProvider implements SurvivalistEssentialsRecipeProvider {
+public class FabricModRecipeProvider extends FabricRecipeProvider implements ISurvivalistEssentialsRecipeProvider {
 
     public FabricModRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryFuture) {
         super(output, registryFuture);

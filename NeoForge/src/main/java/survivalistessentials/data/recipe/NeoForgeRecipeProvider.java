@@ -17,7 +17,7 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.conditions.NotCondition;
 
-public class NeoForgeRecipeProvider extends RecipeProvider implements SurvivalistEssentialsRecipeProvider {
+public class NeoForgeRecipeProvider extends RecipeProvider implements ISurvivalistEssentialsRecipeProvider {
 
     public NeoForgeRecipeProvider(PackOutput output, CompletableFuture<Provider> registries) {
         super(output, registries);
