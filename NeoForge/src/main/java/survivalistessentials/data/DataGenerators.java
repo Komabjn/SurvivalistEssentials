@@ -25,6 +25,7 @@ import survivalistessentials.data.client.ModItemModelProvider;
 import survivalistessentials.data.loot.GlobalLootModifier;
 import survivalistessentials.data.overrides.BlockTagsOverrideProvider;
 import survivalistessentials.SurvivalistEssentials;
+import survivalistessentials.data.recipe.NeoForgeRecipeProvider;
 import survivalistessentials.world.feature.SurvivalistEssentialsFeatures;
 import survivalistessentials.world.modifier.SurvivalistEssentialsBiomeModifiers;
 

@@ -34,6 +34,7 @@ import survivalistessentials.common.loot.LootItemBlockIsTagCondition;
 import survivalistessentials.common.loot.SurvivalistEssentialsLootConditionTypes;
 import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
+import survivalistessentials.data.recipe.ConfigResourceCondition;
 import survivalistessentials.event.ClientEvents;
 import survivalistessentials.event.HarvestEvents;
 import survivalistessentials.event.LivingEquipmentChangeEvents;
@@ -41,6 +42,7 @@ import survivalistessentials.event.PlayerEvents;
 import survivalistessentials.event.TooltipEvents;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.loot.SurvivalistEssentialsLootTables;
+import survivalistessentials.registries.SurvivalistEssentialsNeoForgeRegistries;
 import survivalistessentials.sound.SurvivalistEssentialsSounds;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 import survivalistessentials.world.effect.SurvivalistEssentialsEffects;
@@ -142,6 +144,11 @@ public class SurvivalistEssentialsNeoForge {
         bind(bus, Registries.ITEM, SurvivalistEssentialsWorld::initItems);
         bind(bus, Registries.LOOT_CONDITION_TYPE, SurvivalistEssentialsLootConditionTypes::init);
         bind(bus, Registries.SOUND_EVENT, SurvivalistEssentialsSounds::init);
+        SurvivalistEssentialsNeoForgeRegistries.CONDITION_SERIALIZERS_DEFERRED_REGISTER.register(bus);
+        SurvivalistEssentialsNeoForgeRegistries.CONDITION_SERIALIZERS_DEFERRED_REGISTER.register(
+            ConfigResourceCondition.ID,
+            () -> ConfigResourceCondition.CODEC
+        );
     }
 
     private static <T> void bind(IEventBus bus, ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, ResourceLocation>> source) {

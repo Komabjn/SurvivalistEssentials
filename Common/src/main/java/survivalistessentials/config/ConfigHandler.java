@@ -2,6 +2,8 @@ package survivalistessentials.config;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.List;
@@ -22,6 +24,7 @@ public final class ConfigHandler {
 
     public static final WhiteNoiseConfigSpec CLIENT_SPEC;
     public static final WhiteNoiseConfigSpec COMMON_SPEC;
+    public static final Map<String, Boolean> conditionsMap = new HashMap<>();
 
     private static final Client CLIENT;
     private static final Common COMMON;
@@ -41,6 +44,9 @@ public final class ConfigHandler {
         Common.TAGS.get().forEach((s) -> {
             Common.tagList().add(TagKey.create(Registries.ITEM, ResourceLocation.parse(s)));
         });
+
+        conditionsMap.clear();
+        conditionsMap.put("disableModpackBook", Common.disableModpackBook());
 
         ItemUse.init();
     }
@@ -87,6 +93,7 @@ public final class ConfigHandler {
         private final WhiteNoiseConfigSpec.DoubleValue STARTING_HEALTH_PENALTY;
         private final WhiteNoiseConfigSpec.IntValue GENERIC_DAMAGE;
         private final WhiteNoiseConfigSpec.BooleanValue INVERT_LIST_TO_WHITELIST;
+        private final WhiteNoiseConfigSpec.BooleanValue DISABLE_MODPACK_BOOK;
 
         private static final List<String> MODS_LIST = List.of("mods");
         public static final String[] modsStrings = new String[] {};
@@ -181,6 +188,9 @@ public final class ConfigHandler {
             TAGS = builder
                 .comment(getTranslation("taglist"))
                 .defineListAllowEmpty(TAG_LIST, getFields(tagStrings), resourceLocationValidator);
+            DISABLE_MODPACK_BOOK = builder
+                .comment(getTranslation("disablemodpackbook"))
+                .define("DISABLE_MODPACK_BOOK", true);
         }
 
         public static double flintChance() {
@@ -266,6 +276,10 @@ public final class ConfigHandler {
 
         public static List<TagKey<Item>> tagList() {
             return tagList;
+        }
+
+        public static boolean disableModpackBook() {
+            return COMMON.DISABLE_MODPACK_BOOK.get();
         }
 
     }

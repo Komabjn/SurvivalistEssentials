@@ -59,6 +59,7 @@ public class Translations {
             "List of tags when added to tools or armor will be disabled. If inverted, acts as a whitelist.",
             "[\"" + String.join("\", \"", ConfigHandler.Common.tagStrings) + "\"]"
         ));
+        translations.put("disablemodpackbook", "Disables the modpack book from being available. It doesn't work outside of the official modpack.");
     }
 
     public static String get(String key) {

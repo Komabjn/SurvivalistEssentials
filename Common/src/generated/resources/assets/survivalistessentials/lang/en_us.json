@@ -127,6 +127,8 @@
   "survivalistessentials.configuration.armormods.name": "Armor Mods List",
   "survivalistessentials.configuration.blockmods.description": "List of mods that have blocks that are generally decorative in nature and \nrequire no tool for harvesting blocks. Default: \n[\"comforts\"]",
   "survivalistessentials.configuration.blockmods.name": "Block Mods List",
+  "survivalistessentials.configuration.disablemodpackbook.description": "Disables the modpack book from being available. It doesn't work outside of the official modpack.",
+  "survivalistessentials.configuration.disablemodpackbook.name": "Disable Modpack Book",
   "survivalistessentials.configuration.enablefailsound.description": "Enables the fail sound if using the wrong tool.",
   "survivalistessentials.configuration.enablefailsound.name": "Enable Fail Sound",
   "survivalistessentials.configuration.enablehealthpenalty.description": "Health penalty feature. If after dying, player is rewarded with reduced health levels.",

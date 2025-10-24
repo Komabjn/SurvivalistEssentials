@@ -33,6 +33,8 @@ public interface SurvivalistEssentialsRecipeProvider {
 
     RecipeOutput modNotLoaded(RecipeOutput recipeOutput, String modid);
 
+    RecipeOutput configResourceCondition(RecipeOutput recipeOutput, String configOption);
+
     Criterion<InventoryChangeTrigger.TriggerInstance> _has(ItemLike itemLike);
 
     Criterion<InventoryChangeTrigger.TriggerInstance> _has(TagKey<Item> tag);
@@ -280,6 +282,21 @@ public interface SurvivalistEssentialsRecipeProvider {
             .group("books")
             .unlockedBy("has_intro_book", _has(SurvivalistEssentialsItems.BOOK))
             .save(recipeOutput, prefix("dirt_from_book"));
+
+        // Modpack Book
+        wrapped = configResourceCondition(recipeOutput, "enableModpackBook");
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SurvivalistEssentialsItems.MODPACK_BOOK)
+            .requires(SurvivalistEssentialsWorld.ROCK_STONE)
+            .requires(SurvivalistEssentialsWorld.ROCK_STONE)
+            .group("books")
+            .unlockedBy("has_loose_rock", _has(rockStone))
+            .save(wrapped, prefix("book_from_rocks"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, SurvivalistEssentialsWorld.ROCK_STONE, 2)
+            .requires(SurvivalistEssentialsItems.MODPACK_BOOK)
+            .group("books")
+            .unlockedBy("has_modpack_book", _has(SurvivalistEssentialsItems.MODPACK_BOOK))
+            .save(wrapped, prefix("rocks_from_book"));
 
         // Saw Recipes
         // Minecraft

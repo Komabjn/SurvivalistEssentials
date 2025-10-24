@@ -142,6 +142,8 @@ public class SurvivalistEssentialsLanguageProvider extends FabricLanguageProvide
         addConfigurationDescription(builder, "armor", "armorlist");
         addConfigurationName(builder, "tag", "Tool and Armor Tags List");
         addConfigurationDescription(builder, "tag", "taglist");
+        addConfigurationName(builder, "disablemodpackbook", "Disable Modpack Book");
+        addConfigurationDescription(builder, "disablemodpackbook", "disablemodpackbook");
 
         // Advancements
         addTranslationAdvancement(builder, "root.title", "Survivalist Essentials");

@@ -6,8 +6,8 @@ import org.jetbrains.annotations.NotNull;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
+
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance;
 import net.minecraft.core.HolderLookup;
@@ -48,6 +48,11 @@ public class FabricModRecipeProvider extends FabricRecipeProvider implements Sur
     @Override
     public RecipeOutput modNotLoaded(RecipeOutput recipeOutput, String modid) {
         return withConditions(recipeOutput, ResourceConditions.not(ResourceConditions.allModsLoaded(modid)));
+    }
+
+    @Override
+    public RecipeOutput configResourceCondition(RecipeOutput recipeOutput, String configOption) {
+        return withConditions(recipeOutput, new ConfigResourceCondition(configOption));
     }
 
     @Override

@@ -29,6 +29,9 @@
     "fabric-datagen": [
       "${mod_id}.data.FabricDatagenInitializer"
     ],
+    "rei_client": [
+      "${mod_id}.integration.rei.${mod_name}REIPlugin"
+    ],
     "jei_mod_plugin": [
       "${mod_id}.integration.jei.${mod_name}JeiPlugin"
     ],

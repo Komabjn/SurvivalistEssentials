@@ -1,4 +1,4 @@
-package survivalistessentials.data;
+package survivalistessentials.data.recipe;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -13,10 +13,9 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
+
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.conditions.NotCondition;
-
-import survivalistessentials.data.recipe.SurvivalistEssentialsRecipeProvider;
 
 public class NeoForgeRecipeProvider extends RecipeProvider implements SurvivalistEssentialsRecipeProvider {
 
@@ -37,6 +36,11 @@ public class NeoForgeRecipeProvider extends RecipeProvider implements Survivalis
     @Override
     public RecipeOutput modNotLoaded(RecipeOutput recipeOutput, String modid) {
         return recipeOutput.withConditions(new NotCondition(new ModLoadedCondition(modid)));
+    }
+
+    @Override
+    public RecipeOutput configResourceCondition(RecipeOutput recipeOutput, String configOption) {
+        return recipeOutput.withConditions(new ConfigResourceCondition(configOption));
     }
 
     @Override

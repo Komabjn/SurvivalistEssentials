@@ -2,6 +2,8 @@ package survivalistessentials.jei;
 
 import java.util.Collections;
 
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -14,6 +16,7 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
 
+import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.SurvivalistEssentials;
@@ -27,12 +30,12 @@ import static survivalistessentials.util.ResourceLocationHelper.prefix;
 public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
 
     @Override
-    public ResourceLocation getPluginUid() {
+    public @NotNull ResourceLocation getPluginUid() {
         return prefix("jei_plugin");
     }
 
     @Override
-    public void registerRecipes(IRecipeRegistration registry) {
+    public void registerRecipes(@NotNull IRecipeRegistration registry) {
         addIngredientInfo(registry, SurvivalistEssentialsWorld.ROCK_STONE);
         addIngredientInfo(registry, SurvivalistEssentialsItems.PLANT_FIBER);
         addIngredientInfo(registry, SurvivalistEssentialsItems.FLINT_SHARD);
@@ -51,6 +54,11 @@ public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
                 Collections.singleton(new ItemStack(SurvivalistEssentialsItems.BASIC_KNIFE)));
             registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
                 Collections.singleton(new ItemStack(SurvivalistEssentialsItems.SHARP_KNIFE)));
+        }
+
+        if (ConfigHandler.Common.disableModpackBook()) {
+            registry.getIngredientManager().removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK,
+                Collections.singleton(new ItemStack(SurvivalistEssentialsItems.MODPACK_BOOK)));
         }
     }
 
