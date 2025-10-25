@@ -60,15 +60,15 @@ public final class SurvivalistEssentialsItems {
 
     // Bandages
     public static Item CRUDE_BANDAGE = make("crude_bandage", new CrudeBandage(
-        (new Item.Properties()).stacksTo(8)
+        (new Item.Properties()).stacksTo(8).setId(ResourceKey.create(Registries.ITEM, prefix("crude_bandage")))
     ), false, true);
     public static Item BANDAGE = make("bandage", new Bandage(
-        (new Item.Properties()).stacksTo(16)
+        (new Item.Properties()).stacksTo(16).setId(ResourceKey.create(Registries.ITEM, prefix("bandage")))
     ), false, true);
 
     // Zombie Jesus
     public static Item WOODEN_CUP = make("wooden_cup", new WoodenCup(
-        (new Item.Properties()).stacksTo(1)
+        (new Item.Properties()).stacksTo(1).setId(ResourceKey.create(Registries.ITEM, prefix("wooden_cup")))
     ), false, false);
 
     public static void init(BiConsumer<Item, ResourceLocation> consumer) {
@@ -79,12 +79,12 @@ public final class SurvivalistEssentialsItems {
 
     public static Item registerSawBlade(String name) {
         return make(name, new Item(
-            new Item.Properties()
+            new Item.Properties().setId(ResourceKey.create(Registries.ITEM, prefix(name)))
         ), true, false);
     }
 
     private static Item make(String name) {
-        Item item = new Item(new Item.Properties());
+        Item item = new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, prefix(name))));
 
         return make(name, item, false, false);
     }
@@ -139,7 +139,7 @@ public final class SurvivalistEssentialsItems {
     }
 
     private static Item registerMortar(String name) {
-        return make(name, new Mortar(new Item.Properties()), false, false);
+        return make(name, new Mortar(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, prefix(name)))), false, false);
     }
 
     public static Item registerBook(String name) {
