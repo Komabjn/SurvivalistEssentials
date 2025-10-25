@@ -15,13 +15,12 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.common.world.BiomeModifiers;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
-import survivalistessentials.data.client.ModBlockStateProvider;
-import survivalistessentials.data.client.ModItemModelProvider;
+//import survivalistessentials.data.client.ModBlockStateProvider;
+//import survivalistessentials.data.client.ModItemModelProvider;
 import survivalistessentials.data.loot.GlobalLootModifier;
 import survivalistessentials.data.overrides.BlockTagsOverrideProvider;
 import survivalistessentials.SurvivalistEssentials;
@@ -44,23 +43,22 @@ public final class DataGenerators {
         });
 
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event) {
+    public static void gatherData(GatherDataEvent.Client event) {
         DataGenerator gen = event.getGenerator();
         PackOutput packOutput = gen.getPackOutput();
-        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         String modpackOverrides = System.getenv("MOD_OVERRIDES");
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
-        gen.addProvider(event.includeServer(), new ModBlockStateProvider(packOutput, existingFileHelper));
-        gen.addProvider(event.includeServer(), new NeoForgeRecipeProvider(packOutput, provider));
-        gen.addProvider(event.includeServer(), new GlobalLootModifier(packOutput, provider));
-        gen.addProvider(event.includeServer(), new ModItemModelProvider(packOutput, existingFileHelper));
+        //gen.addProvider(true, new ModBlockStateProvider(packOutput));
+        gen.addProvider(true, new NeoForgeRecipeProvider(packOutput, provider));
+        gen.addProvider(true, new GlobalLootModifier(packOutput, provider));
+        //gen.addProvider(true, new ModItemModelProvider(packOutput));
 
         if (modpackOverrides != null && modpackOverrides.contains("all")) {
-            gen.addProvider(event.includeServer(), new BlockTagsOverrideProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper()));
+            gen.addProvider(true, new BlockTagsOverrideProvider(packOutput, event.getLookupProvider()));
         }
 
-        gen.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(
+        gen.addProvider(true, new DatapackBuiltinEntriesProvider(
                 packOutput,
                 event.getLookupProvider(),
                 BUILDER,

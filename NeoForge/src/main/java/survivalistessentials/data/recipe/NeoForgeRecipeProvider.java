@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -17,15 +18,26 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.conditions.NotCondition;
 
-public class NeoForgeRecipeProvider extends RecipeProvider implements ISurvivalistEssentialsRecipeProvider {
+import survivalistessentials.SurvivalistEssentials;
+
+public class NeoForgeRecipeProvider extends RecipeProvider.Runner implements ISurvivalistEssentialsRecipeProvider {
+
+    private InternalRecipeProvider internalRecipeProvider;
 
     public NeoForgeRecipeProvider(PackOutput output, CompletableFuture<Provider> registries) {
         super(output, registries);
     }
 
     @Override
-    public void buildRecipes(@NotNull RecipeOutput recipeOutput) {
-        this.buildModRecipes(recipeOutput);
+    protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.@NotNull Provider provider, @NotNull RecipeOutput recipeOutput) {
+        internalRecipeProvider = new InternalRecipeProvider(provider, recipeOutput);
+
+        return internalRecipeProvider;
+    }
+
+    @Override
+    public @NotNull String getName() {
+        return SurvivalistEssentials.MOD_NAME + " - NeoForge Recipes";
     }
 
     @Override
@@ -45,12 +57,39 @@ public class NeoForgeRecipeProvider extends RecipeProvider implements ISurvivali
 
     @Override
     public Criterion<TriggerInstance> _has(ItemLike itemLike) {
-        return has(itemLike);
+        return internalRecipeProvider._has(itemLike);
     }
 
     @Override
     public Criterion<TriggerInstance> _has(TagKey<Item> tag) {
-        return has(tag);
+        return internalRecipeProvider._has(tag);
+    }
+
+    private class InternalRecipeProvider extends RecipeProvider {
+
+        RecipeOutput recipeOutput;
+        HolderLookup.Provider registries;
+
+        protected InternalRecipeProvider(Provider registries, RecipeOutput output) {
+            super(registries, output);
+
+            this.recipeOutput = output;
+            this.registries = registries;
+        }
+
+        @Override
+        public void buildRecipes() {
+            buildModRecipes(registries, recipeOutput);
+        }
+
+        public Criterion<TriggerInstance> _has(ItemLike itemLike) {
+            return has(itemLike);
+        }
+
+        public Criterion<TriggerInstance> _has(TagKey<Item> tag) {
+            return has(tag);
+        }
+
     }
 
 }

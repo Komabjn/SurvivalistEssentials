@@ -1,18 +1,18 @@
 package survivalistessentials.items;
 
-import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
 
-public abstract class RecipeRemainderSwordItem extends SwordItem implements IRecipeRemainder {
+public abstract class RecipeRemainderSwordItem extends Item implements IRecipeRemainder {
 
-    public RecipeRemainderSwordItem(Tier tier, Properties properties) {
-        super(tier, properties);
+    public RecipeRemainderSwordItem(Item.Properties properties) {
+        super(properties);
     }
 
     public abstract ItemStack getRemainingItem(ItemStack stack);
 
-    @Override
+    //@Override
+    //TODO FIX ME
     public final boolean hasCraftingRemainingItem() {
         return true;
     }

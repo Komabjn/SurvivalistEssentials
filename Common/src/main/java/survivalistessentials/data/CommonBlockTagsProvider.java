@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.Blocks;
 
 import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
 import survivalistessentials.common.TagManager;
+import survivalistessentials.util.ResourceLocationHelper;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
 
 public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
@@ -25,12 +26,12 @@ public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> 
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        this.tag(TagManager.Blocks.ALWAYS_BREAKABLE)
-            .addTag(TagManager.Blocks.LOOSE_ROCKS)
-            .add(Blocks.GRAVEL)
-            .add(Blocks.BAMBOO)
-            .add(Blocks.SNOW)
-            .add(Blocks.GLOW_LICHEN)
+        getOrCreateRawBuilder(TagManager.Blocks.ALWAYS_BREAKABLE)
+            .addTag(TagManager.Blocks.LOOSE_ROCKS.location())
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.GRAVEL))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.BAMBOO))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.SNOW))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.GLOW_LICHEN))
             .addOptionalTag(BlockTags.DIRT.location())
             .addOptionalTag(BlockTags.SAND.location())
             .addOptionalTag(TagManager.Blocks.SANDS.location())
@@ -38,14 +39,14 @@ public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> 
             .addOptionalTag(BlockTags.BEDS.location())
             .addOptionalTag(SurvivalistEssentialsIntegration.tconLoc("slimy_vines"))
             .addOptionalTag(SurvivalistEssentialsIntegration.tconLoc("slimy_leaves"))
-            .addTag(TagManager.Blocks.FIBER_PLANTS);
+            .addTag(TagManager.Blocks.FIBER_PLANTS.location());
 
-        this.tag(TagManager.Blocks.ALWAYS_DROPS)
-            .addTag(TagManager.Blocks.LOOSE_ROCKS)
-            .add(Blocks.GRAVEL)
-            .add(Blocks.BAMBOO)
-            .add(Blocks.SNOW)
-            .add(Blocks.GLOW_LICHEN)
+        getOrCreateRawBuilder(TagManager.Blocks.ALWAYS_DROPS)
+            .addTag(TagManager.Blocks.LOOSE_ROCKS.location())
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.GRAVEL))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.BAMBOO))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.SNOW))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.GLOW_LICHEN))
             .addOptionalTag(BlockTags.DIRT.location())
             .addOptionalTag(BlockTags.SAND.location())
             .addOptionalTag(BlockTags.BEDS.location())
@@ -53,21 +54,21 @@ public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> 
             .addOptionalTag(TagManager.Blocks.GRAVELS.location())
             .addOptionalTag(SurvivalistEssentialsIntegration.tconLoc("slimy_vines"))
             .addOptionalTag(SurvivalistEssentialsIntegration.tconLoc("slimy_leaves"))
-            .addTag(TagManager.Blocks.FIBER_PLANTS);
+            .addTag(TagManager.Blocks.FIBER_PLANTS.location());
 
-        this.tag(TagManager.Blocks.LOOSE_ROCK_PLACEABLE_ON)
-            .add(Blocks.GRAVEL)
-            .add(Blocks.STONE)
-            .add(Blocks.CALCITE)
-            .add(Blocks.GRANITE)
-            .add(Blocks.DIORITE)
-            .add(Blocks.ANDESITE)
-            .add(Blocks.COAL_ORE)
-            .add(Blocks.SANDSTONE)
-            .add(Blocks.IRON_BLOCK)
-            .add(Blocks.COPPER_ORE)
-            .add(Blocks.MOSSY_COBBLESTONE)
-            .add(Blocks.RED_SANDSTONE)
+        getOrCreateRawBuilder(TagManager.Blocks.LOOSE_ROCK_PLACEABLE_ON)
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.GRAVEL))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.STONE))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.CALCITE))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.GRANITE))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.DIORITE))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.ANDESITE))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.COAL_ORE))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.SANDSTONE))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.IRON_BLOCK))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.COPPER_ORE))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.MOSSY_COBBLESTONE))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.RED_SANDSTONE))
             .addOptionalTag(TagManager.Blocks.GRAVELS.location())
             .addOptionalTag(BlockTags.DIRT.location())
             .addOptionalTag(BlockTags.SAND.location())
@@ -85,27 +86,27 @@ public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> 
             .add(SurvivalistEssentialsWorld.SANDSTONE_LOOSE_ROCK)
             .add(SurvivalistEssentialsWorld.RED_SANDSTONE_LOOSE_ROCK);
 
-        this.tag(TagManager.Blocks.FIBER_PLANTS)
-            .add(Blocks.VINE)
-            .add(Blocks.FERN)
-            .add(Blocks.LARGE_FERN)
-            .add(Blocks.GRASS_BLOCK)
-            .add(Blocks.SHORT_GRASS)
-            .add(Blocks.TALL_GRASS)
+        getOrCreateRawBuilder(TagManager.Blocks.FIBER_PLANTS)
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.VINE))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.FERN))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.LARGE_FERN))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.GRASS_BLOCK))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.SHORT_GRASS))
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.TALL_GRASS))
             .addOptionalTag(BlockTags.LEAVES.location())
-            .addOptional(SurvivalistEssentialsIntegration.sgcLoc("avocado_leaves"))
-            .addOptional(SurvivalistEssentialsIntegration.exnihiloLoc("infested_leaves"))
-            .addOptional(SurvivalistEssentialsIntegration.exnihiloLoc("infesting_leaves"))
+            .addOptionalElement(SurvivalistEssentialsIntegration.sgcLoc("avocado_leaves"))
+            .addOptionalElement(SurvivalistEssentialsIntegration.exnihiloLoc("infested_leaves"))
+            .addOptionalElement(SurvivalistEssentialsIntegration.exnihiloLoc("infesting_leaves"))
             .addOptionalTag(TagManager.commonLoc("grass"))
             .addOptionalTag(TagManager.commonLoc("leaves"))
             .addOptionalTag(TagManager.commonLoc("bushes"))
             .addOptionalTag(SurvivalistEssentialsIntegration.regionsLoc("grass"));
 
-        this.tag(TagManager.Blocks.BRANCHES)
+        getOrCreateRawBuilder(TagManager.Blocks.BRANCHES)
             .addOptionalTag(SurvivalistEssentialsIntegration.dynamictreesLoc("branches"));
 
-        this.tag(TagManager.Blocks.MINEABLE_WITH_SHARP)
-            .add(Blocks.COBWEB)
+        getOrCreateRawBuilder(TagManager.Blocks.MINEABLE_WITH_SHARP)
+            .addElement(ResourceLocationHelper.getBlockId(Blocks.COBWEB))
             .addOptionalTag(BlockTags.WOOL_CARPETS.location())
             .addOptionalTag(BlockTags.WOOL.location())
             .addOptionalTag(BlockTags.CANDLE_CAKES.location());

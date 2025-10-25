@@ -21,7 +21,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
@@ -42,6 +41,7 @@ import survivalistessentials.event.PlayerEvents;
 import survivalistessentials.event.TooltipEvents;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.loot.SurvivalistEssentialsLootTables;
+import survivalistessentials.platform.Services;
 import survivalistessentials.registries.SurvivalistEssentialsNeoForgeRegistries;
 import survivalistessentials.sound.SurvivalistEssentialsSounds;
 import survivalistessentials.world.SurvivalistEssentialsWorld;
@@ -78,7 +78,8 @@ public class SurvivalistEssentialsNeoForge {
             NeoForge.EVENT_BUS.register(HarvestEvents.class);
             NeoForge.EVENT_BUS.register(LivingEquipmentChangeEvents.class);
             NeoForge.EVENT_BUS.register(PlayerEvents.class);
-            if (FMLEnvironment.dist == Dist.CLIENT) {
+
+            if (Services.PLATFORM.isPhysicalClient()) {
                 NeoForge.EVENT_BUS.register(TooltipEvents.class);
                 NeoForge.EVENT_BUS.register(ClientEvents.class);
             }

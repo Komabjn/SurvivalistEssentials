@@ -2,17 +2,18 @@ package survivalistessentials.items;
 
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 
 public abstract class RecipeRemainderAxeItem extends AxeItem implements IRecipeRemainder {
 
-    public RecipeRemainderAxeItem(Tier tier, Properties properties) {
-        super(tier, properties);
+    public RecipeRemainderAxeItem(ToolMaterial toolMaterial, float attackDamage, float attackSpeed, Properties properties) {
+        super(toolMaterial, attackDamage, attackSpeed, properties);
     }
 
     public abstract ItemStack getRemainingItem(ItemStack stack);
 
-    @Override
+    //@Override
+    //TODO: FIXME
     public final boolean hasCraftingRemainingItem() {
         return true;
     }

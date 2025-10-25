@@ -11,7 +11,9 @@ import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -21,13 +23,17 @@ import survivalistessentials.SurvivalistEssentials;
 
 public class FabricModRecipeProvider extends FabricRecipeProvider implements ISurvivalistEssentialsRecipeProvider {
 
+    private InternalRecipeProvider internalRecipeProvider;
+
     public FabricModRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryFuture) {
         super(output, registryFuture);
     }
 
     @Override
-    public void buildRecipes(RecipeOutput recipeOutput) {
-        this.buildModRecipes(recipeOutput);
+    protected @NotNull RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+        internalRecipeProvider = new InternalRecipeProvider(provider, recipeOutput);
+
+        return internalRecipeProvider;
     }
 
     @Override
@@ -57,12 +63,31 @@ public class FabricModRecipeProvider extends FabricRecipeProvider implements ISu
 
     @Override
     public Criterion<TriggerInstance> _has(ItemLike itemLike) {
-        return has(itemLike);
+        return internalRecipeProvider.has(itemLike);
     }
 
     @Override
     public Criterion<TriggerInstance> _has(TagKey<Item> tag) {
-        return has(tag);
+        return internalRecipeProvider.has(tag);
+    }
+
+    private class InternalRecipeProvider extends RecipeProvider {
+
+        RecipeOutput recipeOutput;
+        HolderLookup.Provider registries;
+
+        protected InternalRecipeProvider(Provider registries, RecipeOutput output) {
+            super(registries, output);
+
+            this.recipeOutput = output;
+            this.registries = registries;
+        }
+
+        @Override
+        public void buildRecipes() {
+            buildModRecipes(registries, recipeOutput);
+        }
+
     }
 
 }

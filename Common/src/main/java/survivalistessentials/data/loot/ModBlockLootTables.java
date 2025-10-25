@@ -2,6 +2,7 @@ package survivalistessentials.data.loot;
 
 import java.util.HashSet;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
@@ -14,7 +15,6 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable.Builder;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -63,21 +63,22 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         for(Block block : getKnownBlocks()) {
             if (block.isEnabled(this.enabledFeatures)) {
-                ResourceKey<LootTable> resourcekey = block.getLootTable();
-                if (resourcekey != BuiltInLootTables.EMPTY && set.add(resourcekey)) {
-                    LootTable.Builder loottable$builder = this.map.remove(resourcekey);
+                Optional<ResourceKey<LootTable>> resourcekey = block.getLootTable();
+
+                if (resourcekey.isPresent() && set.add(resourcekey.get())) {
+                    LootTable.Builder loottable$builder = this.map.remove(resourcekey.get());
                     if (loottable$builder == null) {
                         throw new IllegalStateException(
                             String.format(
                                 Locale.ROOT,
                                 "Missing loottable '%s' for '%s'",
-                                resourcekey.location(),
+                                resourcekey.get().location(),
                                 BuiltInRegistries.BLOCK.getKey(block)
                             )
                         );
                     }
 
-                    output.accept(resourcekey, loottable$builder);
+                    output.accept(resourcekey.get(), loottable$builder);
                 }
             }
         }

@@ -17,10 +17,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ShearsItem;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -32,6 +29,7 @@ import survivalistessentials.mixin.AbstractBlockAccessor;
 import survivalistessentials.mixin.AbstractBlockStateAccessor;
 import survivalistessentials.SurvivalistEssentials;
 import survivalistessentials.util.ItemUse;
+import survivalistessentials.util.ResourceLocationHelper;
 import survivalistessentials.util.ToolType;
 
 public final class HarvestBlock {
@@ -109,18 +107,17 @@ public final class HarvestBlock {
         });
 
         BuiltInRegistries.ITEM.forEach(item -> {
-            if (item instanceof DiggerItem digger) {
-                Tool tool = digger.components().get(DataComponents.TOOL);
+            Tool tool = item.components().get(DataComponents.TOOL);
+
+            if (tool != null && !tool.rules().isEmpty()) {
                 TagKey<Block> tagKey = null;
 
-                if (tool != null) {
-                    for (Tool.Rule rule : tool.rules()) {
-                        if (rule.correctForDrops().isPresent()) {
-                            Optional<TagKey<Block>> optionalBlockTagKey = rule.blocks().unwrapKey();
+                for (Tool.Rule rule : tool.rules()) {
+                    if (rule.correctForDrops().isPresent()) {
+                        Optional<TagKey<Block>> optionalBlockTagKey = rule.blocks().unwrapKey();
 
-                            if (optionalBlockTagKey.isPresent()) {
-                                tagKey = optionalBlockTagKey.get();
-                            }
+                        if (optionalBlockTagKey.isPresent()) {
+                            tagKey = optionalBlockTagKey.get();
                         }
                     }
                 }
@@ -131,12 +128,18 @@ public final class HarvestBlock {
                     ITEM_TOOL_TYPES.put(item, toolType);
                 }
                 else {
-                    SurvivalistEssentials.LOGGER.debug("Unable to determine digger tool type. %s", digger);
+                    SurvivalistEssentials.LOGGER.debug("Unable to determine item tool type. {} {}", ResourceLocationHelper.getItemId(item), tagKey);
                 }
             }
+            /*
             else if (item instanceof SwordItem || item instanceof ShearsItem) {
                 ITEM_TOOL_TYPES.put(item, ToolType.SHARP);
             }
+             */
+        });
+
+        ITEM_TOOL_TYPES.forEach((item, toolType) -> {
+            SurvivalistEssentials.LOGGER.debug("Inferred tool type for item: {} is {}", ResourceLocationHelper.getItemId(item), toolType);
         });
 
         if (!unknownToolTypeBlocks.isEmpty()) {

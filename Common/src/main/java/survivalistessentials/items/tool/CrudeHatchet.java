@@ -3,14 +3,14 @@ package survivalistessentials.items.tool;
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 
 import survivalistessentials.items.RecipeRemainderAxeItem;
 
 public class CrudeHatchet extends RecipeRemainderAxeItem {
 
-    public CrudeHatchet(Tier tier, Properties properties) {
-        super(tier, properties);
+    public CrudeHatchet(ToolMaterial toolMaterial, float attackDamage, float attackSpeed, Properties properties) {
+        super(toolMaterial, attackDamage, attackSpeed, properties);
     }
 
     @NotNull

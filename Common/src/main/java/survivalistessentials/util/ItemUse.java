@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -245,7 +245,7 @@ public class ItemUse {
     }
 
     public static boolean isArmor(ItemStack stack) {
-        return stack.getItem() instanceof ArmorItem;
+        return stack.getItem().components().get(DataComponents.EQUIPPABLE) != null;
     }
 
     public static boolean isAllowedArmor(ItemStack stack) {

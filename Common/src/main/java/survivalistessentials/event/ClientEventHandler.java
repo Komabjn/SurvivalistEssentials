@@ -1,6 +1,7 @@
 package survivalistessentials.event;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 
@@ -18,7 +19,7 @@ public class ClientEventHandler {
             Component message = Component.translatable("message.survivalistessentials.tcon_compat")
                 .withStyle(ChatFormatting.DARK_GREEN);
 
-            player.sendSystemMessage(message);
+            Minecraft.getInstance().gui.getChat().addMessage(message);
             ConfigHandler.Client.disableTConCompatMessage();
         }
     }

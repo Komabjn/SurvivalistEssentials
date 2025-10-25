@@ -11,7 +11,7 @@ version = "${version}-${modLoader}"
 neoForge {
     version = neoforge_version
     parchment {
-        minecraftVersion = minecraft_version
+        minecraftVersion = mappings_minecraft_version
         mappingsVersion = mappings_version
     }
     runs {
@@ -26,9 +26,9 @@ neoForge {
             server()
             programArgument '--nogui'
         }
-        data {
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath(), '--existing', file('../Common/src/main/resources/').getAbsolutePath()
-            data()
+        clientData {
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+            clientData()
         }
     }
     mods {
@@ -42,14 +42,19 @@ dependencies {
     implementation group: 'technology.roughness.whitenoise', name: "whitenoise-${minecraft_version}-neoforge", version: "${whitenoise_version}"
     jarJar group: 'technology.roughness.whitenoise', name: "whitenoise-${minecraft_version}-neoforge", version: "${whitenoise_version}"
 
-    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
-    implementation "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    compileOnly "mezz.jei:jei-${jei_minecraft_version}-common-api:${jei_version}"
+    compileOnly "mezz.jei:jei-${jei_minecraft_version}-neoforge:${jei_version}"
+
+    runtimeOnly "mezz.jei:jei-${jei_minecraft_version}-neoforge:${jei_version}"
 
     compileOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rei_version}"
 
+    /*
+     * Not available past 1.21.1
     runtimeOnly ("mcjty.theoneprobe:theoneprobe:1.21_neo-${probe_version}") {
         transitive = false
     }
+    */
 
     implementation group: 'technology.roughness.handbook', name: "handbook-${minecraft_version}-neoforge", version: "${handbook_version}"
     jarJar group: 'technology.roughness.handbook', name: "handbook-${minecraft_version}-neoforge", version: "${handbook_version}"

@@ -29,8 +29,6 @@ public class FabricDatagenInitializer implements DataGeneratorEntrypoint {
         pack.addProvider(CommonItemTagsProvider::new);
         pack.addProvider(CommonBlockTagsProvider::new);
         pack.addProvider(ModLootTables::create);
-        //pack.addProvider((dataOutput, registryFuture) -> new FabricItemModelProvider(dataOutput));
-        //pack.addProvider(CommonRecipeProvider::new);
         pack.addProvider(SurvivalistEssentialsLanguageProvider::new);
         pack.addProvider(SurvivalistEssentialsBookProvider::new);
     }

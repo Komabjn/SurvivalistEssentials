@@ -11,7 +11,8 @@ public abstract class RecipeRemainderItem extends Item implements IRecipeRemaind
 
     public abstract ItemStack getRemainingItem(ItemStack stack);
 
-    @Override
+    //@Override
+    //TODO: FIXME
     public final boolean hasCraftingRemainingItem() {
         return true;
     }

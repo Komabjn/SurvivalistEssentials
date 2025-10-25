@@ -10,14 +10,12 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-
 import survivalistessentials.SurvivalistEssentials;
 
 public class BlockTagsOverrideProvider extends IntrinsicHolderTagsProvider<Block> {
 
-    public BlockTagsOverrideProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper helper) {
-        super(packOutput, Registries.BLOCK, lookupProvider, (block) -> block.builtInRegistryHolder().key(), SurvivalistEssentials.MODID, helper);
+    public BlockTagsOverrideProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(packOutput, Registries.BLOCK, lookupProvider, (block) -> block.builtInRegistryHolder().key(), SurvivalistEssentials.MODID);
     }
 
     @Override

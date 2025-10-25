@@ -4,12 +4,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 
 import survivalistessentials.items.item.Bandage;
@@ -43,17 +45,17 @@ public final class SurvivalistEssentialsItems {
     public static Item MODPACK_BOOK = registerBook("modpack_book");
 
     // Tools
-    public static Item CRUDE_KNIFE = registerKnifeTool("crude_knife", ItemTiers.FLINT_TIER);
-    public static Item BASIC_KNIFE = registerKnifeTool("basic_knife", ItemTiers.IRON_TIER);
-    public static Item SHARP_KNIFE = registerKnifeTool("sharp_knife", ItemTiers.DIAMOND_TIER);
-    public static Item CRUDE_HATCHET = registerHatchetTool("crude_hatchet", ItemTiers.STONE_TIER);
-    public static Item SAW_HANDLE = registerSawTool("saw_handle", ItemTiers.NO_TIER, -8.0F);
+    public static Item CRUDE_KNIFE = registerKnifeTool("crude_knife", ToolMaterials.FLINT);
+    public static Item BASIC_KNIFE = registerKnifeTool("basic_knife", ToolMaterials.IRON);
+    public static Item SHARP_KNIFE = registerKnifeTool("sharp_knife", ToolMaterials.DIAMOND);
+    public static Item CRUDE_HATCHET = registerHatchetTool("crude_hatchet", ToolMaterials.STONE);
+    public static Item SAW_HANDLE = registerSawTool("saw_handle", ToolMaterials.NONE, -8.0F);
     public static Item CRUDE_SAW_BLADE = registerSawBlade("crude_saw_blade");
     public static Item BASIC_SAW_BLADE = registerSawBlade("basic_saw_blade");
     public static Item SHARP_SAW_BLADE = registerSawBlade("sharp_saw_blade");
-    public static Item CRUDE_SAW = registerSawTool("crude_saw", ItemTiers.FLINT_TIER, -4.0F);
-    public static Item BASIC_SAW = registerSawTool("basic_saw", ItemTiers.IRON_TIER, -4.0F);
-    public static Item SHARP_SAW = registerSawTool("sharp_saw", ItemTiers.DIAMOND_TIER, -4.0F);
+    public static Item CRUDE_SAW = registerSawTool("crude_saw", ToolMaterials.FLINT, -4.0F);
+    public static Item BASIC_SAW = registerSawTool("basic_saw", ToolMaterials.IRON, -4.0F);
+    public static Item SHARP_SAW = registerSawTool("sharp_saw", ToolMaterials.DIAMOND, -4.0F);
     public static Item MORTAR_AND_PESTLE = registerMortar("mortar_and_pestle");
 
     // Bandages
@@ -103,34 +105,35 @@ public final class SurvivalistEssentialsItems {
         return item;
     }
 
-    private static Item registerKnifeTool(String name, Tier tier) {
+    private static Item registerKnifeTool(String name, ToolMaterial toolMaterial) {
         Item knifeTool = new SurvivalKnife(
-            tier,
-            new Item.Properties().attributes(
-                SurvivalKnife.createAttributes(tier, 1, -1.4F)
-            )
+            new Item.Properties().sword(
+                toolMaterial,
+                1.0F,
+                -3.0F
+            ).setId(ResourceKey.create(Registries.ITEM, prefix(name)))
         );
 
         return make(name, knifeTool, true, false);
     }
 
-    private static Item registerHatchetTool(String name, Tier tier) {
+    private static Item registerHatchetTool(String name, ToolMaterial toolMaterial) {
         Item hatchetTool = new CrudeHatchet(
-            tier,
-            new Item.Properties().attributes(
-                CrudeHatchet.createAttributes(tier, 4, -3.0F)
-            )
+            toolMaterial,
+            4.0F,
+            -3.0F,
+            new Item.Properties().setId(ResourceKey.create(Registries.ITEM, prefix(name)))
         );
 
         return make(name, hatchetTool, true, false);
     }
 
-    private static Item registerSawTool(String name, Tier tier, float speed) {
-        Item sawTool = new SurvivalSaw(name, tier, speed, new Item.Properties().attributes(ItemAttributeModifiers.builder().add(
+    private static Item registerSawTool(String name, ToolMaterial toolMaterial, float speed) {
+        Item sawTool = new SurvivalSaw(name, toolMaterial, speed, 0.0F, new Item.Properties().attributes(ItemAttributeModifiers.builder().add(
             Attributes.ATTACK_SPEED,
             new AttributeModifier(BASE_ATTACK_SPEED_ID, speed, AttributeModifier.Operation.ADD_VALUE),
             EquipmentSlotGroup.MAINHAND
-        ).build()));
+        ).build()).setId(ResourceKey.create(Registries.ITEM, prefix(name))));
 
         return make(name, sawTool, true, false);
     }
@@ -140,7 +143,9 @@ public final class SurvivalistEssentialsItems {
     }
 
     public static Item registerBook(String name) {
-        return make(name, new SurvivalistEssentialsBook(), false, true);
+        return make(name, new SurvivalistEssentialsBook(
+            new Item.Properties().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, prefix(name)))
+        ), false, true);
     }
 
     public static Map<ResourceLocation, Item> getAllIngredients() {

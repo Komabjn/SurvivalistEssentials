@@ -53,7 +53,7 @@ public abstract class ItemMixin {
                     Objects.requireNonNull(player).swing(hand);
                 }
                 else {
-                    if (!level.isClientSide) {
+                    if (!level.isClientSide()) {
                         if (level.random.nextFloat() < 0.75) {
                             if (level.random.nextFloat() < ConfigHandler.Common.flintChance()) {
                                 NonNullList<ItemStack> dropStack =

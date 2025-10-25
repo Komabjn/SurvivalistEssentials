@@ -1,18 +1,20 @@
 package survivalistessentials.items;
 
-import net.minecraft.world.item.TieredItem;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.ToolMaterial;
 
-public abstract class RecipeRemainderTieredItem extends TieredItem implements IRecipeRemainder {
+public abstract class RecipeRemainderTieredItem extends Item implements IRecipeRemainder {
 
-    public RecipeRemainderTieredItem(Tier tier, Properties properties) {
-        super(tier, properties);
+    public RecipeRemainderTieredItem(ToolMaterial toolMaterial, float speed, float damage, Properties properties) {
+        super(toolMaterial.applyToolProperties(properties, BlockTags.MINEABLE_WITH_AXE, speed, damage, 0.0F));
     }
 
     public abstract ItemStack getRemainingItem(ItemStack stack);
 
-    @Override
+    //@Override
+    //TODO: FIXME
     public final boolean hasCraftingRemainingItem() {
         return true;
     }

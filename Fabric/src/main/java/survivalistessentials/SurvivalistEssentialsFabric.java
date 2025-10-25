@@ -16,7 +16,9 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
@@ -86,25 +88,28 @@ public class SurvivalistEssentialsFabric implements ModInitializer {
             String pathString = resourceKey.location().getPath();
 
             if (fiberPlantBlocks.stream().anyMatch(pathString::contains)) {
+                HolderLookup.RegistryLookup<Item> itemRegistryLookup = provider.lookupOrThrow(Registries.ITEM);
+
                 builder.withPool(LootPool.lootPool()
                     .setRolls(ConstantValue.exactly(1))
                     .add(LootItem.lootTableItem(SurvivalistEssentialsItems.PLANT_FIBER))
                     // No damn idea how to do this in the "Fabric" way, since their documentation is garbage. Deprecated, but whatever.
                     // I'll just add the mixin back if they remove it. This is hot garbage anyhow.
-                    .conditionally(List.of(LootConditionHelper.createKnifeChanceCondition(0.16F, Blocks.FIBER_PLANTS)))
+                    .conditionally(List.of(LootConditionHelper.createKnifeChanceCondition(0.16F, Blocks.FIBER_PLANTS, itemRegistryLookup)))
                 );
                 if (pathString.contains("leaves")) {
                     HolderLookup.RegistryLookup<Enchantment> holderLookup = provider.lookupOrThrow(Registries.ENCHANTMENT);
+                    HolderLookup.RegistryLookup<EntityType<?>> entityRegistryLookup = provider.lookupOrThrow(Registries.ENTITY_TYPE);
 
                     builder.withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(Items.STICK))
-                        .conditionally(List.of(LootConditionHelper.createKnifeChanceCondition(0.16F, BlockTags.LEAVES)))
+                        .conditionally(List.of(LootConditionHelper.createKnifeChanceCondition(0.16F, BlockTags.LEAVES, itemRegistryLookup)))
                     );
                     builder.withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
                         .add(LootItem.lootTableItem(Items.STICK))
-                        .conditionally(List.of(LootConditionHelper.createExtraStickDropConditions(0.16F, BlockTags.LEAVES, holderLookup)))
+                        .conditionally(List.of(LootConditionHelper.createExtraStickDropConditions(0.16F, BlockTags.LEAVES, holderLookup, itemRegistryLookup, entityRegistryLookup)))
                     );
                 }
             }

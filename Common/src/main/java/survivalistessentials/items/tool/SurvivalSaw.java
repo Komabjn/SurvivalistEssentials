@@ -9,10 +9,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -25,8 +25,8 @@ public class SurvivalSaw extends RecipeRemainderTieredItem {
     public String name;
     private final float speed;
 
-    public SurvivalSaw(String name, Tier tier, float speed, Properties properties) {
-        super(tier, properties);
+    public SurvivalSaw(String name, ToolMaterial toolMaterial, float speed, float damage, Properties properties) {
+        super(toolMaterial, speed, damage, properties);
 
         this.speed = speed;
         this.name = name;
@@ -54,28 +54,13 @@ public class SurvivalSaw extends RecipeRemainderTieredItem {
     }
 
     @Override
-    public int getEnchantmentValue() {
-        return 0;
-    }
-
-    @Override
-    public boolean isEnchantable(@NotNull ItemStack pStack) {
-        return false;
-    }
-
-    @Override
-    public boolean isValidRepairItem(@NotNull ItemStack pToRepair, @NotNull ItemStack pRepair) {
-        return false;
-    }
-
-    @Override
     public float getDestroySpeed(@NotNull ItemStack pStack, BlockState pState) {
         return !pState.is(TagManager.Blocks.ALWAYS_BREAKABLE) ? this.speed : 1.0F;
     }
 
     @Override
     public boolean mineBlock(@NotNull ItemStack pStack, Level pLevel, @NotNull BlockState pState, @NotNull BlockPos pPos, @NotNull LivingEntity pEntityLiving) {
-          if (!pLevel.isClientSide && pState.getDestroySpeed(pLevel, pPos) != 0.0F) {
+          if (!pLevel.isClientSide() && pState.getDestroySpeed(pLevel, pPos) != 0.0F) {
               Tool tool = (Tool)pStack.get(DataComponents.TOOL);
               if (tool == null) {
                   return false;
@@ -95,8 +80,6 @@ public class SurvivalSaw extends RecipeRemainderTieredItem {
     }
 
     @Override
-    public boolean hurtEnemy(@NotNull ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {
-        return false;
-    }
+    public void hurtEnemy(@NotNull ItemStack pStack, @NotNull LivingEntity pTarget, @NotNull LivingEntity pAttacker) {}
 
 }

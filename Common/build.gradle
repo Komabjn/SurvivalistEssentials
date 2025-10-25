@@ -11,7 +11,7 @@ archivesBaseName = "${mod_id}-common"
 neoForge {
     neoFormVersion = neo_form_version
     parchment {
-        minecraftVersion = minecraft_version
+        minecraftVersion = mappings_minecraft_version
         mappingsVersion = mappings_version
     }
 }
@@ -25,7 +25,7 @@ dependencies {
 
     compileOnly group: 'technology.roughness.handbook', name: "handbook-${minecraft_version}-common", version: "${handbook_version}"
 
-    compileOnly "mezz.jei:jei-${minecraft_version}-common:${jei_version}"
+    compileOnly "mezz.jei:jei-${jei_minecraft_version}-common:${jei_version}"
 
     compileOnly "me.shedaniel:RoughlyEnoughItems-api:${rei_version}"
 }

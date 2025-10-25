@@ -39,7 +39,7 @@ public class Chat {
     }
 
     public static void sendMessage(Player player, String title, Item item, boolean delayed) {
-        Component name = item.getDescription();
+        Component name = Component.translatable(item.getDescriptionId());
 
         sendMessage(player, title, name, delayed);
     }

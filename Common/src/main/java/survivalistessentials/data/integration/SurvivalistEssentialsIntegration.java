@@ -4,6 +4,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -409,7 +411,7 @@ public final class SurvivalistEssentialsIntegration {
     }
 
     private static Item makeItem(ResourceLocation loc) {
-        Item item = (new Item(new Item.Properties()));
+        Item item = (new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, loc))));
 
         ALL.put(loc, item);
 

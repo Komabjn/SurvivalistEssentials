@@ -11,7 +11,6 @@ import net.minecraft.world.Containers;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
@@ -44,7 +43,7 @@ public class RockStone extends BlockItem {
                 Objects.requireNonNull(player).swing(hand);
             }
             else {
-                if (!level.isClientSide) {
+                if (!level.isClientSide()) {
                     if (level.random.nextFloat() < 0.5) {
                         if (level.random.nextFloat() < ConfigHandler.Common.flintChance()) {
                             NonNullList<ItemStack> dropStack =
@@ -67,8 +66,8 @@ public class RockStone extends BlockItem {
 
     @Override
     @NotNull
-    public InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
-        return new InteractionResultHolder<>(InteractionResult.FAIL, player.getItemInHand(hand));
+    public InteractionResult use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
+        return InteractionResult.FAIL;
     }
 
     @Override
