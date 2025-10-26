@@ -1,10 +1,4 @@
 {
-  "fabric:load_conditions": [
-    {
-      "condition": "survivalistessentials:config_disabled",
-      "config_disabled": "enableModpackBook"
-    }
-  ],
   "parent": "minecraft:recipes/root",
   "criteria": {
     "has_loose_rock": {

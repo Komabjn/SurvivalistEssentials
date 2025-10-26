@@ -1,6 +1,0 @@
-{
-  "parent": "survivalistessentials:block/loose_rock",
-  "textures": {
-    "all": "survivalistessentials:block/rock_stone_block"
-  }
-}

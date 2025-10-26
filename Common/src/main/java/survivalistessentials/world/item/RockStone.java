@@ -11,12 +11,9 @@ import net.minecraft.world.Containers;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 
@@ -24,10 +21,10 @@ import survivalistessentials.config.ConfigHandler;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.sound.SurvivalistEssentialsSounds;
 
-public class RockStone extends BlockItem {
+public class RockStone extends Item {
 
-    public RockStone(Block block, Item.Properties tabGroup) {
-        super(block, tabGroup);
+    public RockStone(Item.Properties properties) {
+        super(properties);
     }
 
     @Override
@@ -67,11 +64,6 @@ public class RockStone extends BlockItem {
     @Override
     @NotNull
     public InteractionResult use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
-        return InteractionResult.FAIL;
-    }
-
-    @Override
-    public @NotNull InteractionResult place(@NotNull BlockPlaceContext context) {
         return InteractionResult.FAIL;
     }
 

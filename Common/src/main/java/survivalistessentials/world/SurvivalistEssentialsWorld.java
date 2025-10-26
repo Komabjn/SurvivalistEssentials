@@ -28,10 +28,11 @@ public final class SurvivalistEssentialsWorld {
     public static Block STONE_LOOSE_ROCK;
     public static Block SANDSTONE_LOOSE_ROCK;
     public static Block RED_SANDSTONE_LOOSE_ROCK;
-    public static Block ROCK_STONE_BLOCK;
 
     // Items
-    public static Item ROCK_STONE;
+    public static Item ROCK_STONE = make(prefix("rock_stone"), new RockStone(
+        new Item.Properties().setId(ResourceKey.create(Registries.ITEM, prefix("rock_stone")))
+    ));
 
     public static void initBlocks(BiConsumer<Block, ResourceLocation> consumer) {
         ANDESITE_LOOSE_ROCK = makeBlock("andesite_loose_rock");
@@ -40,7 +41,6 @@ public final class SurvivalistEssentialsWorld {
         STONE_LOOSE_ROCK = makeBlock("stone_loose_rock");
         SANDSTONE_LOOSE_ROCK = makeBlock("sandstone_loose_rock");
         RED_SANDSTONE_LOOSE_ROCK = makeBlock("red_sandstone_loose_rock");
-        ROCK_STONE_BLOCK = makeBlock("rock_stone_block");
 
         for (Map.Entry<ResourceLocation, Block> entry : ALL_BLOCKS.entrySet()) {
             consumer.accept(entry.getValue(), entry.getKey());
@@ -54,7 +54,6 @@ public final class SurvivalistEssentialsWorld {
         make("stone_loose_rock", STONE_LOOSE_ROCK);
         make("sandstone_loose_rock", SANDSTONE_LOOSE_ROCK);
         make("red_sandstone_loose_rock", RED_SANDSTONE_LOOSE_ROCK);
-        make("rock_stone_block", ROCK_STONE_BLOCK);
 
         for (Map.Entry<ResourceLocation, Item> entry : ALL.entrySet()) {
             consumer.accept(entry.getValue(), entry.getKey());
@@ -75,13 +74,13 @@ public final class SurvivalistEssentialsWorld {
         ResourceLocation loc = prefix(name);
 
         make(loc, new BlockItem(block, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, loc))));
-
-        if (name.contains("rock_stone_block")) {
-            ROCK_STONE = make(loc, new RockStone(block, new Item.Properties().setId(ResourceKey.create(Registries.ITEM, loc))));
-        }
     }
 
     private static Item make(ResourceLocation loc, Item item) {
+        if (item instanceof BlockItem blockItem) {
+            blockItem.registerBlocks(Item.BY_BLOCK, item);
+        }
+
         ALL.put(loc, item);
 
         return item;

@@ -28,7 +28,13 @@
       "id": "#minecraft:swords",
       "required": false
     },
-    "#survivalistessentials:knife_tools",
-    "#survivalistessentials:axe_tools"
+    {
+      "id": "#survivalistessentials:knife_tools",
+      "required": false
+    },
+    {
+      "id": "#survivalistessentials:axe_tools",
+      "required": false
+    }
   ]
 }

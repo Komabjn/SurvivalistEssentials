@@ -11,12 +11,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "survivalistessentials:florus_stems"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#survivalistessentials:florus_stems",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

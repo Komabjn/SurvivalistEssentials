@@ -33,11 +33,6 @@ public class CommonItemTagsProvider extends IntrinsicHolderTagsProvider<Item> {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
-        builder(
-            TagManager.Items.FLINT_KNAPPABLE,
-            Items.FLINT,
-            SurvivalistEssentialsWorld.ROCK_STONE
-        );
         getOrCreateRawBuilder(TagManager.Items.PICKAXE_TOOLS)
             .addOptionalTag(TagManager.Items.MINING_TOOL_TOOLS.location())
             .addOptionalTag(SurvivalistEssentialsIntegration.mcLoc("pickaxes"))

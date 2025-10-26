@@ -3,6 +3,7 @@ package survivalistessentials.data;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
+import survivalistessentials.data.client.SurvivalistEssentialsModelProvider;
 import survivalistessentials.data.client.handbook.SurvivalistEssentialsBookProvider;
 import survivalistessentials.data.loot.ModLootTables;
 import survivalistessentials.SurvivalistEssentials;
@@ -31,6 +32,7 @@ public class FabricDatagenInitializer implements DataGeneratorEntrypoint {
         pack.addProvider(ModLootTables::create);
         pack.addProvider(SurvivalistEssentialsLanguageProvider::new);
         pack.addProvider(SurvivalistEssentialsBookProvider::new);
+        pack.addProvider(SurvivalistEssentialsModelProvider::new);
     }
 
     /*

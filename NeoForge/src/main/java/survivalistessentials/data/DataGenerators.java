@@ -19,8 +19,6 @@ import net.neoforged.neoforge.common.world.BiomeModifiers;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
-//import survivalistessentials.data.client.ModBlockStateProvider;
-//import survivalistessentials.data.client.ModItemModelProvider;
 import survivalistessentials.data.loot.GlobalLootModifier;
 import survivalistessentials.data.overrides.BlockTagsOverrideProvider;
 import survivalistessentials.SurvivalistEssentials;
@@ -49,10 +47,8 @@ public final class DataGenerators {
         String modpackOverrides = System.getenv("MOD_OVERRIDES");
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
-        //gen.addProvider(true, new ModBlockStateProvider(packOutput));
         gen.addProvider(true, new NeoForgeRecipeProvider(packOutput, provider));
         gen.addProvider(true, new GlobalLootModifier(packOutput, provider));
-        //gen.addProvider(true, new ModItemModelProvider(packOutput));
 
         if (modpackOverrides != null && modpackOverrides.contains("all")) {
             gen.addProvider(true, new BlockTagsOverrideProvider(packOutput, event.getLookupProvider()));

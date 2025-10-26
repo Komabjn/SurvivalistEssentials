@@ -9,12 +9,8 @@
   "category": "misc",
   "group": "sticks",
   "ingredients": [
-    {
-      "item": "regions_unexplored:dark_oak_branch"
-    },
-    {
-      "tag": "survivalistessentials:advanced_saw_tools"
-    }
+    "regions_unexplored:dark_oak_branch",
+    "#survivalistessentials:advanced_saw_tools"
   ],
   "result": {
     "count": 4,

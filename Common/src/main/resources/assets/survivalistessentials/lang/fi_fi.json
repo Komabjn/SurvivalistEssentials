@@ -39,12 +39,18 @@
   "item.survivalistessentials.wooden_cup": "Salaperäinen puukuppi",
   "item.survivalistessentials.book": "Survivalist Essentials",
   "item.survivalistessentials.modpack_book": "Survivalist Essentials+",
-  "block.survivalistessentials.rock_stone_block": "Kivi",
+  "item.survivalistessentials.rock_stone": "Kivi",
+  "item.survivalistessentials.stone_loose_rock": "Loose Rock (Kivi)",
   "block.survivalistessentials.stone_loose_rock": "Loose Rock (Kivi)",
+  "item.survivalistessentials.andesite_loose_rock": "Loose Rock (Andesiitti)",
   "block.survivalistessentials.andesite_loose_rock": "Loose Rock (Andesiitti)",
+  "item.survivalistessentials.diorite_loose_rock": "Loose Rock (Dioriitti)",
   "block.survivalistessentials.diorite_loose_rock": "Loose Rock (Dioriitti)",
+  "item.survivalistessentials.granite_loose_rock": "Loose Rock (Graniitti)",
   "block.survivalistessentials.granite_loose_rock": "Loose Rock (Graniitti)",
+  "item.survivalistessentials.sandstone_loose_rock": "Loose Rock (Sandstone)",
   "block.survivalistessentials.sandstone_loose_rock": "Loose Rock (Sandstone)",
+  "item.survivalistessentials.red_sandstone_loose_rock": "Loose Rock (Red Sandstone)",
   "block.survivalistessentials.red_sandstone_loose_rock": "Loose Rock (Red Sandstone)",
   "jei.survivalistessentials.description.rock_stone": "Maapallolla makaa kiviä. Näitä voidaan käyttää veitsen kanssa käsityötaulukkoon, jolloin saadaan särmikkäsiruja.",
   "jei.survivalistessentials.description.plant_fiber": "Kasvikuidut putoavat ruohon rikkoutuessa veitsellä. Niitä käytetään tehtaiden merkkijonon valmistukseen työkaluille ja kasvi- tahnamelle voidetta varten.",
@@ -169,5 +175,7 @@
   "survivalistessentials.configuration.tag.description": "List of tags when added to tools or armor will be disabled. If inverted, acts as a whitelist.\n[\"c:blacklist_tools\"]",
   "survivalistessentials.configuration.tag.name": "Tool and Armor Tags List",
   "survivalistessentials.configuration.title": "Survivalist Essentials",
-  "survivalistessentials.items": "Survivalist Essentials Items"
+  "survivalistessentials.items": "Survivalist Essentials Items",
+  "survivalistessentials.configuration.disablemodpackbook.description": "Disables the modpack book from being available. It doesn't work outside of the official modpack.",
+  "survivalistessentials.configuration.disablemodpackbook.name": "Disable Modpack Book"
 }

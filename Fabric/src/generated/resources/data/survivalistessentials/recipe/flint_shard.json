@@ -3,12 +3,8 @@
   "category": "misc",
   "group": "flint_shards",
   "ingredients": [
-    {
-      "tag": "survivalistessentials:flint_knappable"
-    },
-    {
-      "tag": "survivalistessentials:knife_tools"
-    }
+    "survivalistessentials:rock_stone",
+    "#survivalistessentials:knife_tools"
   ],
   "result": {
     "count": 2,

@@ -107,6 +107,8 @@ dependencies {
     //runtimeOnly "curse.maven:iceandfire-264231:4614465"
     //runtimeOnly "curse.maven:railcraft_reborn-901491:5650759"
     //runtimeOnly "curse.maven:create-328085:${create_neoforge_version}"
+    runtimeOnly "curse.maven:jade-324717:${jade_neoforge_version}"
+    //runtimeOnly "curse.maven:-:"
 }
 
 sourceSets.main.resources {

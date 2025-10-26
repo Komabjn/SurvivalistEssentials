@@ -9,12 +9,8 @@
   "category": "misc",
   "group": "sticks",
   "ingredients": [
-    {
-      "item": "regions_unexplored:palm_branch"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "regions_unexplored:palm_branch",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

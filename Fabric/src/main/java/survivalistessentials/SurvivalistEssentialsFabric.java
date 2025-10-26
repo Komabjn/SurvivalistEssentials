@@ -30,6 +30,7 @@ import survivalistessentials.common.HarvestBlock;
 import survivalistessentials.common.TagManager.Blocks;
 import survivalistessentials.common.loot.SurvivalistEssentialsLootConditionTypes;
 import survivalistessentials.data.integration.SurvivalistEssentialsIntegration;
+import survivalistessentials.data.recipe.ConfigResourceCondition;
 import survivalistessentials.items.SurvivalistEssentialsItems;
 import survivalistessentials.sound.SurvivalistEssentialsSounds;
 import survivalistessentials.util.LootConditionHelper;
@@ -138,6 +139,8 @@ public class SurvivalistEssentialsFabric implements ModInitializer {
             Decoration.TOP_LAYER_MODIFICATION,
             SurvivalistEssentialsFeatures.PLACED_LOOSE_ROCKS_KEY
         );
+
+        ConfigResourceCondition.register();
     }
 
     private static <T> BiConsumer<T, ResourceLocation> bind(Registry<? super T> registry) {

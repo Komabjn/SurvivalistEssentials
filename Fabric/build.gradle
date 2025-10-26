@@ -41,6 +41,7 @@ dependencies {
 
     // Testing Mods
     //modRuntimeOnly "curse.maven:carryon-274259:${carryon_fabric_version}"
+    modRuntimeOnly "curse.maven:jade-324717:${jade_fabric_version}"
     //modRuntimeOnly "curse.maven:mod-XXX:XXX"
 }
 

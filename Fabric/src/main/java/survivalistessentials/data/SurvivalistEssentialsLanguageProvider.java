@@ -61,15 +61,21 @@ public class SurvivalistEssentialsLanguageProvider extends FabricLanguageProvide
         addTranslationItem(builder, "wooden_cup", "Mysterious Wooden Cup");
         addTranslationItem(builder, "book", "Survivalist Essentials");
         addTranslationItem(builder, "modpack_book", "Survivalist Essentials+");
+        addTranslationItem(builder, "rock_stone", "Rock");
 
         // Blocks
-        addTranslationBlock(builder, "rock_stone_block", "Rock");
         addTranslationBlock(builder, "stone_loose_rock", "Loose Rock (Stone)");
+        addTranslationItem(builder, "stone_loose_rock", "Loose Rock (Stone)");
         addTranslationBlock(builder, "andesite_loose_rock", "Loose Rock (Andesite)");
+        addTranslationItem(builder, "andesite_loose_rock", "Loose Rock (Andesite)");
         addTranslationBlock(builder, "diorite_loose_rock", "Loose Rock (Diorite)");
+        addTranslationItem(builder, "diorite_loose_rock", "Loose Rock (Diorite)");
         addTranslationBlock(builder, "granite_loose_rock", "Loose Rock (Granite)");
+        addTranslationItem(builder, "granite_loose_rock", "Loose Rock (Granite)");
         addTranslationBlock(builder, "sandstone_loose_rock", "Loose Rock (Sandstone)");
+        addTranslationItem(builder, "sandstone_loose_rock", "Loose Rock (Sandstone)");
         addTranslationBlock(builder, "red_sandstone_loose_rock", "Loose Rock (Red Sandstone)");
+        addTranslationItem(builder, "red_sandstone_loose_rock", "Loose Rock (Red Sandstone)");
 
         // JEI Descriptions
         addJeiDescription(builder, "rock_stone", "Rocks are found lying on the ground. These can be used with the knife in a crafting table to get flint shards.");

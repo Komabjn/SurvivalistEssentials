@@ -36,7 +36,6 @@ public final class SurvivalistEssentialsIntegration {
     public static final String AQUA_MODID = "aquaculture";
     public static final String BAP_MODID = "betteranimalsplus";
     public static final String ALEX_MODID = "alexsmobs";
-    public static final String PATCHOULI_MODID = "patchouli";
     public static final String MALUM_MODID = "malum";
     public static final String IFD_MODID = "iceandfire";
     public static final String TS_MODID = "tinkersurvival";
@@ -47,6 +46,8 @@ public final class SurvivalistEssentialsIntegration {
     public static final String CREATE_MODID = "create";
 
     public static Item AQUA_DRIFTWOOD;
+    public static Item AQUA_FISH_FILLET_COOKED;
+    public static Item AQUA_FROG_LEGS_COOKED;
     public static Item CHERRY_PLANKS;
     public static Item CITRUS_PLANKS;
     public static Item BMO_ANCIENT_OAK_PLANKS;
@@ -225,6 +226,8 @@ public final class SurvivalistEssentialsIntegration {
         String dataGen = System.getenv("DATA_GEN");
         if (dataGen != null && dataGen.contains("all")) {
             AQUA_DRIFTWOOD = makeItem(aquaLoc("driftwood"));
+            AQUA_FISH_FILLET_COOKED = makeItem(aquaLoc("fish_fillet_cooked"));
+            AQUA_FROG_LEGS_COOKED = makeItem(aquaLoc("frog_legs_cooked"));
             CHERRY_PLANKS = makeItem(ftLoc("cherry_planks"));
             CITRUS_PLANKS = makeItem(ftLoc("citrus_planks"));
             BMO_ANCIENT_OAK_PLANKS = makeItem(bmoLoc("ancient_oak_planks"));

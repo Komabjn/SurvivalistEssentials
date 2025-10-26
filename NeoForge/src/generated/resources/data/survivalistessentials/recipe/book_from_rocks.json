@@ -1,23 +1,12 @@
 {
-  "neoforge:conditions": [
-    {
-      "type": "survivalistessentials:config_disabled",
-      "config_disabled": "enableModpackBook"
-    }
-  ],
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "group": "books",
   "ingredients": [
-    {
-      "item": "survivalistessentials:rock_stone"
-    },
-    {
-      "item": "survivalistessentials:rock_stone"
-    }
+    "survivalistessentials:rock_stone"
   ],
   "result": {
     "count": 1,
-    "id": "survivalistessentials:modpack_book"
+    "id": "survivalistessentials:book"
   }
 }

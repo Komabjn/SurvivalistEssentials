@@ -11,12 +11,8 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "survivalistessentials:alpha_logs"
-    },
-    {
-      "item": "survivalistessentials:crude_saw"
-    }
+    "#survivalistessentials:alpha_logs",
+    "survivalistessentials:crude_saw"
   ],
   "result": {
     "count": 2,

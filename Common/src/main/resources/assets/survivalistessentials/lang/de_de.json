@@ -40,12 +40,18 @@
   "item.survivalistessentials.wooden_cup": "Geheimnisvoller Holzbecher",
   "item.survivalistessentials.book": "Survivalist Essentials",
   "item.survivalistessentials.modpack_book": "Survivalist Essentials+",
-  "block.survivalistessentials.rock_stone_block": "Steinbrocken",
+  "item.survivalistessentials.rock_stone": "Steinbrocken",
+  "item.survivalistessentials.stone_loose_rock": "Lockeres Gestein (Stein)",
   "block.survivalistessentials.stone_loose_rock": "Lockeres Gestein (Stein)",
+  "item.survivalistessentials.andesite_loose_rock": "Lockeres Gestein (Andesit)",
   "block.survivalistessentials.andesite_loose_rock": "Lockeres Gestein (Andesit)",
+  "item.survivalistessentials.diorite_loose_rock": "Lockeres Gestein (Diorit)",
   "block.survivalistessentials.diorite_loose_rock": "Lockeres Gestein (Diorit)",
+  "item.survivalistessentials.granite_loose_rock": "Lockeres Gestein (Granit)",
   "block.survivalistessentials.granite_loose_rock": "Lockeres Gestein (Granit)",
+  "item.survivalistessentials.sandstone_loose_rock": "Lockeres Gestein (Sandstone)",
   "block.survivalistessentials.sandstone_loose_rock": "Lockeres Gestein (Sandstone)",
+  "item.survivalistessentials.red_sandstone_loose_rock": "Lockeres Gestein (Red Sandstone)",
   "block.survivalistessentials.red_sandstone_loose_rock": "Lockeres Gestein (Red Sandstone)",
   "jei.survivalistessentials.description.rock_stone": "Auf dem Boden liegende Steinbrocken. Diese können mit einem Messer in einer Werkbank verwendet werden, um Feuersteinsplitter herzustellen.",
   "jei.survivalistessentials.description.plant_fiber": "Pflanzenfasern können beim Abbau von Gras mit einem Messer erhalten werden. Sie werden zur Herstellung von Pflanzenschnüren für Werkzeuge und Pflanzenpaste für Verbandsalben verwendet.",
@@ -169,5 +175,7 @@
   "survivalistessentials.configuration.startinghealthpenalty.name": "Starting Health Penalty",
   "survivalistessentials.configuration.tag.description": "List of tags when added to tools or armor will be disabled. If inverted, acts as a whitelist.\n[\"c:blacklist_tools\"]",
   "survivalistessentials.configuration.tag.name": "Tool and Armor Tags List",
-  "survivalistessentials.configuration.title": "Survivalist Essentials"
+  "survivalistessentials.configuration.title": "Survivalist Essentials",
+  "survivalistessentials.configuration.disablemodpackbook.description": "Disables the modpack book from being available. It doesn't work outside of the official modpack.",
+  "survivalistessentials.configuration.disablemodpackbook.name": "Disable Modpack Book"
 }
