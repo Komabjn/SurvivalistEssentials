@@ -1,7 +1,5 @@
 package survivalistessentials.data.recipe;
 
-import java.util.Map;
-
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.advancements.Criterion;
@@ -56,18 +54,6 @@ public interface ISurvivalistEssentialsRecipeProvider {
         ItemLike cloth = SurvivalistEssentialsItems.CLOTH;
         ItemLike crudeKnife = SurvivalistEssentialsItems.CRUDE_KNIFE;
         RecipeOutput wrapped;
-
-        Map<ResourceLocation, Item> cookedMeats = Map.of(
-            loc(SurvivalistEssentialsIntegration.AQUA_MODID, "fish_fillet_cooked"), SurvivalistEssentialsIntegration.AQUA_FISH_FILLET_COOKED,
-            loc(SurvivalistEssentialsIntegration.AQUA_MODID, "frog_legs_cooked"), SurvivalistEssentialsIntegration.AQUA_FROG_LEGS_COOKED,
-            loc("minecraft", "cooked_beef"), Items.COOKED_BEEF,
-            loc("minecraft", "cooked_chicken"), Items.COOKED_CHICKEN,
-            loc("minecraft", "cooked_mutton"), Items.COOKED_MUTTON,
-            loc("minecraft", "cooked_porkchop"), Items.COOKED_PORKCHOP,
-            loc("minecraft", "cooked_rabbit"), Items.COOKED_RABBIT,
-            loc("minecraft", "cooked_cod"), Items.COOKED_COD,
-            loc("minecraft", "cooked_salmon"), Items.COOKED_SALMON
-        );
 
         // Material Recipes
         ShapedRecipeBuilder.shaped(itemRegistry, RecipeCategory.BUILDING_BLOCKS, Blocks.COBBLESTONE)
@@ -288,18 +274,6 @@ public interface ISurvivalistEssentialsRecipeProvider {
             .pattern("PO")
             .unlockedBy("has_ointment", _has(ointment))
             .save(recipeOutput);
-
-        // Leather from Smoking
-        // This is some fucking bullshit that we can't do ItemTag as input for cooking recipes, what the fuck Mojang?
-        for (Map.Entry<ResourceLocation, Item> cookedMeat : cookedMeats.entrySet()) {
-            if (cookedMeat.getKey().getNamespace().equals("minecraft")) {
-                smokedLeatherRecipeBuilder(recipeOutput, cookedMeat.getValue(), cookedMeat.getKey().getPath());
-            }
-            else {
-                wrapped = modLoaded(recipeOutput, cookedMeat.getKey().getNamespace());
-                smokedLeatherRecipeBuilder(wrapped, cookedMeat.getValue(), cookedMeat.getKey().getPath());
-            }
-        }
 
         // Book
         ShapelessRecipeBuilder.shapeless(itemRegistry, RecipeCategory.MISC, SurvivalistEssentialsItems.BOOK)
