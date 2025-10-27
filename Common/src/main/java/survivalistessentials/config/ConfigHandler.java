@@ -24,7 +24,6 @@ public final class ConfigHandler {
 
     public static final WhiteNoiseConfigSpec CLIENT_SPEC;
     public static final WhiteNoiseConfigSpec COMMON_SPEC;
-    public static final Map<String, Boolean> conditionsMap = new HashMap<>();
 
     private static final Client CLIENT;
     private static final Common COMMON;
@@ -44,9 +43,6 @@ public final class ConfigHandler {
         Common.TAGS.get().forEach((s) -> {
             Common.tagList().add(TagKey.create(Registries.ITEM, ResourceLocation.parse(s)));
         });
-
-        conditionsMap.clear();
-        conditionsMap.put("disableModpackBook", Common.disableModpackBook());
 
         ItemUse.init();
     }
@@ -280,6 +276,13 @@ public final class ConfigHandler {
 
         public static boolean disableModpackBook() {
             return COMMON.DISABLE_MODPACK_BOOK.get();
+        }
+
+        public static boolean getConfigValue(String key) {
+            return switch (key) {
+                case "disableModpackBook" -> disableModpackBook();
+                default -> true;
+            };
         }
 
     }
