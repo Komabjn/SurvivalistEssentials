@@ -110,6 +110,53 @@ public class CommonBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> 
             .addOptionalTag(BlockTags.WOOL_CARPETS.location())
             .addOptionalTag(BlockTags.WOOL.location())
             .addOptionalTag(BlockTags.CANDLE_CAKES.location());
+
+        // Let's Do Vinery -- Missing Tags for Dark Cherry
+        this.tag(BlockTags.MINEABLE_WITH_AXE)
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_log"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_wood"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("stripped_dark_cherry_wood"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("stripped_dark_cherry_log"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_planks"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_stairs"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_slab"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_pressure_plate"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_button"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_trapdoor"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_door"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_fence"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_fence_gate"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_beam"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_floorboard"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_sign"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_hanging_sign"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_big_table"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_shelf"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_drawer"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_cabinet"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_table"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_chair"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_barrel"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_wine_rack_small"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_wine_rack_mid"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_wine_rack_big"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_lattice"));
+        this.tag(BlockTags.LEAVES)
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("apple_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("grapevine_leaves"));
+        this.tag(BlockTags.REPLACEABLE_BY_TREES)
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("apple_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("grapevine_leaves"));
+        this.tag(BlockTags.SWORD_EFFICIENT)
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("apple_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("grapevine_leaves"));
+        this.tag(BlockTags.MINEABLE_WITH_HOE)
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("apple_leaves"))
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("grapevine_leaves"));
     }
 
 }

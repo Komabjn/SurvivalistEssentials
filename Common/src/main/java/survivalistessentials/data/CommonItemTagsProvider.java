@@ -365,6 +365,38 @@ public class CommonItemTagsProvider extends IntrinsicHolderTagsProvider<Item> {
         addLogVariants(TagManager.Items.RU_SOCOTRA_LOGS, "socotra", SurvivalistEssentialsIntegration::regionsLoc);
         addLogVariants(TagManager.Items.RU_WILLOW_LOGS, "willow", SurvivalistEssentialsIntegration::regionsLoc);
         addShroomVariants(TagManager.Items.RU_YELLOW_BIOSHROOM_LOGS, "yellow_bioshroom", SurvivalistEssentialsIntegration::regionsLoc);
+
+        // Let's Do
+        // Beach
+        this.tag(TagManager.Items.LD_PALM_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.ldBeachLoc("palm_log"));
+        // Blooming Nature
+        this.tag(TagManager.Items.LD_LARCH_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("larch_log"));
+        this.tag(TagManager.Items.LD_BAOBAB_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("baobab_log"));
+        this.tag(TagManager.Items.LD_ASPEN_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("aspen_log"));
+        this.tag(TagManager.Items.LD_SWAMP_OAK_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("swamp_oak_log"));
+        this.tag(TagManager.Items.LD_SWAMP_CYPRESS_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("swamp_cypress_log"));
+        this.tag(TagManager.Items.LD_FAN_PALM_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("fan_palm_log"));
+        this.tag(TagManager.Items.LD_EBONY_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("ebony_log"));
+        this.tag(TagManager.Items.LD_CHESTNUT_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("chestnut_log"));
+        this.tag(TagManager.Items.LD_FIR_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("fir_log"));
+        this.tag(TagManager.Items.LD_CACTUS)
+            .addOptionalTag(SurvivalistEssentialsIntegration.ldBloomingLoc("cactus"));
+        // Meadow
+        this.tag(TagManager.Items.LD_PINE_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.ldMeadowLoc("pine_log"));
+        // Vinery
+        this.tag(TagManager.Items.LD_DARK_CHERRY_LOGS)
+            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_log"));
     }
 
     private TagBuilder addSimpleLogVariants(TagKey<Item> tag, String type, Function<String, ResourceLocation> modLoc) {

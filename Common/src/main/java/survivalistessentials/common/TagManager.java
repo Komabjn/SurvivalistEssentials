@@ -199,6 +199,21 @@ public final class TagManager {
         public static TagKey<Item> RU_WILLOW_LOGS = create("willow_logs");
         public static TagKey<Item> RU_YELLOW_BIOSHROOM_LOGS = create("yellow_bioshroom_logs");
 
+        // Let's Do
+        public static TagKey<Item> LD_PALM_LOGS = create("palm_logs");
+        public static TagKey<Item> LD_LARCH_LOGS = create("larch_logs");
+        public static TagKey<Item> LD_BAOBAB_LOGS = create("baobab_logs");
+        public static TagKey<Item> LD_ASPEN_LOGS = create("aspen_logs");
+        public static TagKey<Item> LD_SWAMP_OAK_LOGS = create("swamp_oak_logs");
+        public static TagKey<Item> LD_SWAMP_CYPRESS_LOGS = create("swamp_cypress_logs");
+        public static TagKey<Item> LD_FAN_PALM_LOGS = create("fan_palm_logs");
+        public static TagKey<Item> LD_EBONY_LOGS = create("ebony_logs");
+        public static TagKey<Item> LD_CHESTNUT_LOGS = create("chestnut_logs");
+        public static TagKey<Item> LD_FIR_LOGS = create("fir_logs");
+        public static TagKey<Item> LD_CACTUS = create("cactus");
+        public static TagKey<Item> LD_PINE_LOGS = create("pine_logs");
+        public static TagKey<Item> LD_DARK_CHERRY_LOGS = create("dark_cherry_logs");
+
         // Common Tags
         public static TagKey<Item> INGOTS_IRON = commonTag("ingots/iron");
         public static TagKey<Item> MINING_TOOL_TOOLS = commonTag("tools/mining_tool");

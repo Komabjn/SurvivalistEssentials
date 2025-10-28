@@ -569,6 +569,29 @@ public interface ISurvivalistEssentialsRecipeProvider {
         plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_WILLOW_PLANKS, TagManager.Items.RU_WILLOW_LOGS, "has_logs", itemRegistry);
         sticksFromBranchRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_WILLOW_BRANCH, SurvivalistEssentialsIntegration.REGIONS_MODID, "", "stick_from_willow_branch", itemRegistry);
         plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.RU_YELLOW_BIOSHROOM_PLANKS, TagManager.Items.RU_YELLOW_BIOSHROOM_LOGS, "has_logs", itemRegistry);
+
+        // Let's Do
+        // Beach
+        wrapped = modLoaded(recipeOutput, SurvivalistEssentialsIntegration.LD_BEACH_MODID);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_PALM_PLANKS, TagManager.Items.LD_PALM_LOGS, "has_logs", itemRegistry);
+        // Blooming Nature
+        wrapped = modLoaded(recipeOutput, SurvivalistEssentialsIntegration.LD_BLOOMING_MODID);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_LARCH_PLANKS, TagManager.Items.LD_LARCH_LOGS, "has_logs", itemRegistry);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_BAOBAB_PLANKS, TagManager.Items.LD_BAOBAB_LOGS, "has_logs", itemRegistry);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_ASPEN_PLANKS, TagManager.Items.LD_ASPEN_LOGS, "has_logs", itemRegistry);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_SWAMP_OAK_PLANKS, TagManager.Items.LD_SWAMP_OAK_LOGS, "has_logs", itemRegistry);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_SWAMP_CYPRESS_PLANKS, TagManager.Items.LD_SWAMP_CYPRESS_LOGS, "has_logs", itemRegistry);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_FAN_PALM_PLANKS, TagManager.Items.LD_FAN_PALM_LOGS, "has_logs", itemRegistry);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_EBONY_PLANKS, TagManager.Items.LD_EBONY_LOGS, "has_logs", itemRegistry);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_CHESTNUT_PLANKS, TagManager.Items.LD_CHESTNUT_LOGS, "has_logs", itemRegistry);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_FIR_PLANKS, TagManager.Items.LD_FIR_LOGS, "has_logs", itemRegistry);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_CACTUS_PLANKS, TagManager.Items.LD_CACTUS, "has_cactus", itemRegistry);
+        // Meadow
+        wrapped = modLoaded(recipeOutput, SurvivalistEssentialsIntegration.LD_MEADOW_MODID);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_PINE_PLANKS, TagManager.Items.LD_PINE_LOGS, "has_logs", itemRegistry);
+        // Vinery
+        wrapped = modLoaded(recipeOutput, SurvivalistEssentialsIntegration.LD_VINERY_MODID);
+        plankRecipeBuilder(wrapped, SurvivalistEssentialsIntegration.LD_DARK_CHERRY_PLANKS, TagManager.Items.LD_DARK_CHERRY_LOGS, "has_logs", itemRegistry);
     }
 
     default void sticksFromBranchRecipeBuilder(RecipeOutput recipeOutput, ItemLike item, String modid, String folder, String name, RegistryLookup<Item> itemRegistry) {

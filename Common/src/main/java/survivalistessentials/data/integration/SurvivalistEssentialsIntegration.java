@@ -44,6 +44,12 @@ public final class SurvivalistEssentialsIntegration {
     public static final String TETRA_MODID = "tetra";
     public static final String MINECRAFT_MODID = "minecraft";
     public static final String CREATE_MODID = "create";
+    public static final String LD_BEACH_MODID = "beachparty";
+    public static final String LD_BLOOMING_MODID = "bloomingnature";
+    public static final String LD_FARM_MODID = "farm_and_charm";
+    public static final String LD_MEADOW_MODID = "meadow";
+    public static final String LD_VINERY_MODID = "vinery";
+    public static final String LD_WILDER_MODID = "wildernature";
 
     public static Item AQUA_DRIFTWOOD;
     public static Item AQUA_FISH_FILLET_COOKED;
@@ -169,6 +175,19 @@ public final class SurvivalistEssentialsIntegration {
     public static Item RU_WILLOW_PLANKS;
     public static Item RU_WILLOW_BRANCH;
     public static Item RU_YELLOW_BIOSHROOM_PLANKS;
+    public static Item LD_PALM_PLANKS;
+    public static Item LD_LARCH_PLANKS;
+    public static Item LD_BAOBAB_PLANKS;
+    public static Item LD_ASPEN_PLANKS;
+    public static Item LD_SWAMP_OAK_PLANKS;
+    public static Item LD_SWAMP_CYPRESS_PLANKS;
+    public static Item LD_FAN_PALM_PLANKS;
+    public static Item LD_EBONY_PLANKS;
+    public static Item LD_CHESTNUT_PLANKS;
+    public static Item LD_FIR_PLANKS;
+    public static Item LD_CACTUS_PLANKS;
+    public static Item LD_PINE_PLANKS;
+    public static Item LD_DARK_CHERRY_PLANKS;
 
     // TF Messed up log/wood crap
     public static ResourceLocation TF_CANOPY_LOG;
@@ -346,6 +365,19 @@ public final class SurvivalistEssentialsIntegration {
             RU_WILLOW_PLANKS = makeItem(regionsLoc("willow_planks"));
             RU_WILLOW_BRANCH = makeItem(regionsLoc("willow_branch"));
             RU_YELLOW_BIOSHROOM_PLANKS = makeItem(regionsLoc("yellow_bioshroom_planks"));
+            LD_PALM_PLANKS = makeItem(ldBeachLoc("palm_planks"));
+            LD_LARCH_PLANKS = makeItem(ldBloomingLoc("larch_planks"));
+            LD_BAOBAB_PLANKS = makeItem(ldBloomingLoc("baobab_planks"));
+            LD_ASPEN_PLANKS = makeItem(ldBloomingLoc("aspen_planks"));
+            LD_SWAMP_OAK_PLANKS = makeItem(ldBloomingLoc("swamp_oak_planks"));
+            LD_SWAMP_CYPRESS_PLANKS = makeItem(ldBloomingLoc("swamp_cypress_planks"));
+            LD_FAN_PALM_PLANKS = makeItem(ldBloomingLoc("fan_palm_planks"));
+            LD_EBONY_PLANKS = makeItem(ldBloomingLoc("ebony_planks"));
+            LD_CHESTNUT_PLANKS = makeItem(ldBloomingLoc("chestnut_planks"));
+            LD_FIR_PLANKS = makeItem(ldBloomingLoc("fir_planks"));
+            LD_CACTUS_PLANKS = makeItem(ldBloomingLoc("cactus_planks"));
+            LD_PINE_PLANKS = makeItem(ldMeadowLoc("pine_planks"));
+            LD_DARK_CHERRY_PLANKS = makeItem(ldVineryLoc("dark_cherry_planks"));
 
             // TF Messed up log/wood crap
             TF_CANOPY_LOG = tfLoc("canopy_log");
@@ -523,6 +555,30 @@ public final class SurvivalistEssentialsIntegration {
 
     public static ResourceLocation mcLoc(String name) {
         return getLoc(MINECRAFT_MODID, name);
+    }
+
+    public static ResourceLocation ldBeachLoc(String name) {
+        return loc(LD_BEACH_MODID, name);
+    }
+
+    public static ResourceLocation ldBloomingLoc(String name) {
+        return loc(LD_BLOOMING_MODID, name);
+    }
+
+    public static ResourceLocation ldFarmLoc(String name) {
+        return loc(LD_FARM_MODID, name);
+    }
+
+    public static ResourceLocation ldMeadowLoc(String name) {
+        return loc(LD_MEADOW_MODID, name);
+    }
+
+    public static ResourceLocation ldVineryLoc(String name) {
+        return loc(LD_VINERY_MODID, name);
+    }
+
+    public static ResourceLocation ldWilderLoc(String name) {
+        return loc(LD_WILDER_MODID, name);
     }
 
     private static ResourceLocation getLoc(String modid, String name) {
