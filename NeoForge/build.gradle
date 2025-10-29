@@ -59,7 +59,7 @@ dependencies {
     implementation group: 'technology.roughness.handbook', name: "handbook-${minecraft_version}-neoforge", version: "${handbook_version}"
     jarJar group: 'technology.roughness.handbook', name: "handbook-${minecraft_version}-neoforge", version: "${handbook_version}"
 
-    //runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}"
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}"
     //compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}:api"
 
     compileOnly "curse.maven:carryon-274259:${carryon_neoforge_version}"
@@ -108,6 +108,13 @@ dependencies {
     //runtimeOnly "curse.maven:railcraft_reborn-901491:5650759"
     //runtimeOnly "curse.maven:create-328085:${create_neoforge_version}"
     runtimeOnly "curse.maven:jade-324717:${jade_neoforge_version}"
+    //runtimeOnly "dev.architectury:architectury-neoforge:${architectury_version}"
+    //runtimeOnly "curse.maven:letsdo_beach-858691:${letsdo_beach_neoforge_version}"
+    //runtimeOnly "curse.maven:letsdo_blooming-962885:${letsdo_blooming_neoforge_version}"
+    //runtimeOnly "curse.maven:letsdo_meadow-821483:${letsdo_meadow_neoforge_version}"
+    //runtimeOnly "curse.maven:letsdo_farm-1038103:${letsdo_farm_neoforge_version}"
+    //runtimeOnly "curse.maven:letsdo_vinery-704465:${letsdo_vinery_neoforge_version}"
+    //runtimeOnly "curse.maven:letsdo_wilder-1071657:${letsdo_wilder_neoforge_version}"
     //runtimeOnly "curse.maven:-:"
 }
 
@@ -173,6 +180,12 @@ publishMods {
             optional('psi')
             optional('regions-unexplored')
             optional('create')
+            optional('lets-do-beachparty')
+            optional('lets-do-bloomingnature')
+            optional('lets-do-meadow')
+            optional('lets-do-farm-charm')
+            optional('lets-do-vinery')
+            optional('lets-do-wildernature')
         }
     }
     if (project.hasProperty("${modrinth_api_key_prop}")) {
@@ -198,6 +211,12 @@ publishMods {
             optional('psi')
             optional('regions-unexplored')
             optional('create')
+            optional('lets-do-beachparty')
+            optional('lets-do-bloomingnature')
+            optional('lets-do-meadow')
+            optional('lets-do-farm-charm')
+            optional('lets-do-vinery')
+            optional('lets-do-wildernature')
         }
     }
     if (project.hasProperty("${discord_webhook_prop}")) {

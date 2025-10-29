@@ -43,6 +43,15 @@ dependencies {
     //modRuntimeOnly "curse.maven:carryon-274259:${carryon_fabric_version}"
     modRuntimeOnly "curse.maven:jade-324717:${jade_fabric_version}"
     //modRuntimeOnly "curse.maven:mod-XXX:XXX"
+    // Beach crashes in a dev environment.
+    // Let's NOT Do architectury please
+    //modRuntimeOnly "curse.maven:letsdo_beach-858691:${letsdo_beach_fabric_version}"
+    //modRuntimeOnly "dev.emi:trinkets:${trinkets_version}"
+    //modRuntimeOnly "curse.maven:letsdo_blooming-962885:${letsdo_blooming_fabric_version}"
+    //modRuntimeOnly "curse.maven:letsdo_meadow-821483:${letsdo_meadow_fabric_version}"
+    //modRuntimeOnly "curse.maven:letsdo_farm-1038103:${letsdo_farm_fabric_version}"
+    //modRuntimeOnly "curse.maven:letsdo_vinery-704465:${letsdo_vinery_fabric_version}"
+    //modRuntimeOnly "curse.maven:letsdo_wilder-1071657:${letsdo_wilder_fabric_version}"
 }
 
 loom {
@@ -128,6 +137,12 @@ publishMods {
             optional('homeostatic')
             optional('simpletextoverlay')
             optional('ready-player-fun')
+            optional('lets-do-beachparty')
+            optional('lets-do-bloomingnature')
+            optional('lets-do-meadow')
+            optional('lets-do-farm-charm')
+            optional('lets-do-vinery')
+            optional('lets-do-wildernature')
         }
     }
     if (project.hasProperty("${modrinth_api_key_prop}")) {
@@ -143,6 +158,12 @@ publishMods {
             optional('homeostatic')
             optional('simpletextoverlay')
             optional('ready-player-fun')
+            optional('lets-do-beachparty')
+            optional('lets-do-bloomingnature')
+            optional('lets-do-meadow')
+            optional('lets-do-farm-charm')
+            optional('lets-do-vinery')
+            optional('lets-do-wildernature')
         }
     }
     if (project.hasProperty("${discord_webhook_prop}")) {
