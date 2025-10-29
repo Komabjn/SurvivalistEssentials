@@ -368,35 +368,35 @@ public class CommonItemTagsProvider extends IntrinsicHolderTagsProvider<Item> {
 
         // Let's Do
         // Beach
-        this.tag(TagManager.Items.LD_PALM_LOGS)
-            .addOptional(SurvivalistEssentialsIntegration.ldBeachLoc("palm_log"));
+        getOrCreateRawBuilder(TagManager.Items.LD_PALM_LOGS)
+            .addOptionalElement(SurvivalistEssentialsIntegration.ldBeachLoc("palm_log"));
         // Blooming Nature
-        this.tag(TagManager.Items.LD_LARCH_LOGS)
-            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("larch_log"));
-        this.tag(TagManager.Items.LD_BAOBAB_LOGS)
-            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("baobab_log"));
-        this.tag(TagManager.Items.LD_ASPEN_LOGS)
-            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("aspen_log"));
-        this.tag(TagManager.Items.LD_SWAMP_OAK_LOGS)
-            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("swamp_oak_log"));
-        this.tag(TagManager.Items.LD_SWAMP_CYPRESS_LOGS)
-            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("swamp_cypress_log"));
-        this.tag(TagManager.Items.LD_FAN_PALM_LOGS)
-            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("fan_palm_log"));
-        this.tag(TagManager.Items.LD_EBONY_LOGS)
-            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("ebony_log"));
-        this.tag(TagManager.Items.LD_CHESTNUT_LOGS)
-            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("chestnut_log"));
-        this.tag(TagManager.Items.LD_FIR_LOGS)
-            .addOptional(SurvivalistEssentialsIntegration.ldBloomingLoc("fir_log"));
-        this.tag(TagManager.Items.LD_CACTUS)
+        getOrCreateRawBuilder(TagManager.Items.LD_LARCH_LOGS)
+            .addOptionalElement(SurvivalistEssentialsIntegration.ldBloomingLoc("larch_log"));
+        getOrCreateRawBuilder(TagManager.Items.LD_BAOBAB_LOGS)
+            .addOptionalElement(SurvivalistEssentialsIntegration.ldBloomingLoc("baobab_log"));
+        getOrCreateRawBuilder(TagManager.Items.LD_ASPEN_LOGS)
+            .addOptionalElement(SurvivalistEssentialsIntegration.ldBloomingLoc("aspen_log"));
+        getOrCreateRawBuilder(TagManager.Items.LD_SWAMP_OAK_LOGS)
+            .addOptionalElement(SurvivalistEssentialsIntegration.ldBloomingLoc("swamp_oak_log"));
+        getOrCreateRawBuilder(TagManager.Items.LD_SWAMP_CYPRESS_LOGS)
+            .addOptionalElement(SurvivalistEssentialsIntegration.ldBloomingLoc("swamp_cypress_log"));
+        getOrCreateRawBuilder(TagManager.Items.LD_FAN_PALM_LOGS)
+            .addOptionalElement(SurvivalistEssentialsIntegration.ldBloomingLoc("fan_palm_log"));
+        getOrCreateRawBuilder(TagManager.Items.LD_EBONY_LOGS)
+            .addOptionalElement(SurvivalistEssentialsIntegration.ldBloomingLoc("ebony_log"));
+        getOrCreateRawBuilder(TagManager.Items.LD_CHESTNUT_LOGS)
+            .addOptionalElement(SurvivalistEssentialsIntegration.ldBloomingLoc("chestnut_log"));
+        getOrCreateRawBuilder(TagManager.Items.LD_FIR_LOGS)
+            .addOptionalElement(SurvivalistEssentialsIntegration.ldBloomingLoc("fir_log"));
+        getOrCreateRawBuilder(TagManager.Items.LD_CACTUS)
             .addOptionalTag(SurvivalistEssentialsIntegration.ldBloomingLoc("cactus"));
         // Meadow
-        this.tag(TagManager.Items.LD_PINE_LOGS)
-            .addOptional(SurvivalistEssentialsIntegration.ldMeadowLoc("pine_log"));
+        getOrCreateRawBuilder(TagManager.Items.LD_PINE_LOGS)
+            .addOptionalElement(SurvivalistEssentialsIntegration.ldMeadowLoc("pine_log"));
         // Vinery
-        this.tag(TagManager.Items.LD_DARK_CHERRY_LOGS)
-            .addOptional(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_log"));
+        getOrCreateRawBuilder(TagManager.Items.LD_DARK_CHERRY_LOGS)
+            .addOptionalElement(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_log"));
     }
 
     private TagBuilder addSimpleLogVariants(TagKey<Item> tag, String type, Function<String, ResourceLocation> modLoc) {
