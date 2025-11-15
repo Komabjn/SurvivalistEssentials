@@ -54,8 +54,10 @@ public class HarvestEventHandler {
         if (PLATFORM.isModLoaded(SurvivalistEssentialsIntegration.CREATE_MODID)) {
             final ItemStack handStack = player.getMainHandItem();
 
-            alwaysBreakable = ResourceLocationHelper.getModId(handStack).equals(SurvivalistEssentialsIntegration.CREATE_MODID)
-                && ResourceLocationHelper.getModId(state.getBlock()).equals(SurvivalistEssentialsIntegration.CREATE_MODID);
+            if (ResourceLocationHelper.getModId(handStack).equals(SurvivalistEssentialsIntegration.CREATE_MODID)
+                    && ResourceLocationHelper.getModId(state.getBlock()).equals(SurvivalistEssentialsIntegration.CREATE_MODID)) {
+                alwaysBreakable = true;
+            }
         }
 
         if (!alwaysBreakable && !player.isCreative()) {
