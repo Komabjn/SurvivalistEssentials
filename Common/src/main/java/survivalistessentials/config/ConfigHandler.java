@@ -11,7 +11,7 @@ import java.util.List;
 import org.apache.commons.lang3.tuple.Pair;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
@@ -41,7 +41,7 @@ public final class ConfigHandler {
     public static void init() {
         Common.tagList().clear();
         Common.TAGS.get().forEach((s) -> {
-            Common.tagList().add(TagKey.create(Registries.ITEM, ResourceLocation.parse(s)));
+            Common.tagList().add(TagKey.create(Registries.ITEM, Identifier.parse(s)));
         });
 
         ItemUse.init();

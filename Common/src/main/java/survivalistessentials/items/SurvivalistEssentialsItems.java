@@ -6,7 +6,7 @@ import java.util.function.BiConsumer;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -28,9 +28,9 @@ import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
 public final class SurvivalistEssentialsItems {
 
-    private static final Map<ResourceLocation, Item> MISC_ITEMS = new LinkedHashMap<>();
-    private static final Map<ResourceLocation, Item> TOOLS_AND_UTILITIES = new LinkedHashMap<>();
-    private static final Map<ResourceLocation, Item> ALL = new LinkedHashMap<>();
+    private static final Map<Identifier, Item> MISC_ITEMS = new LinkedHashMap<>();
+    private static final Map<Identifier, Item> TOOLS_AND_UTILITIES = new LinkedHashMap<>();
+    private static final Map<Identifier, Item> ALL = new LinkedHashMap<>();
 
     // Items
     public static Item FLINT_SHARD = make("flint_shard");
@@ -71,8 +71,8 @@ public final class SurvivalistEssentialsItems {
         (new Item.Properties()).stacksTo(1).setId(ResourceKey.create(Registries.ITEM, prefix("wooden_cup")))
     ), false, false);
 
-    public static void init(BiConsumer<Item, ResourceLocation> consumer) {
-        for (Map.Entry<ResourceLocation, Item> entry : ALL.entrySet()) {
+    public static void init(BiConsumer<Item, Identifier> consumer) {
+        for (Map.Entry<Identifier, Item> entry : ALL.entrySet()) {
             consumer.accept(entry.getValue(), entry.getKey());
         }
     }
@@ -90,7 +90,7 @@ public final class SurvivalistEssentialsItems {
     }
 
     private static Item make(String name, Item item, boolean isTool, boolean noCategory) {
-        ResourceLocation loc = prefix(name);
+        Identifier loc = prefix(name);
 
         ALL.put(loc, item);
 
@@ -148,15 +148,15 @@ public final class SurvivalistEssentialsItems {
         ), false, true);
     }
 
-    public static Map<ResourceLocation, Item> getAllIngredients() {
+    public static Map<Identifier, Item> getAllIngredients() {
         return MISC_ITEMS;
     }
 
-    public static Map<ResourceLocation, Item> getToolsAndUtilities() {
+    public static Map<Identifier, Item> getToolsAndUtilities() {
         return TOOLS_AND_UTILITIES;
     }
 
-    public static Map<ResourceLocation, Item> getAll() {
+    public static Map<Identifier, Item> getAll() {
         return ALL;
     }
 

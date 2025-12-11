@@ -4,7 +4,7 @@ import java.util.Objects;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.Containers;
@@ -34,7 +34,7 @@ import survivalistessentials.util.ResourceLocationHelper;
 public abstract class ItemMixin {
 
     @Unique
-    ResourceLocation flintLoc = ResourceLocationHelper.prefix("flint");
+    Identifier flintLoc = ResourceLocationHelper.prefix("flint");
 
     @Shadow
     public abstract Item asItem();

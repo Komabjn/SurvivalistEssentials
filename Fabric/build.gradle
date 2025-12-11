@@ -3,6 +3,7 @@ plugins {
     id 'fabric-loom'
 }
 
+def identifier = "${mod_id}-${minecraft_version}-fabric"
 def modLoader = "${project.name}".toUpperCase()
 version = "${version}-${modLoader}"
 
@@ -10,9 +11,7 @@ dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings(loom.layered {
         officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-${mappings_minecraft_version}:${mappings_version}@zip")
     })
-
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
 
@@ -22,14 +21,16 @@ dependencies {
     modImplementation group: 'technology.roughness.handbook', name: "handbook-${minecraft_version}-fabric", version: "${handbook_version}"
     include group: 'technology.roughness.handbook', name: "handbook-${minecraft_version}-fabric", version: "${handbook_version}"
 
-    modApi "dev.architectury:architectury-fabric:${architectury_version}"
-    modApi("me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}") {
+/*
+    modLocalRuntime "dev.architectury:architectury-fabric:${architectury_version}"
+    modLocalRuntime("me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
+*/
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_version}"
     /*
-    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+    modLocalRuntime "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
     */
 
     modCompileOnly "mezz.jei:jei-${jei_minecraft_version}-common-api:${jei_version}"
@@ -40,18 +41,18 @@ dependencies {
     modLocalRuntime group: 'com.terraformersmc', name: 'modmenu', version: "${mod_menu_version}"
 
     // Testing Mods
-    //modRuntimeOnly "curse.maven:carryon-274259:${carryon_fabric_version}"
-    modRuntimeOnly "curse.maven:jade-324717:${jade_fabric_version}"
+    //modLocalRuntime "curse.maven:carryon-274259:${carryon_fabric_version}"
+    modLocalRuntime "curse.maven:jade-324717:${jade_fabric_version}"
     //modRuntimeOnly "curse.maven:mod-XXX:XXX"
     // Beach crashes in a dev environment.
     // Let's NOT Do architectury please
-    //modRuntimeOnly "curse.maven:letsdo_beach-858691:${letsdo_beach_fabric_version}"
-    //modRuntimeOnly "dev.emi:trinkets:${trinkets_version}"
-    //modRuntimeOnly "curse.maven:letsdo_blooming-962885:${letsdo_blooming_fabric_version}"
-    //modRuntimeOnly "curse.maven:letsdo_meadow-821483:${letsdo_meadow_fabric_version}"
-    //modRuntimeOnly "curse.maven:letsdo_farm-1038103:${letsdo_farm_fabric_version}"
-    //modRuntimeOnly "curse.maven:letsdo_vinery-704465:${letsdo_vinery_fabric_version}"
-    //modRuntimeOnly "curse.maven:letsdo_wilder-1071657:${letsdo_wilder_fabric_version}"
+    //modLocalRuntime "curse.maven:letsdo_beach-858691:${letsdo_beach_fabric_version}"
+    //modLocalRuntime "dev.emi:trinkets:${trinkets_version}"
+    //modLocalRuntime "curse.maven:letsdo_blooming-962885:${letsdo_blooming_fabric_version}"
+    //modLocalRuntime "curse.maven:letsdo_meadow-821483:${letsdo_meadow_fabric_version}"
+    //modLocalRuntime "curse.maven:letsdo_farm-1038103:${letsdo_farm_fabric_version}"
+    //modLocalRuntime "curse.maven:letsdo_vinery-704465:${letsdo_vinery_fabric_version}"
+    //modLocalRuntime "curse.maven:letsdo_wilder-1071657:${letsdo_wilder_fabric_version}"
 }
 
 loom {
@@ -60,6 +61,7 @@ loom {
         accessWidenerPath.set(aw)
     }
     mixin {
+        useLegacyMixinAp = true
         defaultRefmapName.set("${mod_id}.refmap.json")
     }
     runs {
@@ -105,7 +107,7 @@ processResources {
 }
 
 def changelogFile = project(":").projectDir.toString() + '/build/libs/changelog.txt'
-def publishFile = project(":").projectDir.toString() + "/Fabric/build/libs/${archivesBaseName}-${version}.jar"
+def publishFile = project(":").projectDir.toString() + "/Fabric/build/libs/${identifier}-${version}.jar"
 def display_name = "${project.name} ${minecraft_version}-${version}"
 def display_version = "${minecraft_version}-${version}"
 
@@ -174,6 +176,17 @@ publishMods {
             content = changelog.map {
                 "# A new version of ${mod_display_name} for Fabric ${minecraft_version} has been released! \n" + it
             }
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId project.group
+            artifactId identifier
+            version project.version
+            from components.java
         }
     }
 }

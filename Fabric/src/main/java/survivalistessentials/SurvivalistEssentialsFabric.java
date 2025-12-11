@@ -14,7 +14,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -86,7 +86,7 @@ public class SurvivalistEssentialsFabric implements ModInitializer {
         });
 
         LootTableEvents.MODIFY.register(((resourceKey, builder, lootTableSource, provider) -> {
-            String pathString = resourceKey.location().getPath();
+            String pathString = resourceKey.identifier().getPath();
 
             if (fiberPlantBlocks.stream().anyMatch(pathString::contains)) {
                 HolderLookup.RegistryLookup<Item> itemRegistryLookup = provider.lookupOrThrow(Registries.ITEM);
@@ -143,7 +143,7 @@ public class SurvivalistEssentialsFabric implements ModInitializer {
         ConfigResourceCondition.register();
     }
 
-    private static <T> BiConsumer<T, ResourceLocation> bind(Registry<? super T> registry) {
+    private static <T> BiConsumer<T, Identifier> bind(Registry<? super T> registry) {
         return (t, id) -> Registry.register(registry, id, t);
     }
 

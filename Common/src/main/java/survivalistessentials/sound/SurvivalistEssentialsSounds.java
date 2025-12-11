@@ -4,14 +4,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 
 import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
 public class SurvivalistEssentialsSounds {
 
-    private static final Map<ResourceLocation, SoundEvent> ALL = new LinkedHashMap<>();
+    private static final Map<Identifier, SoundEvent> ALL = new LinkedHashMap<>();
     public static SoundEvent ARMOR_FAIL;
     public static SoundEvent BOW_FAIL;
     public static SoundEvent FLINT_KNAPPING;
@@ -19,7 +19,7 @@ public class SurvivalistEssentialsSounds {
     public static SoundEvent SWORD_FAIL;
     public static SoundEvent TOOL_FAIL;
 
-    public static void init(BiConsumer<SoundEvent, ResourceLocation> consumer) {
+    public static void init(BiConsumer<SoundEvent, Identifier> consumer) {
         ARMOR_FAIL = makeSoundEvent("armor_fail");
         BOW_FAIL = makeSoundEvent("bow_fail");
         FLINT_KNAPPING = makeSoundEvent("knapping");
@@ -27,13 +27,13 @@ public class SurvivalistEssentialsSounds {
         SWORD_FAIL = makeSoundEvent("sword_fail");
         TOOL_FAIL = makeSoundEvent("tool_fail");
 
-        for (Map.Entry<ResourceLocation, SoundEvent> entry : ALL.entrySet()) {
+        for (Map.Entry<Identifier, SoundEvent> entry : ALL.entrySet()) {
             consumer.accept(entry.getValue(), entry.getKey());
         }
     }
 
     private static SoundEvent makeSoundEvent(String name) {
-        ResourceLocation loc = prefix(name);
+        Identifier loc = prefix(name);
         SoundEvent soundEvent = SoundEvent.createVariableRangeEvent(loc);
 
         ALL.put(loc, soundEvent);

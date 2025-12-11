@@ -11,7 +11,7 @@ import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditionType;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
 import net.minecraft.resources.RegistryOps;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import survivalistessentials.config.ConfigHandler;
 
@@ -19,7 +19,7 @@ import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
 public record ConfigResourceCondition(String configValue) implements ResourceCondition {
 
-    private static final ResourceLocation ID = prefix("config_disabled");
+    private static final Identifier ID = prefix("config_disabled");
     public static final MapCodec<ConfigResourceCondition> CODEC = RecordCodecBuilder.mapCodec(b -> b.group(
         Codec.STRING.fieldOf("config_disabled").forGetter(ConfigResourceCondition::configValue)
     ).apply(b, ConfigResourceCondition::new));

@@ -71,7 +71,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                             String.format(
                                 Locale.ROOT,
                                 "Missing loottable '%s' for '%s'",
-                                resourcekey.get().location(),
+                                resourcekey.get().identifier(),
                                 BuiltInRegistries.BLOCK.getKey(block)
                             )
                         );

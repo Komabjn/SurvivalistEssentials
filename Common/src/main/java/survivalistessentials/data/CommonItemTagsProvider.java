@@ -11,7 +11,7 @@ import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagBuilder;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -399,13 +399,13 @@ public class CommonItemTagsProvider extends IntrinsicHolderTagsProvider<Item> {
             .addOptionalElement(SurvivalistEssentialsIntegration.ldVineryLoc("dark_cherry_log"));
     }
 
-    private TagBuilder addSimpleLogVariants(TagKey<Item> tag, String type, Function<String, ResourceLocation> modLoc) {
+    private TagBuilder addSimpleLogVariants(TagKey<Item> tag, String type, Function<String, Identifier> modLoc) {
         return getOrCreateRawBuilder(tag)
             .addOptionalElement(modLoc.apply(type + "_log"))
             .addOptionalElement(SurvivalistEssentialsIntegration.wsLoc("stripped_" + type + "_log"));
     }
 
-    private void addShroomVariants(TagKey<Item> tag, String type, Function<String, ResourceLocation> modLoc) {
+    private void addShroomVariants(TagKey<Item> tag, String type, Function<String, Identifier> modLoc) {
         getOrCreateRawBuilder(tag)
             .addOptionalElement(modLoc.apply(type + "_hyphae"))
             .addOptionalElement(modLoc.apply("stripped_" + type + "_hyphae"))
@@ -413,7 +413,7 @@ public class CommonItemTagsProvider extends IntrinsicHolderTagsProvider<Item> {
             .addOptionalElement(SurvivalistEssentialsIntegration.wsLoc("stripped_" + type + "_stem"));
     }
 
-    private TagBuilder addLogVariants(TagKey<Item> tag, String type, Function<String, ResourceLocation> modLoc) {
+    private TagBuilder addLogVariants(TagKey<Item> tag, String type, Function<String, Identifier> modLoc) {
         return getOrCreateRawBuilder(tag)
             .addOptionalElement(modLoc.apply(type + "_log"))
             .addOptionalElement(modLoc.apply("stripped_" + type + "_log"))

@@ -3,7 +3,7 @@ package survivalistessentials.data.recipe;
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.RegistryLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -13,7 +13,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -617,7 +617,7 @@ public interface ISurvivalistEssentialsRecipeProvider {
             .group("planks")
             .unlockedBy(label, _has(itemTag));
 
-        ResourceLocation itemLoc = BuiltInRegistries.ITEM.getKey(item.asItem());
+        Identifier itemLoc = BuiltInRegistries.ITEM.getKey(item.asItem());
         String name = itemLoc.getPath();
         String modid = itemLoc.getNamespace();
 
@@ -666,7 +666,7 @@ public interface ISurvivalistEssentialsRecipeProvider {
             .group("planks")
             .unlockedBy(label, _has(itemTag));
 
-        ResourceLocation itemLoc = BuiltInRegistries.ITEM.getKey(item.asItem());
+        Identifier itemLoc = BuiltInRegistries.ITEM.getKey(item.asItem());
         String name = itemLoc.getPath();
         String modid = itemLoc.getNamespace();
 

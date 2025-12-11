@@ -9,12 +9,12 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance;
+import net.minecraft.advancements.criterion.InventoryChangeTrigger.TriggerInstance;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
@@ -37,7 +37,7 @@ public class FabricModRecipeProvider extends FabricRecipeProvider implements ISu
     }
 
     @Override
-    protected ResourceLocation getRecipeIdentifier(ResourceLocation identifier) {
+    protected Identifier getRecipeIdentifier(Identifier identifier) {
         return identifier;
     }
 

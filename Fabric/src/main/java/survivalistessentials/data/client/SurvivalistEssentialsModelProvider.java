@@ -14,7 +14,7 @@ import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 
 import survivalistessentials.items.SurvivalistEssentialsItems;
@@ -37,7 +37,7 @@ public class SurvivalistEssentialsModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators generator) {
-        for (Map.Entry<ResourceLocation, Block> entry : SurvivalistEssentialsWorld.ALL_BLOCKS.entrySet()) {
+        for (Map.Entry<Identifier, Block> entry : SurvivalistEssentialsWorld.ALL_BLOCKS.entrySet()) {
             createLooseRock(generator, entry.getValue());
         }
     }
@@ -75,7 +75,7 @@ public class SurvivalistEssentialsModelProvider extends FabricModelProvider {
 
         textureMapping.put(TextureSlot.ALL, TextureMapping.getBlockTexture(block));
 
-        ResourceLocation modelLocation = LOOSE_ROCK.create(block, textureMapping, generator.modelOutput);
+        Identifier modelLocation = LOOSE_ROCK.create(block, textureMapping, generator.modelOutput);
         MultiVariant variant = BlockModelGenerators.plainVariant(modelLocation);
 
         generator.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, variant));

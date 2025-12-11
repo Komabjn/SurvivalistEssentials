@@ -8,7 +8,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -88,19 +88,19 @@ public class SurvivalistEssentialsNeoForge {
         @SubscribeEvent(priority = EventPriority.LOWEST)
         public static void registerCreativeTab(BuildCreativeModeTabContentsEvent event) {
             if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-                for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsItems.getToolsAndUtilities().entrySet()) {
+                for (Map.Entry<Identifier, Item> entry : SurvivalistEssentialsItems.getToolsAndUtilities().entrySet()) {
                     Item item = entry.getValue();
 
                     event.accept(new ItemStack(item));
                 }
             }
             if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-                for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsItems.getAllIngredients().entrySet()) {
+                for (Map.Entry<Identifier, Item> entry : SurvivalistEssentialsItems.getAllIngredients().entrySet()) {
                     Item item = entry.getValue();
 
                     event.accept(new ItemStack(item));
                 }
-                for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsWorld.getAll().entrySet()) {
+                for (Map.Entry<Identifier, Item> entry : SurvivalistEssentialsWorld.getAll().entrySet()) {
                     Item item = entry.getValue();
 
                     event.accept(new ItemStack(item));
@@ -152,7 +152,7 @@ public class SurvivalistEssentialsNeoForge {
         );
     }
 
-    private static <T> void bind(IEventBus bus, ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, ResourceLocation>> source) {
+    private static <T> void bind(IEventBus bus, ResourceKey<Registry<T>> registry, Consumer<BiConsumer<T, Identifier>> source) {
         bus.addListener((RegisterEvent event) -> {
             if (registry.equals(event.getRegistryKey())) {
                 source.accept((t, rl) -> event.register(registry, rl, () -> t));

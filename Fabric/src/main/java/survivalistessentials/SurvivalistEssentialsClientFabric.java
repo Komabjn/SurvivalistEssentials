@@ -6,7 +6,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 
@@ -24,11 +24,11 @@ public class SurvivalistEssentialsClientFabric implements ClientModInitializer {
     }
 
     private void registerCreativeTabItems() {
-        for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsItems.getToolsAndUtilities().entrySet()) {
+        for (Map.Entry<Identifier, Item> entry : SurvivalistEssentialsItems.getToolsAndUtilities().entrySet()) {
             ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
                 .register(entries -> entries.accept(entry.getValue()));
         }
-        for (Map.Entry<ResourceLocation, Item> entry : SurvivalistEssentialsItems.getAllIngredients().entrySet()) {
+        for (Map.Entry<Identifier, Item> entry : SurvivalistEssentialsItems.getAllIngredients().entrySet()) {
             ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS)
                 .register(entries -> entries.accept(entry.getValue()));
         }

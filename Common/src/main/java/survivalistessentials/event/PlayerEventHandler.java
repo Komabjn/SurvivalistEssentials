@@ -2,7 +2,7 @@ package survivalistessentials.event;
 
 import java.util.Objects;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -15,7 +15,7 @@ import static survivalistessentials.util.ResourceLocationHelper.prefix;
 
 public class PlayerEventHandler {
 
-    private static final ResourceLocation STARTING_HEALTH_PENALTY = prefix("starting_health_penalty");
+    private static final Identifier STARTING_HEALTH_PENALTY = prefix("starting_health_penalty");
 
     public static void handlePlayerClone(ServerPlayer sp, boolean wasDeath) {
         applyHealthPenalty(sp);

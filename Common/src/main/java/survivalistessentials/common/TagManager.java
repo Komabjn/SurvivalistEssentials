@@ -1,7 +1,7 @@
 package survivalistessentials.common;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -261,11 +261,11 @@ public final class TagManager {
 
     }
 
-    public static ResourceLocation identifier(String path) {
+    public static Identifier identifier(String path) {
         return prefix(path);
     }
 
-    public static ResourceLocation commonLoc(String path) {
+    public static Identifier commonLoc(String path) {
         return loc("c", path);
     }
 

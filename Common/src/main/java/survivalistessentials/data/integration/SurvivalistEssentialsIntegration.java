@@ -6,7 +6,7 @@ import java.util.function.BiConsumer;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
@@ -14,7 +14,7 @@ import static technology.roughness.whitenoise.util.ResourceLocationHelper.loc;
 
 public final class SurvivalistEssentialsIntegration {
 
-    private static final Map<ResourceLocation, Item> ALL = new LinkedHashMap<>();
+    private static final Map<Identifier, Item> ALL = new LinkedHashMap<>();
 
     public static final String AYCE_MODID = "allyoucaneat";
     public static final String BMO_MODID = "biomemakeover";
@@ -190,58 +190,58 @@ public final class SurvivalistEssentialsIntegration {
     public static Item LD_DARK_CHERRY_PLANKS;
 
     // TF Messed up log/wood crap
-    public static ResourceLocation TF_CANOPY_LOG;
-    public static ResourceLocation TF_CANOPY_STRIPPED_LOG;
-    public static ResourceLocation TF_CANOPY_WOOD;
-    public static ResourceLocation TF_CANOPY_STRIPPED_WOOD;
-    public static ResourceLocation TF_DARK_LOG;
-    public static ResourceLocation TF_DARK_STRIPPED_LOG;
-    public static ResourceLocation TF_DARK_WOOD;
-    public static ResourceLocation TF_DARK_STRIPPED_WOOD;
-    public static ResourceLocation TF_MANGROVE_LOG;
-    public static ResourceLocation TF_MANGROVE_STRIPPED_LOG;
-    public static ResourceLocation TF_MANGROVE_WOOD;
-    public static ResourceLocation TF_MANGROVE_STRIPPED_WOOD;
-    public static ResourceLocation TF_MINING_LOG;
-    public static ResourceLocation TF_MINING_STRIPPED_LOG;
-    public static ResourceLocation TF_MINING_WOOD;
-    public static ResourceLocation TF_MINING_STRIPPED_WOOD;
-    public static ResourceLocation TF_SORTING_LOG;
-    public static ResourceLocation TF_SORTING_STRIPPED_LOG;
-    public static ResourceLocation TF_SORTING_WOOD;
-    public static ResourceLocation TF_SORTING_STRIPPED_WOOD;
-    public static ResourceLocation TF_TIME_LOG;
-    public static ResourceLocation TF_TIME_STRIPPED_LOG;
-    public static ResourceLocation TF_TIME_WOOD;
-    public static ResourceLocation TF_TIME_STRIPPED_WOOD;
-    public static ResourceLocation TF_TRANSFORMATION_LOG;
-    public static ResourceLocation TF_TRANSFORMATION_STRIPPED_LOG;
-    public static ResourceLocation TF_TRANSFORMATION_WOOD;
-    public static ResourceLocation TF_TRANSFORMATION_STRIPPED_WOOD;
-    public static ResourceLocation TF_TWILIGHT_OAK_LOG;
-    public static ResourceLocation TF_TWILIGHT_OAK_STRIPPED_LOG;
-    public static ResourceLocation TF_TWILIGHT_OAK_WOOD;
-    public static ResourceLocation TF_TWILIGHT_OAK_STRIPPED_WOOD;
+    public static Identifier TF_CANOPY_LOG;
+    public static Identifier TF_CANOPY_STRIPPED_LOG;
+    public static Identifier TF_CANOPY_WOOD;
+    public static Identifier TF_CANOPY_STRIPPED_WOOD;
+    public static Identifier TF_DARK_LOG;
+    public static Identifier TF_DARK_STRIPPED_LOG;
+    public static Identifier TF_DARK_WOOD;
+    public static Identifier TF_DARK_STRIPPED_WOOD;
+    public static Identifier TF_MANGROVE_LOG;
+    public static Identifier TF_MANGROVE_STRIPPED_LOG;
+    public static Identifier TF_MANGROVE_WOOD;
+    public static Identifier TF_MANGROVE_STRIPPED_WOOD;
+    public static Identifier TF_MINING_LOG;
+    public static Identifier TF_MINING_STRIPPED_LOG;
+    public static Identifier TF_MINING_WOOD;
+    public static Identifier TF_MINING_STRIPPED_WOOD;
+    public static Identifier TF_SORTING_LOG;
+    public static Identifier TF_SORTING_STRIPPED_LOG;
+    public static Identifier TF_SORTING_WOOD;
+    public static Identifier TF_SORTING_STRIPPED_WOOD;
+    public static Identifier TF_TIME_LOG;
+    public static Identifier TF_TIME_STRIPPED_LOG;
+    public static Identifier TF_TIME_WOOD;
+    public static Identifier TF_TIME_STRIPPED_WOOD;
+    public static Identifier TF_TRANSFORMATION_LOG;
+    public static Identifier TF_TRANSFORMATION_STRIPPED_LOG;
+    public static Identifier TF_TRANSFORMATION_WOOD;
+    public static Identifier TF_TRANSFORMATION_STRIPPED_WOOD;
+    public static Identifier TF_TWILIGHT_OAK_LOG;
+    public static Identifier TF_TWILIGHT_OAK_STRIPPED_LOG;
+    public static Identifier TF_TWILIGHT_OAK_WOOD;
+    public static Identifier TF_TWILIGHT_OAK_STRIPPED_WOOD;
 
     // And now Biome Makeover messed up crap
-    public static ResourceLocation BMO_ANCIENT_OAK_LOG;
-    public static ResourceLocation BMO_STRIPPED_ANCIENT_OAK_LOG;
-    public static ResourceLocation BMO_ANCIENT_OAK_WOOD;
-    public static ResourceLocation BMO_STRIPPED_ANCIENT_OAK_WOOD;
-    public static ResourceLocation BMO_BLIGHTED_BALSA_LOG;
-    public static ResourceLocation BMO_STRIPPED_BLIGHTED_BALSA_LOG;
-    public static ResourceLocation BMO_BLIGHTED_BALSA_WOOD;
-    public static ResourceLocation BMO_STRIPPED_BLIGHTED_BALSA_WOOD;
-    public static ResourceLocation BMO_SWAMP_CYPRESS_LOG;
-    public static ResourceLocation BMO_STRIPPED_SWAMP_CYPRESS_LOG;
-    public static ResourceLocation BMO_SWAMP_CYPRESS_WOOD;
-    public static ResourceLocation BMO_STRIPPED_SWAMP_CYPRESS_WOOD;
-    public static ResourceLocation BMO_WILLOW_LOG;
-    public static ResourceLocation BMO_STRIPPED_WILLOW_LOG;
-    public static ResourceLocation BMO_WILLOW_WOOD;
-    public static ResourceLocation BMO_STRIPPED_WILLOW_WOOD;
+    public static Identifier BMO_ANCIENT_OAK_LOG;
+    public static Identifier BMO_STRIPPED_ANCIENT_OAK_LOG;
+    public static Identifier BMO_ANCIENT_OAK_WOOD;
+    public static Identifier BMO_STRIPPED_ANCIENT_OAK_WOOD;
+    public static Identifier BMO_BLIGHTED_BALSA_LOG;
+    public static Identifier BMO_STRIPPED_BLIGHTED_BALSA_LOG;
+    public static Identifier BMO_BLIGHTED_BALSA_WOOD;
+    public static Identifier BMO_STRIPPED_BLIGHTED_BALSA_WOOD;
+    public static Identifier BMO_SWAMP_CYPRESS_LOG;
+    public static Identifier BMO_STRIPPED_SWAMP_CYPRESS_LOG;
+    public static Identifier BMO_SWAMP_CYPRESS_WOOD;
+    public static Identifier BMO_STRIPPED_SWAMP_CYPRESS_WOOD;
+    public static Identifier BMO_WILLOW_LOG;
+    public static Identifier BMO_STRIPPED_WILLOW_LOG;
+    public static Identifier BMO_WILLOW_WOOD;
+    public static Identifier BMO_STRIPPED_WILLOW_WOOD;
 
-    public static void init(BiConsumer<Item, ResourceLocation> consumer) {
+    public static void init(BiConsumer<Item, Identifier> consumer) {
         String dataGen = System.getenv("DATA_GEN");
         if (dataGen != null && dataGen.contains("all")) {
             AQUA_DRIFTWOOD = makeItem(aquaLoc("driftwood"));
@@ -440,12 +440,12 @@ public final class SurvivalistEssentialsIntegration {
             IFD_DREADWOOD_PLANKS = makeItem(ifdLoc("dreadwood_planks"));
         }
 
-        for (Map.Entry<ResourceLocation, Item> entry : ALL.entrySet()) {
+        for (Map.Entry<Identifier, Item> entry : ALL.entrySet()) {
             consumer.accept(entry.getValue(), entry.getKey());
         }
     }
 
-    private static Item makeItem(ResourceLocation loc) {
+    private static Item makeItem(Identifier loc) {
         Item item = (new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, loc))));
 
         ALL.put(loc, item);
@@ -453,135 +453,135 @@ public final class SurvivalistEssentialsIntegration {
         return item;
     }
 
-    public static ResourceLocation bmoLoc(String name) {
+    public static Identifier bmoLoc(String name) {
         return getLoc(BMO_MODID, name);
     }
 
-    public static ResourceLocation tconLoc(String name) {
+    public static Identifier tconLoc(String name) {
         return getLoc(TCON_MODID, name);
     }
 
-    public static ResourceLocation ayceLoc(String name) {
+    public static Identifier ayceLoc(String name) {
         return getLoc(AYCE_MODID, name);
     }
 
-    public static ResourceLocation qLoc(String name) {
+    public static Identifier qLoc(String name) {
         return getLoc(QUARK_MODID, name);
     }
 
-    public static ResourceLocation bopLoc(String name) {
+    public static Identifier bopLoc(String name) {
         return getLoc(BOP_MODID, name);
     }
 
-    public static ResourceLocation botaniaLoc(String name) {
+    public static Identifier botaniaLoc(String name) {
         return getLoc(BOTANIA_MODID, name);
     }
 
-    public static ResourceLocation ftLoc(String name) {
+    public static Identifier ftLoc(String name) {
         return getLoc(FT_MODID, name);
     }
 
-    public static ResourceLocation ieLoc(String name) {
+    public static Identifier ieLoc(String name) {
         return getLoc(IE_MODID, name);
     }
 
-    public static ResourceLocation sgcLoc(String name) {
+    public static Identifier sgcLoc(String name) {
         return getLoc(SGC_MODID, name);
     }
 
-    public static ResourceLocation wsLoc(String name) {
+    public static Identifier wsLoc(String name) {
         return getLoc(WS_MODID, name);
     }
 
-    public static ResourceLocation anLoc(String name) {
+    public static Identifier anLoc(String name) {
         return getLoc(AN_MODID, name);
     }
 
-    public static ResourceLocation exnihiloLoc(String name) {
+    public static Identifier exnihiloLoc(String name) {
         return getLoc(EXNIHILO_MODID, name);
     }
 
-    public static ResourceLocation undergardenLoc(String name) {
+    public static Identifier undergardenLoc(String name) {
         return getLoc(UNDERGARDEN_MODID, name);
     }
 
-    public static ResourceLocation dynamictreesLoc(String name) {
+    public static Identifier dynamictreesLoc(String name) {
         return getLoc(DYNAMICTREES_MODID, name);
     }
 
-    public static ResourceLocation bygLoc(String name) {
+    public static Identifier bygLoc(String name) {
         return getLoc(BYG_MODID, name);
     }
 
-    public static ResourceLocation tfLoc(String name) {
+    public static Identifier tfLoc(String name) {
         return getLoc(TF_MODID, name);
     }
 
-    public static ResourceLocation ecoLoc(String name) {
+    public static Identifier ecoLoc(String name) {
         return getLoc(ECO_MODID, name);
     }
 
-    public static ResourceLocation aquaLoc(String name) {
+    public static Identifier aquaLoc(String name) {
         return getLoc(AQUA_MODID, name);
     }
 
-    public static ResourceLocation bapLoc(String name) {
+    public static Identifier bapLoc(String name) {
         return getLoc(BAP_MODID, name);
     }
 
-    public static ResourceLocation alexLoc(String name) {
+    public static Identifier alexLoc(String name) {
         return getLoc(ALEX_MODID, name);
     }
 
-    public static ResourceLocation malumLoc(String name) {
+    public static Identifier malumLoc(String name) {
         return getLoc(MALUM_MODID, name);
     }
 
-    public static ResourceLocation ifdLoc(String name) {
+    public static Identifier ifdLoc(String name) {
         return getLoc(IFD_MODID, name);
     }
 
-    public static ResourceLocation tsLoc(String name) {
+    public static Identifier tsLoc(String name) {
         return getLoc(TS_MODID, name);
     }
 
-    public static ResourceLocation regionsLoc(String name) {
+    public static Identifier regionsLoc(String name) {
         return getLoc(REGIONS_MODID, name);
     }
 
-    public static ResourceLocation tetraLoc(String name) {
+    public static Identifier tetraLoc(String name) {
         return getLoc(TETRA_MODID, name);
     }
 
-    public static ResourceLocation mcLoc(String name) {
+    public static Identifier mcLoc(String name) {
         return getLoc(MINECRAFT_MODID, name);
     }
 
-    public static ResourceLocation ldBeachLoc(String name) {
+    public static Identifier ldBeachLoc(String name) {
         return loc(LD_BEACH_MODID, name);
     }
 
-    public static ResourceLocation ldBloomingLoc(String name) {
+    public static Identifier ldBloomingLoc(String name) {
         return loc(LD_BLOOMING_MODID, name);
     }
 
-    public static ResourceLocation ldFarmLoc(String name) {
+    public static Identifier ldFarmLoc(String name) {
         return loc(LD_FARM_MODID, name);
     }
 
-    public static ResourceLocation ldMeadowLoc(String name) {
+    public static Identifier ldMeadowLoc(String name) {
         return loc(LD_MEADOW_MODID, name);
     }
 
-    public static ResourceLocation ldVineryLoc(String name) {
+    public static Identifier ldVineryLoc(String name) {
         return loc(LD_VINERY_MODID, name);
     }
 
-    public static ResourceLocation ldWilderLoc(String name) {
+    public static Identifier ldWilderLoc(String name) {
         return loc(LD_WILDER_MODID, name);
     }
 
-    private static ResourceLocation getLoc(String modid, String name) {
+    private static Identifier getLoc(String modid, String name) {
         return loc(modid, name);
     }
 

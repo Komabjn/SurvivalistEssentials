@@ -9,7 +9,7 @@ import java.util.Objects;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -74,7 +74,7 @@ public class ItemUse {
     }
 
     public static boolean isAllowedTool(ItemStack stack) {
-        ResourceLocation loc = BuiltInRegistries.ITEM.getKey(stack.getItem());
+        Identifier loc = BuiltInRegistries.ITEM.getKey(stack.getItem());
         String itemName = loc.getPath();
         String modid = loc.getNamespace();
         boolean hasTag = hasTag(stack);
@@ -249,7 +249,7 @@ public class ItemUse {
     }
 
     public static boolean isAllowedArmor(ItemStack stack) {
-        ResourceLocation loc = BuiltInRegistries.ITEM.getKey(stack.getItem());
+        Identifier loc = BuiltInRegistries.ITEM.getKey(stack.getItem());
         String itemName = loc.getPath();
         String modid = loc.getNamespace();
         boolean hasTag = hasTag(stack);

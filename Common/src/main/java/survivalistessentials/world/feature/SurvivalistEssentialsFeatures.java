@@ -10,7 +10,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
@@ -26,7 +26,7 @@ import static survivalistessentials.util.ResourceLocationHelper.prefix;
 public final class SurvivalistEssentialsFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> LOOSE_ROCKS_KEY = createFeatureKey("loose_rocks");
-    public static final ResourceLocation LOOSE_ROCKS_ID = prefix("loose_rocks");
+    public static final Identifier LOOSE_ROCKS_ID = prefix("loose_rocks");
     public static final Feature<NoneFeatureConfiguration> LOOSE_ROCKS_FEATURE = new LooseRocks();
     public static final ResourceKey<PlacedFeature> PLACED_LOOSE_ROCKS_KEY = createPlacementKey("loose_rocks");
 
@@ -34,7 +34,7 @@ public final class SurvivalistEssentialsFeatures {
 
     public static void setup() {}
 
-    public static void init(BiConsumer<Feature<?>, ResourceLocation> consumer) {
+    public static void init(BiConsumer<Feature<?>, Identifier> consumer) {
         consumer.accept(LOOSE_ROCKS_FEATURE, LOOSE_ROCKS_ID);
     }
 

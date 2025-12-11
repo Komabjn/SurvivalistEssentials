@@ -1,4 +1,7 @@
-package survivalistessentials.jei;
+package survivalistessentials.integration.jei;
+
+// TODO re-enable JEI integration once available on 1.21.11
+/*
 
 import java.util.Collections;
 
@@ -6,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
@@ -30,7 +33,7 @@ import static survivalistessentials.util.ResourceLocationHelper.prefix;
 public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
 
     @Override
-    public @NotNull ResourceLocation getPluginUid() {
+    public @NotNull Identifier getPluginUid() {
         return prefix("jei_plugin");
     }
 
@@ -73,3 +76,5 @@ public class SurvivalistEssentialsJeiPlugin implements IModPlugin {
     }
 
 }
+
+ */
