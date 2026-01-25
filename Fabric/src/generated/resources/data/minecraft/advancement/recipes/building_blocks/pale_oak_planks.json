@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#survivalistessentials:advanced_saw_tools"
+            "items": "#minecraft:pale_oak_logs"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "survivalistessentials:minecraft_pale_oak_log"
+        "recipe": "minecraft:pale_oak_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "survivalistessentials:minecraft_pale_oak_log"
+      "minecraft:pale_oak_planks"
     ]
   }
 }
