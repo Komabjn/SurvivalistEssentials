@@ -316,6 +316,7 @@ public interface ISurvivalistEssentialsRecipeProvider {
         plankRecipeBuilder(recipeOutput, Blocks.MANGROVE_PLANKS, ItemTags.MANGROVE_LOGS, "has_logs", itemRegistry);
         plankRecipeBuilder(recipeOutput, Blocks.CHERRY_PLANKS, ItemTags.CHERRY_LOGS, "has_logs", itemRegistry);
         bambooRecipeBuilder(recipeOutput, Blocks.BAMBOO_PLANKS, ItemTags.BAMBOO_BLOCKS, "has_bamboo_block", itemRegistry);
+        plankRecipeBuilder(recipeOutput, Blocks.PALE_OAK_LOG, ItemTags.PALE_OAK_LOGS, "has_logs", itemRegistry);
 
         // Fruit Trees
         wrapped = modLoaded(recipeOutput, SurvivalistEssentialsIntegration.FT_MODID);
